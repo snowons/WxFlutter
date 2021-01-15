@@ -1,0 +1,69 @@
+targets:
+  $default:
+    builders:
+      reflectable:
+        generate_for:
+          - lib/main.dart
+        options:
+          formatted: true
+      weex_flutter_demo|wx_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart']
+      weex_flutter_demo|wx_component_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart']
+      weex_flutter_demo|wx_module_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart']
+      weex_flutter_demo|wx_component_writer_builder:
+        enabled: true
+        options: { 'write': true }
+        generate_for:
+          exclude: ['**.g.dart']
+      weex_flutter_demo|wx_module_writer_builder:
+        enabled: true
+        options: { 'write': true }
+        generate_for:
+          exclude: ['**.g.dart']
+
+builders:
+  wx_builder:
+    import: 'package:weex_flutter_demo/builder.dart'
+    builder_factories: ['wxBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    runs_before: ['wxComponentWriterBuilder','wxModuleWriterBuilder']
+    auto_apply: root_package
+    build_to: source
+
+  wx_component_builder:
+    import: 'package:weex_flutter_demo/builder.dart'
+    builder_factories: ['wxComponentBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    runs_before: ['wxComponentWriterBuilder','wxModuleWriterBuilder']
+    auto_apply: root_package
+    build_to: source
+
+  wx_module_builder:
+    import: 'package:weex_flutter_demo/builder.dart'
+    builder_factories: ['wxModuleBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    runs_before: ['wxComponentWriterBuilder','wxModuleWriterBuilder']
+    auto_apply: root_package
+    build_to: source
+
+  wx_component_writer_builder:
+    import: 'package:weex_flutter_demo/builder.dart'
+    builder_factories: ['wxComponentWriterBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    auto_apply: root_package
+    build_to: source
+
+  wx_module_writer_builder:
+    import: 'package:weex_flutter_demo/builder.dart'
+    builder_factories: ['wxModuleWriterBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    auto_apply: root_package
+    build_to: source

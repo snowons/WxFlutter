@@ -1,0 +1,824 @@
+2020-11-13 15:30:42.672870+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    bindingx =     (
+        addEventListener,
+        removeAllEventListeners,
+        unbind,
+        getComputedStyleAsync,
+        getComputedStyle,
+        bind,
+        bindAsync,
+        supportFeatures,
+        prepare,
+        unbindAll
+    );
+}
+2020-11-13 15:30:42.673133+0800 WeexDemo[8156:7929725] class EBWXModule register name bindingx
+2020-11-13 15:30:42.673628+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    binding =     (
+        addEventListener,
+        removeAllEventListeners,
+        unbind,
+        getComputedStyleAsync,
+        getComputedStyle,
+        bind,
+        bindAsync,
+        supportFeatures,
+        prepare,
+        unbindAll
+    );
+}
+2020-11-13 15:30:42.673793+0800 WeexDemo[8156:7929725] class EBWXBindingModule register name binding
+2020-11-13 15:30:42.674147+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    expressionBinding =     (
+        addEventListener,
+        removeAllEventListeners,
+        disableBinding,
+        disableAll,
+        supportFeatures,
+        getComputedStyle,
+        enableBinding,
+        createBinding
+    );
+}
+2020-11-13 15:30:42.674248+0800 WeexDemo[8156:7929725] class EBWXOldModule register name expressionBinding
+2020-11-13 15:30:42.692615+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+    );
+    type = container;
+}
+2020-11-13 15:30:42.692889+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+        );
+        type = container;
+    }
+)
+2020-11-13 15:30:42.693146+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+    );
+    type = div;
+}
+2020-11-13 15:30:42.693311+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+        );
+        type = div;
+    }
+)
+2020-11-13 15:30:42.693655+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+    );
+    type = text;
+}
+2020-11-13 15:30:42.693860+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+        );
+        type = text;
+    }
+)
+2020-11-13 15:30:42.694150+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+        save
+    );
+    type = image;
+}
+2020-11-13 15:30:42.694323+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+            save
+        );
+        type = image;
+    }
+)
+2020-11-13 15:30:42.694528+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+    );
+    type = richtext;
+}
+2020-11-13 15:30:42.694719+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+        );
+        type = richtext;
+    }
+)
+2020-11-13 15:30:42.694965+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+        resetLoadmore
+    );
+    type = scroller;
+}
+2020-11-13 15:30:42.695159+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+            resetLoadmore
+        );
+        type = scroller;
+    }
+)
+2020-11-13 15:30:42.695415+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+        resetLoadmore
+    );
+    type = list;
+}
+2020-11-13 15:30:42.695603+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+            resetLoadmore
+        );
+        type = list;
+    }
+)
+2020-11-13 15:30:42.695841+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+        resetLoadmore
+    );
+    type = recycler;
+}
+2020-11-13 15:30:42.696011+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+            resetLoadmore
+        );
+        type = recycler;
+    }
+)
+2020-11-13 15:30:42.696191+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:172, registerComponent dict  :{
+    methods =     (
+        resetLoadmore
+    );
+    type = waterfall;
+}
+2020-11-13 15:30:42.696360+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        methods =         (
+            resetLoadmore
+        );
+        type = waterfall;
+    }
+)
+2020-11-13 15:30:42.696545+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.696710+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.696894+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.697048+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.697257+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.697406+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.697584+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.697729+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.697910+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.698047+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.698346+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+    methods =     (
+        setTextFormatter,
+        blur,
+        focus,
+        setSelectionRange,
+        getSelectionRange
+    );
+    type = input;
+}
+2020-11-13 15:30:42.698536+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+        methods =         (
+            setTextFormatter,
+            blur,
+            focus,
+            setSelectionRange,
+            getSelectionRange
+        );
+        type = input;
+    }
+)
+2020-11-13 15:30:42.698727+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.698861+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.699042+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.699190+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.699384+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.699536+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.699700+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.699855+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.700064+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+    methods =     (
+        goBack,
+        goForward,
+        postMessage,
+        reload
+    );
+    type = web;
+}
+2020-11-13 15:30:42.700233+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+        methods =         (
+            goBack,
+            goForward,
+            postMessage,
+            reload
+        );
+        type = web;
+    }
+)
+2020-11-13 15:30:42.700377+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.700525+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.700682+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.700837+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.701014+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.701148+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.701340+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+    methods =     (
+        setTextFormatter,
+        blur,
+        focus,
+        setSelectionRange,
+        getSelectionRange
+    );
+    type = textarea;
+}
+2020-11-13 15:30:42.701502+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+        methods =         (
+            setTextFormatter,
+            blur,
+            focus,
+            setSelectionRange,
+            getSelectionRange
+        );
+        type = textarea;
+    }
+)
+2020-11-13 15:30:42.701671+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.701792+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.701936+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+}
+2020-11-13 15:30:42.702050+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+    }
+)
+2020-11-13 15:30:42.702346+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+    methods =     (
+        closest,
+        scrollToElement,
+        removeData,
+        insertRange,
+        setListData,
+        resetLoadmore,
+        updateData,
+        queryElement,
+        queryElementAll,
+        appendData,
+        scrollTo,
+        insertData,
+        moveData,
+        appendRange
+    );
+    type = "recycle-list";
+}
+2020-11-13 15:30:42.702525+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+        methods =         (
+            closest,
+            scrollToElement,
+            removeData,
+            insertRange,
+            setListData,
+            resetLoadmore,
+            updateData,
+            queryElement,
+            queryElementAll,
+            appendData,
+            scrollTo,
+            insertData,
+            moveData,
+            appendRange
+        );
+        type = "recycle-list";
+    }
+)
+2020-11-13 15:30:42.702708+0800 WeexDemo[8156:7929606] <Weex>[warn]WXSDKEngine.m:168, registerComponent props  :{
+    append = tree;
+    isTemplate = 1;
+}
+2020-11-13 15:30:42.702869+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:611, Register components: (
+        {
+        append = tree;
+        isTemplate = 1;
+    }
+)
+2020-11-13 15:30:42.703145+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    dom =     (
+        addEventListener,
+        removeAllEventListeners,
+        addEvent,
+        updateFinish,
+        getComponentRect,
+        getLayoutDirection,
+        scrollToElement,
+        addRule,
+        updateComponentData,
+        beginBatchMark,
+        updateAttrs,
+        addElement,
+        removeElement,
+        endBatchMark,
+        createFinish,
+        createBody,
+        updateStyle,
+        removeEvent,
+        refreshFinish,
+        moveElement
+    );
+}
+2020-11-13 15:30:42.703368+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    locale =     (
+        addEventListener,
+        removeAllEventListeners,
+        getLanguageSync,
+        getLanguages,
+        getLanguage
+    );
+}
+2020-11-13 15:30:42.703622+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    navigator =     (
+        addEventListener,
+        removeAllEventListeners,
+        push,
+        setNavBarLeftItem,
+        clearNavBarMoreItem,
+        close,
+        clearNavBarRightItem,
+        setNavBarTitle,
+        setNavBarBackgroundColor,
+        setNavBarMoreItem,
+        clearNavBarLeftItem,
+        open,
+        clearNavBarTitle,
+        setNavBarHidden,
+        pop,
+        setNavBarRightItem
+    );
+}
+2020-11-13 15:30:42.703856+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    stream =     (
+        addEventListener,
+        removeAllEventListeners,
+        sendHttp,
+        fetch,
+        fetchWithArrayBuffer
+    );
+}
+2020-11-13 15:30:42.704068+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    animation =     (
+        addEventListener,
+        removeAllEventListeners,
+        transition
+    );
+}
+2020-11-13 15:30:42.704280+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    modal =     (
+        addEventListener,
+        removeAllEventListeners,
+        alert,
+        toast,
+        prompt,
+        confirm
+    );
+}
+2020-11-13 15:30:42.704532+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    webview =     (
+        addEventListener,
+        removeAllEventListeners,
+        updateStyle,
+        removeElement,
+        addEvent,
+        goBack,
+        postMessage,
+        scrollToElement,
+        beginBatchMark,
+        notifyWebview,
+        moveElement,
+        createFinish,
+        updateFinish,
+        addElement,
+        updateAttrs,
+        goForward,
+        removeEvent,
+        getComponentRect,
+        refreshFinish,
+        getLayoutDirection,
+        endBatchMark,
+        reload,
+        updateComponentData,
+        createBody,
+        addRule
+    );
+}
+2020-11-13 15:30:42.704739+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    instanceWrap =     (
+        addEventListener,
+        removeAllEventListeners,
+        error,
+        refresh
+    );
+}
+2020-11-13 15:30:42.704934+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    timer =     (
+        addEventListener,
+        removeAllEventListeners,
+        clearInterval,
+        setTimeout,
+        clearTimeout,
+        setInterval
+    );
+}
+2020-11-13 15:30:42.705159+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    storage =     (
+        addEventListener,
+        removeAllEventListeners,
+        getItem,
+        setItem,
+        length,
+        removeItem,
+        setItemPersistent,
+        getAllKeys
+    );
+}
+2020-11-13 15:30:42.705336+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    clipboard =     (
+        addEventListener,
+        removeAllEventListeners,
+        setString,
+        getString
+    );
+}
+2020-11-13 15:30:42.705511+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    globalEvent =     (
+        addEventListener,
+        removeAllEventListeners,
+        addEventListener,
+        removeEventListener
+    );
+}
+2020-11-13 15:30:42.705682+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    canvas =     (
+        addEventListener,
+        removeAllEventListeners,
+        initTexture,
+        addDrawActions
+    );
+}
+2020-11-13 15:30:42.705908+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    picker =     (
+        addEventListener,
+        removeAllEventListeners,
+        pickDate,
+        pickTime,
+        pick
+    );
+}
+2020-11-13 15:30:42.706096+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    meta =     (
+        addEventListener,
+        removeAllEventListeners,
+        setViewport
+    );
+}
+2020-11-13 15:30:42.706310+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    webSocket =     (
+        addEventListener,
+        removeAllEventListeners,
+        onopen,
+        onerror,
+        send,
+        onmessage,
+        onclose,
+        close,
+        WebSocket
+    );
+}
+2020-11-13 15:30:42.706513+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    "voice-over" =     (
+        addEventListener,
+        removeAllEventListeners,
+        isVoiceOverOn,
+        read,
+        focusToElement
+    );
+}
+2020-11-13 15:30:42.706707+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    "sdk-console-log" =     (
+        addEventListener,
+        removeAllEventListeners,
+        switchLogLevel
+    );
+}
+2020-11-13 15:30:42.706887+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    "dark-scheme" =     (
+        addEventListener,
+        removeAllEventListeners,
+        getCurrentScheme,
+        registerSchemeChangeListener,
+        unregisterSchemeChangeListener
+    );
+}
+2020-11-13 15:30:42.707473+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    event =     (
+        addEventListener,
+        removeAllEventListeners,
+        openURL,
+        fireNativeGlobalEvent
+    );
+}
+2020-11-13 15:30:42.707668+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    syncTest =     (
+        addEventListener,
+        removeAllEventListeners,
+        getArray,
+        getString,
+        getNumber,
+        getObject
+    );
+}
+2020-11-13 15:30:42.707865+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    titleBar =     (
+        addEventListener,
+        removeAllEventListeners,
+        setTitle,
+        showTitleBar,
+        setStyle
+    );
+}
+2020-11-13 15:30:42.708064+0800 WeexDemo[8156:7929606] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    ext =     (
+        addEventListener,
+        removeAllEventListeners,
+        generateCover
+    );
+}
+2020-11-13 15:30:42.708333+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    bindingx =     (
+        addEventListener,
+        removeAllEventListeners,
+        unbind,
+        getComputedStyleAsync,
+        getComputedStyle,
+        bind,
+        bindAsync,
+        supportFeatures,
+        prepare,
+        unbindAll
+    );
+}
+2020-11-13 15:30:42.708478+0800 WeexDemo[8156:7929725] class EBWXModule register name bindingx
+2020-11-13 15:30:42.708725+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    binding =     (
+        addEventListener,
+        removeAllEventListeners,
+        unbind,
+        getComputedStyleAsync,
+        getComputedStyle,
+        bind,
+        bindAsync,
+        supportFeatures,
+        prepare,
+        unbindAll
+    );
+}
+2020-11-13 15:30:42.708852+0800 WeexDemo[8156:7929725] class EBWXBindingModule register name binding
+2020-11-13 15:30:42.708925+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.709055+0800 WeexDemo[8156:7929725] <Weex>[info]WXBridgeManager.m:595, Register modules: {
+    expressionBinding =     (
+        addEventListener,
+        removeAllEventListeners,
+        disableBinding,
+        disableAll,
+        supportFeatures,
+        getComputedStyle,
+        enableBinding,
+        createBinding
+    );
+}
+2020-11-13 15:30:42.709156+0800 WeexDemo[8156:7929725] class EBWXOldModule register name expressionBinding
+2020-11-13 15:30:42.753277+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.753485+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.753681+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.753872+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.754062+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.754229+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.773605+0800 WeexDemo[8156:7929606] <Weex>[info]WXSDKInstance.m:147, Create instance: 0, render type: platform
+2020-11-13 15:30:42.774194+0800 WeexDemo[8156:7929606] <Weex>[debug]WXSDKInstance.m:248, flexLayout -> setFrame :{{0, 0}, {375, 768}},instance :<WXSDKInstance: 0x7f86ff004fd0; id = 0; rootView = 0x0; url= (null)>
+2020-11-13 15:30:42.774425+0800 WeexDemo[8156:7929606] <Weex>[info]WXSDKInstance.m:344, pageid: 0 renderWithURL: file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419
+2020-11-13 15:30:42.777074+0800 WeexDemo[8156:7929725] <Weex>[log]WXSDKInstance.m:551, Start rendering page:landing.weex.js
+2020-11-13 15:30:42.786619+0800 WeexDemo[8156:7929606] <Weex>[debug]WXSDKInstance.m:248, flexLayout -> setFrame :{{0, 0}, {375, 684}},instance :<WXSDKInstance: 0x7f86ff004fd0; id = 0; rootView = 0x0; url= file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419>
+2020-11-13 15:30:42.822349+0800 WeexDemo[8156:7929606] screen parameters are unexpected: MGScreenClass1125x2436x3x495 SCREEN_TYPE(1125,2436,3,495)
+2020-11-13 15:30:42.825257+0800 WeexDemo[8156:7929606] <Weex>[debug]WXSDKInstance.m:248, flexLayout -> setFrame :{{0, 0}, {375, 684}},instance :<WXSDKInstance: 0x7f86ff004fd0; id = 0; rootView = 0x7f86fd416f10; url= file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419>
+2020-11-13 15:30:42.837250+0800 WeexDemo[8156:7929739] <Weex>[info]WXBridgeContext.m:1235, jsLog: START JS FRAMEWORK 0.29.7, Build 2020-11-13 15:09. (Vue: 2.5.16-weex.5, Rax: 0.4.20) START JS FRAMEWORK 0.29.7, Build 2020-11-13 15:09. (Vue: 2.5.16-weex.5, Rax: 0.4.20)
+2020-11-13 15:30:42.845384+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:getJSFMVersion, args:
+2020-11-13 15:30:42.846859+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { bindingx :  [ addEventListener , removeAllEventListeners , unbind , getComputedStyleAsync , getComputedStyle , bind , bindAsync , supportFeatures , prepare , unbindAll ]  }  ]
+2020-11-13 15:30:42.847528+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { binding :  [ addEventListener , removeAllEventListeners , unbind , getComputedStyleAsync , getComputedStyle , bind , bindAsync , supportFeatures , prepare , unbindAll ]  }  ]
+2020-11-13 15:30:42.847817+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { expressionBinding :  [ addEventListener , removeAllEventListeners , disableBinding , disableAll , supportFeatures , getComputedStyle , enableBinding , createBinding ]  }  ]
+2020-11-13 15:30:42.848051+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [  ]  , type : container }  ]  ]
+2020-11-13 15:30:42.848732+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":true,"image":true,"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"}} __LOG
+2020-11-13 15:30:42.848896+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [  ]  , type : div }  ]  ]
+2020-11-13 15:30:42.849091+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":true,"image":true,"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"}} __LOG
+2020-11-13 15:30:42.849234+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [  ]  , type : text }  ]  ]
+2020-11-13 15:30:42.849424+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":true,"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"}} __LOG
+2020-11-13 15:30:42.849583+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [ save ]  , type : image }  ]  ]
+2020-11-13 15:30:42.849911+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"}} __LOG
+2020-11-13 15:30:42.850077+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [  ]  , type : richtext }  ]  ]
+2020-11-13 15:30:42.850325+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"}} __LOG
+2020-11-13 15:30:42.850494+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [ resetLoadmore ]  , type : scroller }  ]  ]
+2020-11-13 15:30:42.850744+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"}} __LOG
+2020-11-13 15:30:42.850909+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [ resetLoadmore ]  , type : list }  ]  ]
+2020-11-13 15:30:42.851131+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"}} __LOG
+2020-11-13 15:30:42.851274+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [ resetLoadmore ]  , type : recycler }  ]  ]
+2020-11-13 15:30:42.851473+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"}} __LOG
+2020-11-13 15:30:42.851628+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { methods :  [ resetLoadmore ]  , type : waterfall }  ]  ]
+2020-11-13 15:30:42.851827+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.851979+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.852317+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.852479+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.852677+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.852827+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.853014+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.853176+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.853350+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.853506+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.853675+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"}} __LOG
+2020-11-13 15:30:42.853852+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree , methods :  [ setTextFormatter , blur , focus , setSelectionRange , getSelectionRange ]  , type : input }  ]  ]
+2020-11-13 15:30:42.854055+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"}} __LOG
+2020-11-13 15:30:42.854217+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.854449+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"}} __LOG
+2020-11-13 15:30:42.854682+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.854865+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"}} __LOG
+2020-11-13 15:30:42.855022+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.855206+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"}} __LOG
+2020-11-13 15:30:42.855352+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.855557+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"}} __LOG
+2020-11-13 15:30:42.855725+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree , methods :  [ goBack , goForward , postMessage , reload ]  , type : web }  ]  ]
+2020-11-13 15:30:42.855942+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"}} __LOG
+2020-11-13 15:30:42.856121+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.856294+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"}} __LOG
+2020-11-13 15:30:42.856449+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.856639+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"}} __LOG
+2020-11-13 15:30:42.856807+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.857061+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"}} __LOG
+2020-11-13 15:30:42.857288+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree , methods :  [ setTextFormatter , blur , focus , setSelectionRange , getSelectionRange ]  , type : textarea }  ]  ]
+2020-11-13 15:30:42.857503+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"},"textarea":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"textarea"}} __LOG
+2020-11-13 15:30:42.857663+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.857843+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"},"textarea":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"textarea"}} __LOG
+2020-11-13 15:30:42.858007+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree }  ]  ]
+2020-11-13 15:30:42.858207+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"},"textarea":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"textarea"}} __LOG
+2020-11-13 15:30:42.858394+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree , methods :  [ closest , scrollToElement , removeData , insertRange , setListData , resetLoadmore , updateData , queryElement , queryElementAll , appendData , scrollTo , insertData , moveData , appendRange ]  , type : recycle-list }  ]  ]
+2020-11-13 15:30:42.858641+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"},"textarea":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"textarea"},"recycle-list":{"append":"tree","methods":["closest","scrollToElement","removeData","insertRange","setListData","resetLoadmore","updateData","queryElement","queryElementAll","appendData","scrollTo","insertData","moveData","appendRange"],"type":"recycle-list"}} __LOG
+2020-11-13 15:30:42.858947+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerComponents, args: [  [  { append : tree , isTemplate : 1 }  ]  ]
+2020-11-13 15:30:42.859149+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: JS registerComponents nativeComponentMap = {"text":{"methods":[],"type":"text"},"image":{"methods":["save"],"type":"image"},"container":{"methods":[],"type":"container"},"slider":{"type":"slider","append":"tree"},"cell":{"type":"cell","append":"tree"},"div":{"methods":[],"type":"div"},"richtext":{"methods":[],"type":"richtext"},"scroller":{"methods":["resetLoadmore"],"type":"scroller"},"list":{"methods":["resetLoadmore"],"type":"list"},"recycler":{"methods":["resetLoadmore"],"type":"recycler"},"waterfall":{"methods":["resetLoadmore"],"type":"waterfall"},"input":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"input"},"web":{"append":"tree","methods":["goBack","goForward","postMessage","reload"],"type":"web"},"textarea":{"append":"tree","methods":["setTextFormatter","blur","focus","setSelectionRange","getSelectionRange"],"type":"textarea"},"recycle-list":{"append":"tree","methods":["closest","scrollToElement","removeData","insertRange","setListData","resetLoadmore","updateData","queryElement","queryElementAll","appendData","scrollTo","insertData","moveData","appendRange"],"type":"recycle-list"}} __LOG
+2020-11-13 15:30:42.859436+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { dom :  [ addEventListener , removeAllEventListeners , addEvent , updateFinish , getComponentRect , getLayoutDirection , scrollToElement , addRule , updateComponentData , beginBatchMark , updateAttrs , addElement , removeElement , endBatchMark , createFinish , createBody , updateStyle , removeEvent , refreshFinish , moveElement ]  }  ]
+2020-11-13 15:30:42.859747+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { locale :  [ addEventListener , removeAllEventListeners , getLanguageSync , getLanguages , getLanguage ]  }  ]
+2020-11-13 15:30:42.860007+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { navigator :  [ addEventListener , removeAllEventListeners , push , setNavBarLeftItem , clearNavBarMoreItem , close , clearNavBarRightItem , setNavBarTitle , setNavBarBackgroundColor , setNavBarMoreItem , clearNavBarLeftItem , open , clearNavBarTitle , setNavBarHidden , pop , setNavBarRightItem ]  }  ]
+2020-11-13 15:30:42.860255+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { stream :  [ addEventListener , removeAllEventListeners , sendHttp , fetch , fetchWithArrayBuffer ]  }  ]
+2020-11-13 15:30:42.860487+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { animation :  [ addEventListener , removeAllEventListeners , transition ]  }  ]
+2020-11-13 15:30:42.860688+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { modal :  [ addEventListener , removeAllEventListeners , alert , toast , prompt , confirm ]  }  ]
+2020-11-13 15:30:42.860919+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { webview :  [ addEventListener , removeAllEventListeners , updateStyle , removeElement , addEvent , goBack , postMessage , scrollToElement , beginBatchMark , notifyWebview , moveElement , createFinish , updateFinish , addElement , updateAttrs , goForward , removeEvent , getComponentRect , refreshFinish , getLayoutDirection , endBatchMark , reload , updateComponentData , createBody , addRule ]  }  ]
+2020-11-13 15:30:42.861174+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { instanceWrap :  [ addEventListener , removeAllEventListeners , error , refresh ]  }  ]
+2020-11-13 15:30:42.861374+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { timer :  [ addEventListener , removeAllEventListeners , clearInterval , setTimeout , clearTimeout , setInterval ]  }  ]
+2020-11-13 15:30:42.861574+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { storage :  [ addEventListener , removeAllEventListeners , getItem , setItem , length , removeItem , setItemPersistent , getAllKeys ]  }  ]
+2020-11-13 15:30:42.861781+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { clipboard :  [ addEventListener , removeAllEventListeners , setString , getString ]  }  ]
+2020-11-13 15:30:42.862000+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { globalEvent :  [ addEventListener , removeAllEventListeners , addEventListener , removeEventListener ]  }  ]
+2020-11-13 15:30:42.862232+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { canvas :  [ addEventListener , removeAllEventListeners , initTexture , addDrawActions ]  }  ]
+2020-11-13 15:30:42.862444+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { picker :  [ addEventListener , removeAllEventListeners , pickDate , pickTime , pick ]  }  ]
+2020-11-13 15:30:42.862637+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { meta :  [ addEventListener , removeAllEventListeners , setViewport ]  }  ]
+2020-11-13 15:30:42.862843+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { webSocket :  [ addEventListener , removeAllEventListeners , onopen , onerror , send , onmessage , onclose , close , WebSocket ]  }  ]
+2020-11-13 15:30:42.863045+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { voice-over :  [ addEventListener , removeAllEventListeners , isVoiceOverOn , read , focusToElement ]  }  ]
+2020-11-13 15:30:42.863249+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { sdk-console-log :  [ addEventListener , removeAllEventListeners , switchLogLevel ]  }  ]
+2020-11-13 15:30:42.863461+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { dark-scheme :  [ addEventListener , removeAllEventListeners , getCurrentScheme , registerSchemeChangeListener , unregisterSchemeChangeListener ]  }  ]
+2020-11-13 15:30:42.863911+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { event :  [ addEventListener , removeAllEventListeners , openURL , fireNativeGlobalEvent ]  }  ]
+2020-11-13 15:30:42.864144+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { syncTest :  [ addEventListener , removeAllEventListeners , getArray , getString , getNumber , getObject ]  }  ]
+2020-11-13 15:30:42.864380+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { titleBar :  [ addEventListener , removeAllEventListeners , setTitle , showTitleBar , setStyle ]  }  ]
+2020-11-13 15:30:42.865824+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { ext :  [ addEventListener , removeAllEventListeners , generateCover ]  }  ]
+2020-11-13 15:30:42.866215+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { bindingx :  [ addEventListener , removeAllEventListeners , unbind , getComputedStyleAsync , getComputedStyle , bind , bindAsync , supportFeatures , prepare , unbindAll ]  }  ]
+2020-11-13 15:30:42.866636+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { binding :  [ addEventListener , removeAllEventListeners , unbind , getComputedStyleAsync , getComputedStyle , bind , bindAsync , supportFeatures , prepare , unbindAll ]  }  ]
+2020-11-13 15:30:42.866893+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:registerModules, args: [  { expressionBinding :  [ addEventListener , removeAllEventListeners , disableBinding , disableAll , supportFeatures , getComputedStyle , enableBinding , createBinding ]  }  ]
+2020-11-13 15:30:42.868827+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:895, Calling JS... method:createInstanceContext, args: [ 0 ,  { bundleType : Vue , debug : 1 , env :  { scale : 3 , deviceHeight : 2436 , osName : iOS , osVersion : 14.1 , weexVersion : 0.28.0 , platform : (Found Retain Cycle!!!) , deviceModel : x86_64 , appName : WeexDemo , deviceWidth : 1125 , layoutDirection : ltr , scheme : light , appVersion : 2.2 }  , bundleResponseUrl : file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419 , bundleUrl : file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js }  ,  [  ]  ]
+2020-11-13 15:30:42.869053+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:createInstanceContext, args: [ 0 ,  { bundleType : Vue , debug : 1 , env :  { scale : 3 , deviceHeight : 2436 , osName : iOS , osVersion : 14.1 , weexVersion : 0.28.0 , platform : (Found Retain Cycle!!!) , deviceModel : x86_64 , appName : WeexDemo , deviceWidth : 1125 , layoutDirection : ltr , scheme : light , appVersion : 2.2 }  , bundleResponseUrl : file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419 , bundleUrl : file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js }  ,  [  ]  ]
+2020-11-13 15:30:42.869446+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: createInstanceContext id = 0, options = {"bundleType":"Vue","debug":true,"env":{"scale":3,"deviceHeight":2436,"osName":"iOS","osVersion":"14.1","weexVersion":"0.28.0","platform":"iOS","deviceModel":"x86_64","appName":"WeexDemo","deviceWidth":1125,"layoutDirection":"ltr","scheme":"light","appVersion":"2.2"},"bundleResponseUrl":"file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js?random=763271419","bundleUrl":"file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/0BB6B867-C139-496D-869B-42E87CB0F401/WeexDemo.app/bundlejs/landing.weex.js"}, data = [] __LOG
+2020-11-13 15:30:42.870096+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm]Create document element (id: "0", ref: "_documentElement") __DEBUG
+2020-11-13 15:30:42.870492+0800 WeexDemo[8156:7929739] <Weex>[log]WXBridgeContext.m:1232, jsLog: [JS Runtime] create service BroadcastChannel. __LOG
+2020-11-13 15:30:42.878149+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][createElement](0,div,6) ({"ref":"6","type":"div","attr":{},"style":{}}). __DEBUG
+2020-11-13 15:30:42.878784+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][task](0,undefined,createBody) [{"ref":"_root","type":"div","attr":{},"style":{}}] __DEBUG
+2020-11-13 15:30:42.879046+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:223, callCreateBody...0,  { attr :  {  }  , style :  {  }  , type : div , ref : _root } ,
+<WeexCore:Info|render_manager.cpp:116> RenderManager::CreatePage, id: 0
+2020-11-13 15:30:42.879361+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][createElement](0,text,8) ({"ref":"8","type":"text","attr":{},"style":{}}). __DEBUG
+2020-11-13 15:30:42.879511+0800 WeexDemo[8156:7929740] <Weex>[debug]WXCoreBridge.mm:568, flexLayout -> action: createBody div ref:_root
+2020-11-13 15:30:42.879684+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponent.mm:181, flexLayout -> init component: ref : _root , styles:  {  }
+2020-11-13 15:30:42.879795+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponent.mm:182, flexLayout -> init component: ref : _root , attributes:  {  }
+2020-11-13 15:30:42.880367+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][appendChild](0,text,8) Append <text> to <div> (_root). __DEBUG
+2020-11-13 15:30:42.893760+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][task](0,undefined,addElement) ["_root",{"ref":"8","type":"text","attr":{},"style":{"fontSize":"100px"}},-1] __DEBUG
+2020-11-13 15:30:42.893940+0800 WeexDemo[8156:7929606] <Weex>[debug]WXComponent.mm:398, flexLayout -> loadView:addr-(0x7ffe00000000),componentRef-(_root)
+2020-11-13 15:30:42.894142+0800 WeexDemo[8156:7929740] <Weex>[debug]WXCoreBridge.mm:614, flexLayout -> action: addElement : text
+2020-11-13 15:30:42.894235+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][task](0,undefined,updateAttrs) ["8",{"value":"Hello World."}] __DEBUG
+2020-11-13 15:30:42.894368+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponent.mm:181, flexLayout -> init component: ref : 8 , styles:  { fontSize : 100px }
+2020-11-13 15:30:42.894395+0800 WeexDemo[8156:7929606] <Weex>[debug]WXComponent+Display.m:77, No need to draw border for _root
+2020-11-13 15:30:42.894490+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:268, callUpdateAttrs...0, 8,  { value : Hello World. }
+2020-11-13 15:30:42.894547+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponent.mm:182, flexLayout -> init component: ref : 8 , attributes:  {  }
+2020-11-13 15:30:42.894855+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponentManager.mm:364, flexLayout -> _recursivelyAddComponent : super:(div,_root):[0.000000,0.000000] ,child:(text,8):[0.000000,0.000000],childClass:WXTextComponent
+2020-11-13 15:30:42.895082+0800 WeexDemo[8156:7929740] <Weex>[debug]WXCoreBridge.mm:802, flexLayout -> action: updateAttrs ref:8, attr: { value : Hello World. }
+2020-11-13 15:30:42.895413+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:1232, jsLog: wxInteractionAnalyzer: [jsfm][task](0,undefined,createFinish) [] __DEBUG
+2020-11-13 15:30:42.895586+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:324, callCreateFinish...0
+<WeexCore:Info|render_manager.cpp:393> RenderManager::CreateFinish, id: 0
+2020-11-13 15:30:42.895824+0800 WeexDemo[8156:7929740] <Weex>[debug]WXCoreBridge.mm:858, flexLayout -> action: createFinish :0
+2020-11-13 15:30:42.896098+0800 WeexDemo[8156:7929739] <Weex>[debug]WXBridgeContext.m:895, Calling JS... method:__WEEX_CALL_JAVASCRIPT__, args: [ 0 ,  [  { module :  , method : fireEvent , args :  [ _root , viewappear ,  {  }  ,  {  }  ]  }  ]  ]
+2020-11-13 15:30:42.896168+0800 WeexDemo[8156:7929740] <Weex>[debug]WXTextComponent.mm:454, flexLayout -> measureblock text, constrainedSize:{375, nan}
+2020-11-13 15:30:42.896314+0800 WeexDemo[8156:7929739] <Weex>[debug]WXJSCoreBridge.mm:146, Calling JS... method:__WEEX_CALL_JAVASCRIPT__, args: [ 0 ,  [  { module :  , method : fireEvent , args :  [ _root , viewappear ,  {  }  ,  {  }  ]  }  ]  ]
+2020-11-13 15:30:42.897223+0800 WeexDemo[8156:7929740] <Weex>[debug]WXComponent+Layout.mm:669, flexLayout -> measureblock text, resultSize:{256, 61}
+2020-11-13 15:30:42.897438+0800 WeexDemo[8156:7929740] <Weex>[debug]WXCoreBridge.mm:883, flexLayout -> action: renderFinish :0
+2020-11-13 15:30:42.897814+0800 WeexDemo[8156:7929606] <Weex>[debug]WXComponent.mm:398, flexLayout -> loadView:addr-(0x7ffeefb146c0),componentRef-(8)
+2020-11-13 15:30:42.898186+0800 WeexDemo[8156:7929606] <Weex>[debug]WXDemoViewController.m:196, Render Finish...

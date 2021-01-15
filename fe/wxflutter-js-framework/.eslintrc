@@ -1,0 +1,40 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "plugin:flowtype/recommended"
+    ],
+    "plugins": [
+        "flowtype"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "mocha": true
+    },
+    "globals": {
+        "hl": false,
+        "document": false,
+        "navigator": false,
+        "window": false,
+        "location": false,
+        "callNative": false,
+        "callNativeModule": false,
+        "callAddElement": false,
+        "callJS": false,
+        "notifyTrimMemory": false,
+        "markupState": false,
+        "compileAndRunBundle": false,
+        "expect": false,
+        "sinon": false
+    },
+    "rules": {},
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    }
+}
