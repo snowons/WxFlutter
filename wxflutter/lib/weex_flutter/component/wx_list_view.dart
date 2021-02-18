@@ -7,10 +7,11 @@ import '../model/wx_data.dart';
 import '../util/wx_obj_parse.dart';
 import '../annotation/annotation_obj.dart';
 import './wx_base_widget.dart';
+import '../model/wx_js_callback.dart';
 
 @Component("list-view,ListView")
 class WXListViewStateless extends WXBaseWidget {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
 
   WXListViewStateless(WXBaseWidget parent, String pageId,
       WXChannel methodChannel, WXComponent component)
@@ -20,6 +21,19 @@ class WXListViewStateless extends WXBaseWidget {
             methodChannel: methodChannel,
             component: component,
             data: ValueNotifier(WXData(component.properties)));
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void scrollTo(dynamic data,WXJSCallback callback) {
+    _scrollController.animateTo(WXDouble.parse(data.map['offset']), duration: Duration(milliseconds:WXInt.parse(data.map['duration'])) , curve: Curves.linear );
+    if(callback != null) {
+      callback.invoke({'code': '1'});
+    }
+  }
 
   void _scrollStart() {
     debugPrint("on _scrollToLower ");
@@ -105,6 +119,7 @@ class WXListViewStateless extends WXBaseWidget {
               builder: (BuildContext context, WXData data, Widget child) {
                 return ListView(
                     key: ObjectKey(component),
+                    controller: _scrollController,
                     scrollDirection: WXAxis.parse(
                         data.map[getAttributeKey("scroll-direction")],
                         defaultValue: Axis.vertical),

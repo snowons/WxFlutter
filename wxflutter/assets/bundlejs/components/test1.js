@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 32:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(33)
+__vue_styles__.push(__webpack_require__(17)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(34)
+__vue_exports__ = __webpack_require__(18)
 
 /* template */
-var __vue_template__ = __webpack_require__(35)
+var __vue_template__ = __webpack_require__(19)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -95,7 +95,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-08564faa"
+__vue_options__._scopeId = "data-v-2e66127f"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -113,25 +113,74 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 33:
+/***/ 17:
 /***/ (function(module, exports) {
 
 module.exports = {
-  "column": {
-    "crossAxisAlignment": "start"
+  "mr-base": {
+    "marginTop": "10",
+    "marginRight": "10",
+    "marginBottom": "10",
+    "marginLeft": "10"
   },
-  "row": {
-    "mainAxisAlignment": "space-between"
+  "title": {
+    "height": "100",
+    "marginTop": "30",
+    "marginBottom": "20",
+    "flexDirection": "column",
+    "justifyContent": "center"
+  },
+  "output": {
+    "borderWidth": "2",
+    "borderStyle": "solid",
+    "borderColor": "rgb(162,217,192)",
+    "width": "650",
+    "height": "200",
+    "marginLeft": "50",
+    "marginTop": "20",
+    "marginBottom": "30"
+  },
+  "desc": {
+    "color": "#aa0000",
+    "fontSize": "30"
+  },
+  "input": {
+    "width": "650",
+    "height": "100",
+    "borderWidth": "1",
+    "borderStyle": "solid",
+    "borderColor": "rgb(162,217,192)",
+    "placeholderColor": "#41b883",
+    "marginLeft": "50",
+    "paddingLeft": "20",
+    "fontSize": "28"
+  },
+  "panel": {
+    "height": "100",
+    "flexDirection": "column",
+    "borderWidth": "2",
+    "borderStyle": "solid",
+    "borderColor": "rgb(162,217,192)",
+    "backgroundColor": "rgba(162,217,192,0.2)",
+    "marginLeft": "20",
+    "display": "inline-block",
+    "paddingTop": "20",
+    "paddingRight": "10",
+    "paddingBottom": "10",
+    "paddingLeft": "10"
+  },
+  "group": {
+    "flexDirection": "row",
+    "marginTop": "30",
+    "marginLeft": "45"
   }
 }
 
 /***/ }),
 
-/***/ 34:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ 18:
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -155,104 +204,94 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-const storage = weex.requireModule('storage');
-const system = weex.requireModule('system');
-const KEY = 'kWeexFlutterStorageTest';
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data() {
-        return {
-            value: '',
-            inputValue: ''
-        };
+
+module.exports = {
+    data: {
+        state: '1',
+        keyboard_state: ''
     },
-    computed: {},
-    created() {
-        this.onGetClick();
-    },
+    created() {},
     methods: {
-        onTextFiledChanged(e) {
-            this.inputValue = e.value;
-            console.log("onTextFiledChanged --- > " + JSON.stringify(e));
+        eventInput: function (e) {
+            this.state = 'input: ' + JSON.stringify(e);
         },
-        onSetClick() {
-            storage.setItem(KEY, this.inputValue, result => {
-                console.log('setItem result = ' + JSON.stringify(result));
-            });
-            system.requestFocus(callback => {});
+        onChange: function (e) {
+            this.state = 'change: ' + JSON.stringify(e);
         },
-        onGetClick() {
-            storage.getItem(KEY, result => {
-                if (result && result.data) {
-                    this.value = result.data.value;
-                }
-                console.log('getItem result = ' + JSON.stringify(result));
-            });
+        onFocus: function (e) {
+            this.state = 'focus: ' + JSON.stringify(e);
         },
-        onRemoveClick() {
-            storage.removeItem(KEY, result => {
-
-                console.log('removeItem result = ' + JSON.stringify(result));
+        onBlur: function (e) {
+            this.state = 'blur: ' + JSON.stringify(e);
+        },
+        onKeyBoard: function (e) {
+            this.keyboard_state = "\n onkeyboard: " + JSON.stringify(e);
+        },
+        setRange() {
+            this.$refs.range.setSelectionRange(1, 4);
+        },
+        getRange() {
+            let el = this.$refs.range;
+            console.log("el = " + JSON.stringify(el));
+            this.state = JSON.stringify(el);
+            this.$refs.range.getSelectionRange(params => {
+                this.state = `当前文本选区为 ${params.selectionStart} ~ ${params.selectionEnd}`;
+                this.keyboard_state = "";
             });
         }
     }
-});
+};
 
 /***/ }),
 
-/***/ 35:
+/***/ 19:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('column', {
-    staticClass: ["column"]
-  }, [_c('text-filed', {
-    on: {
-      "onChanged": _vm.onTextFiledChanged
-    }
-  }), _c('text', {
-    staticStyle: {
-      fontSize: "27px"
-    }
-  }, [_vm._v("Storage Value: " + _vm._s(_vm.value))]), _c('row', {
-    staticClass: ["row"]
-  }, [_c('raised-button', {
-    staticStyle: {
-      color: "red"
+  return _c('div', [_vm._m(0), _c('div', {
+    staticClass: ["output"]
+  }, [_c('scroller', [_c('text', [_vm._v("\n                " + _vm._s(_vm.state) + " " + _vm._s(_vm.keyboard_state) + "\n            ")])])]), _c('div', [_c('input', {
+    ref: "range",
+    staticClass: ["input"],
+    attrs: {
+      "testId": "input-obj",
+      "type": "text",
+      "placeholder": "input placeholder"
     },
     on: {
-      "onPressed": _vm.onSetClick
+      "input": _vm.eventInput,
+      "change": _vm.onChange,
+      "focus": _vm.onFocus,
+      "blur": _vm.onBlur,
+      "keyboard": _vm.onKeyBoard
     }
+  })]), _c('div', {
+    staticClass: ["group"]
+  }, [_c('div', {
+    staticClass: ["panel"]
   }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("setItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "green"
-    },
+    staticClass: ["text"],
     on: {
-      "onPressed": _vm.onGetClick
+      "click": _vm.setRange
     }
+  }, [_vm._v("setSelectionRange")])]), _c('div', {
+    staticClass: ["panel"]
   }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("getItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "blue"
-    },
+    staticClass: ["text"],
     on: {
-      "onPressed": _vm.onRemoveClick
+      "click": _vm.getRange
     }
+  }, [_vm._v("getSelectionRange")])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: ["title"]
   }, [_c('text', {
     staticStyle: {
-      fontSize: "14px",
-      color: "white"
+      textAlign: "center",
+      fontSize: "50px"
     }
-  }, [_vm._v("removeItem")])])], 1)], 1)
-},staticRenderFns: []}
+  }, [_vm._v("<input> Component Demo")])])
+}]}
 
 /***/ })
 

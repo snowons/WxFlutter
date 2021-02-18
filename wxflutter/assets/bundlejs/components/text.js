@@ -119,6 +119,12 @@ new Vue(module.exports)
 module.exports = {
   "column": {
     "crossAxisAlignment": "start"
+  },
+  "padding": {
+    "paddingTop": "30",
+    "paddingRight": "30",
+    "paddingBottom": "30",
+    "paddingLeft": "30"
   }
 }
 
@@ -129,6 +135,7 @@ module.exports = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -171,14 +178,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('center', [_c('text', {
+  return _c('column', {
+    staticClass: ["column"]
+  }, [_c('center', [_c('text', {
     staticStyle: {
       fontSize: "27px"
     },
     attrs: {
       "att": _vm.getTextAtt()
     }
-  }, [_vm._v(_vm._s(_vm.name) + " : Hello World. " + _vm._s(_vm.index))])])
+  }, [_vm._v(_vm._s(_vm.name) + " : Hello World. " + _vm._s(_vm.index))])])], 1)
 },staticRenderFns: []}
 
 /***/ })

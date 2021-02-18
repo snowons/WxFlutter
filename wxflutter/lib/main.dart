@@ -1,41 +1,73 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert' as convert;
+import 'package:get_it/get_it.dart';
 import 'package:weex_flutter_demo/weex_flutter/manager/wx_sdk_engine.dart';
 import 'main.reflectable.dart';
 import 'weex_flutter/service/wx_navigate_service.dart';
 import 'weex_flutter/wx_base_page.dart';
-
+import 'weex_flutter/util/wx_log.dart';
+import 'weex_flutter/manager/wx_web_socket_manager.dart';
+import 'weex_flutter/bridge/wx_jsc_runtime_manager.dart';
 
 void main() {
   initializeReflectable();
   WidgetsFlutterBinding.ensureInitialized();
+
   WXSdkEngine.instance.initSDKEnvironment();
+
+  if(Platform.isIOS) {
+    WXWebSocketManager().initWebSocket(onOpen: () {
+
+    }, onMessage: (data) {
+      Map<String,dynamic> res = convert.jsonDecode(data);
+      if(res != null && res.containsKey('REFRESH')) {
+        WXLog.log("Main","WebSocket REFRESH:$data['REFRESH']");
+
+        Map<String, WXJSMessageHandler> handlers = WXJSCRuntimeManager().handlers;
+        if(handlers!=null && handlers.isNotEmpty) {
+          handlers.forEach((key, value) {
+            if(key != 'root') {
+              value.onMessage('reload', null);
+            }
+          });
+        }
+      } else {
+        WXLog.log("Main",'WebSocket onMessage:$data');
+      }
+
+    }, onError: (e) {
+      WXLog.error("Main",'WebSocket onError:$e');
+    });
+  } else if(Platform.isAndroid) {
+    // TODO
+  }
+
+
   runApp(new MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp() {
-  }
+  MyApp() {}
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(navigatorKey: locator<WXNavigateService>().navigatorKey, home: MainDemosPage());
+    return MaterialApp(navigatorKey: locator<WXNavigateService>().navigatorKey, home: MainDemosPage(
+    ));
   }
 }
 
 class ItemPageModel {
   String title;
-  String pageName;
   String url;
-  String uri;
-  String type;
+  String loadType;//network,assets
 
-  ItemPageModel(this.title, this.uri,this.type);
+  ItemPageModel(this.title, this.url,this.loadType);
 }
 
 class MainDemosPage extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() {
     return new MainDemosPageState();
@@ -45,18 +77,20 @@ class MainDemosPage extends StatefulWidget {
 class MainDemosPageState extends State<MainDemosPage> {
   List<ItemPageModel> mItemList = new List();
 
+
+
   @override
   void initState() {
     super.initState();
-
-    mItemList.add(new ItemPageModel("Text", 'text.js','components'));
-    mItemList.add(new ItemPageModel("Image", 'image.js','components'));
-    mItemList.add(new ItemPageModel("List", 'list.js','components'));
-    mItemList.add(new ItemPageModel("Button", 'button.js','components'));
-    mItemList.add(new ItemPageModel("TextFiled", 'text-filed.js','components'));
-    mItemList.add(new ItemPageModel("GestureDetector", 'gesture-detector.js','components'));
-    mItemList.add(new ItemPageModel("Storage", 'storage.js','modules'));
-    mItemList.add(new ItemPageModel("Navigate", 'navigate.js','modules'));
+    mItemList.add(new ItemPageModel("Demo", '/demo.js','assets'));
+    mItemList.add(new ItemPageModel("Text", '/components/text.js','assets'));
+    mItemList.add(new ItemPageModel("Image", '/components/image.js','assets'));
+    mItemList.add(new ItemPageModel("List", '/components/list.js','assets'));
+    mItemList.add(new ItemPageModel("Button", '/components/button.js','assets'));
+    mItemList.add(new ItemPageModel("TextFiled", '/components/text-filed.js','assets'));
+    mItemList.add(new ItemPageModel("GestureDetector", '/components/gesture-detector.js','assets'));
+    mItemList.add(new ItemPageModel("Storage", '/modules/storage.js','assets'));
+    mItemList.add(new ItemPageModel("Navigate", '/modules/navigate.js','assets'));
   }
 
   Widget buildItem(ItemPageModel model) {
@@ -65,12 +99,10 @@ class MainDemosPageState extends State<MainDemosPage> {
 
           WXBasePage page = new WXBasePage({
             'title':model.title,
-            'uri':model.uri,
             'url':model.url,
-            'path':model.pageName,
-            'type':model.type
+            'loadType':model.loadType
           });
-          Navigator.push(context,new CupertinoPageRoute<void>(builder: (ctx) => page));
+          GetIt.instance<WXNavigateService>().push(new CupertinoPageRoute<void>(builder: (ctx) => page));
         },
         child: new Container(
             height: 50.0,

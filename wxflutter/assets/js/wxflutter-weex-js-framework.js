@@ -1,4 +1,4 @@
-(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-01-15 17:47. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
+(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-02-14 14:44. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
 var global=this; var process={env:{}}; var setTimeout=global.setTimeout;
 
 (function (global, factory) {

@@ -12,8 +12,8 @@ import '../bridge/wx_channel.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_gesture_detector.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_container.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_decorated_box.dart';
-import 'package:weex_flutter_demo/weex_flutter/component/wx_fractionally_sized_box.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_text_field.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_fractionally_sized_box.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_text.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_transform.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_visibility.dart';
@@ -29,8 +29,8 @@ import 'package:weex_flutter_demo/weex_flutter/component/wx_positioned.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_single_child_scrollView.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_aspect_ratio.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_expanded.dart';
-import 'package:weex_flutter_demo/weex_flutter/component/wx_column.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_raised_button.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_column.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_flexible.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_align.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_circular_progress_indicator.dart';
@@ -68,17 +68,23 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     'DecoratedBox': [
       {'clazz': WXDecoratedBoxStateless, 'methods': []}
     ],
+    'text-filed': [
+      {
+        'clazz': WXTextFiledStateless,
+        'methods': ['setValue', 'clear', 'requestFocus', 'unfocus']
+      }
+    ],
+    'TextFiled': [
+      {
+        'clazz': WXTextFiledStateless,
+        'methods': ['setValue', 'clear', 'requestFocus', 'unfocus']
+      }
+    ],
     'fractionally-sized-box': [
       {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
     ],
     'FractionallySizedBox': [
       {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
-    ],
-    'text-filed': [
-      {'clazz': WXTextFiledStateless, 'methods': []}
-    ],
-    'TextFiled': [
-      {'clazz': WXTextFiledStateless, 'methods': []}
     ],
     'text': [
       {'clazz': WXTextStateless, 'methods': []}
@@ -173,17 +179,17 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     'Expanded': [
       {'clazz': WXExpandedStateless, 'methods': []}
     ],
-    'column': [
-      {'clazz': WXColumnStateless, 'methods': []}
-    ],
-    'Column': [
-      {'clazz': WXColumnStateless, 'methods': []}
-    ],
     'raised-button': [
       {'clazz': WXRaisedButtonStateless, 'methods': []}
     ],
     'RaisedButton': [
       {'clazz': WXRaisedButtonStateless, 'methods': []}
+    ],
+    'column': [
+      {'clazz': WXColumnStateless, 'methods': []}
+    ],
+    'Column': [
+      {'clazz': WXColumnStateless, 'methods': []}
     ],
     'flexible': [
       {'clazz': WXFlexibleStateless, 'methods': []}
@@ -229,11 +235,11 @@ class WXComponentFactoryImpl extends WXComponentFactory {
       case WXDecoratedBoxStateless:
         return new WXDecoratedBoxStateless(
             parent, pageId, methodChannel, component);
-      case WXFractionallySizedBoxStateless:
-        return new WXFractionallySizedBoxStateless(
-            parent, pageId, methodChannel, component);
       case WXTextFiledStateless:
         return new WXTextFiledStateless(
+            parent, pageId, methodChannel, component);
+      case WXFractionallySizedBoxStateless:
+        return new WXFractionallySizedBoxStateless(
             parent, pageId, methodChannel, component);
       case WXTextStateless:
         return new WXTextStateless(parent, pageId, methodChannel, component);
@@ -273,11 +279,11 @@ class WXComponentFactoryImpl extends WXComponentFactory {
       case WXExpandedStateless:
         return new WXExpandedStateless(
             parent, pageId, methodChannel, component);
-      case WXColumnStateless:
-        return new WXColumnStateless(parent, pageId, methodChannel, component);
       case WXRaisedButtonStateless:
         return new WXRaisedButtonStateless(
             parent, pageId, methodChannel, component);
+      case WXColumnStateless:
+        return new WXColumnStateless(parent, pageId, methodChannel, component);
       case WXFlexibleStateless:
         return new WXFlexibleStateless(
             parent, pageId, methodChannel, component);

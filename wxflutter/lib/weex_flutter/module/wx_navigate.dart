@@ -14,10 +14,8 @@ class WXNavigate extends WXModule {
   void push(Map model, WXJSCallback callback) {
     WXBasePage page = new WXBasePage({
       'title':model['title'],
-      'uri':model['uri'],
       'url':model['url'],
-      'path':model['path'],
-      'type':model['type']
+      'loadType':model['loadType'],
     });
     GetIt.instance<WXNavigateService>().push(new CupertinoPageRoute<void>(builder: (ctx) => page));
   }

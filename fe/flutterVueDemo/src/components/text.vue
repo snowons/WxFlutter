@@ -1,8 +1,9 @@
 <template>
-    <center>
-        <text style="font-size: 27px;" :att="getTextAtt()">{{name}} : Hello World. {{index}}</text>
-    </center>
-
+    <column class="column">
+        <center>
+            <text style="font-size: 27px;" :att="getTextAtt()">{{name}} : Hello World. {{index}}</text>
+        </center>
+    </column>
 </template>
 <script>
 export default {
@@ -38,5 +39,8 @@ export default {
 <style scoped>
 .column {
     cross-axis-alignment: start;
+}
+.padding {
+    padding: 30px;
 }
 </style>

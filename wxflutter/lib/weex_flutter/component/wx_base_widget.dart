@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
+import 'package:weex_flutter_demo/weex_flutter/manager/wx_component_factory.d.dart';
 import '../model/wx_component.dart';
 import '../model/wx_data.dart';
 import '../bridge/wx_channel.dart';
 import '../model/wx_property.dart';
+import 'package:reflectable/reflectable.dart';
+import '../annotation/reflector.dart';
+import '../util/wx_reflect_utils.dart';
+import '../util/wx_log.dart';
 
 abstract class WXBaseWidget extends StatelessWidget {
   final String pageId;
@@ -17,6 +22,10 @@ abstract class WXBaseWidget extends StatelessWidget {
       this.methodChannel,
       this.parent,
       this.data});
+
+  void dispose() {
+    WXLog.info('WXBaseWidget','on dispose');
+  }
 
   void setChildren(List<WXBaseWidget> children) {
     data.value.children = children;
@@ -45,6 +54,14 @@ abstract class WXBaseWidget extends StatelessWidget {
     var newData = WXData(data.value.map);
     newData.children = children;
     data.value = newData;
+  }
+
+  void invokeMethod(dynamic data) {
+    InstanceMirror instanceMirror = reflector.reflect(this);
+    Map m = WXComponentFactoryImpl().innerMap[data['component']][0];
+    Type clazz = m['clazz'];
+    List<dynamic> params = WXReflectUtils.genInstanceMethodParams(data, clazz, reflector);
+    instanceMirror.invoke(data['method'], params);
   }
 
   void addChildren(List<WXBaseWidget> children) {

@@ -112,7 +112,7 @@ abstract class JavascriptRuntime {
           """);
         });
       } on Exception catch (e) {
-        print('Exception no setTimeout: $e');
+        print('Exception on setTimeout: $e');
       } on Error catch (e) {
         print('Erro no setTimeout: $e');
       }

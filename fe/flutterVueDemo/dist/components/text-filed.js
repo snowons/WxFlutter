@@ -141,13 +141,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 const system = weex.requireModule('system');
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
         return {
-            value: '',
-            inputValue: ''
+            value: ''
         };
     },
     computed: {},
@@ -158,8 +172,24 @@ const system = weex.requireModule('system');
             console.log("onTextFiledChanged --- > " + JSON.stringify(e));
         },
         onCleanClick() {
-            this.inputValue = '';
-            // system.requestFocus(callback => { })
+            this.$refs.tf.clear(data => {
+                console.log("TextFiled clear callback--- > " + JSON.stringify(data));
+            });
+        },
+        onSetValueClick() {
+            this.$refs.tf.setValue('hello', data => {
+                console.log("TextFiled setValue callback--- > " + JSON.stringify(data));
+            });
+        },
+        onFocusClick() {
+            this.$refs.tf.requestFocus(data => {
+                console.log("TextFiled requestFocus callback--- > " + JSON.stringify(data));
+            });
+        },
+        onUnfocusClick() {
+            this.$refs.tf.unfocus(data => {
+                console.log("TextFiled unfocus callback--- > " + JSON.stringify(data));
+            });
         }
     }
 });
@@ -173,6 +203,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('column', {
     staticClass: ["column"]
   }, [_c('text-filed', {
+    ref: "tf",
     on: {
       "onChanged": _vm.onTextFiledChanged
     }
@@ -180,7 +211,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       fontSize: "27px"
     }
-  }, [_vm._v("Input Value: " + _vm._s(_vm.value))]), _c('raised-button', {
+  }, [_vm._v("Input Value: " + _vm._s(_vm.value))]), _c('row', [_c('raised-button', {
     staticStyle: {
       color: "red"
     },
@@ -194,7 +225,43 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       fontSize: "14px",
       color: "white"
     }
-  }, [_vm._v("Clean")])])], 1)
+  }, [_vm._v("clean")])]), _c('raised-button', {
+    staticStyle: {
+      color: "green"
+    },
+    on: {
+      "onPressed": _vm.onSetValueClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("setValue")])]), _c('raised-button', {
+    staticStyle: {
+      color: "blue"
+    },
+    on: {
+      "onPressed": _vm.onFocusClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("requestFocus")])]), _c('raised-button', {
+    staticStyle: {
+      color: "yellow"
+    },
+    on: {
+      "onPressed": _vm.onUnfocusClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("unfocus")])])], 1)], 1)
 },staticRenderFns: []}
 
 /***/ })

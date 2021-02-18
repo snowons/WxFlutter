@@ -22,6 +22,8 @@ dependencies:
   device_info: ^0.4.2+7
   get_it: ^5.0.4
   shared_preferences: ^0.5.12+4
+  flutter_js: 0.1.0+0
+  flutter_downloader: ^1.5.2
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +58,7 @@ flutter:
      - assets/bundlejs/components/text-filed.js
      - assets/bundlejs/modules/storage.js
      - assets/bundlejs/modules/navigate.js
+     - assets/bundlejs/demo.js
 
   #   - images/a_dot_ham.jpeg
 

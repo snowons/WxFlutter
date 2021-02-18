@@ -70,6 +70,7 @@ class Collector {
 
   void addEntryFromAlias(ConstantReader reader, String className,List<String> methodList) {
     final String alias = reader.peek('alias')?.stringValue ?? className;
+
     List<String> list =  alias.split(',');
     if (list != null ) {
       final Map<String, dynamic> map =

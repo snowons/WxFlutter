@@ -238,7 +238,10 @@ class WXJSCRuntime extends JavascriptRuntime {
           Map item = items[0];
           item.putIfAbsent('pageId', () => channelName);
           String method = item['method'];
-          if (item['module'].toString().compareTo("dom") == 0) {
+          if (item['component'] != null && item['component'].toString().length > 0) {
+            channelFunctions["callNativeComponent"].call(item);
+          }
+          else if (item['module'].toString().compareTo("dom") == 0) {
             channelFunctions[method].call(item);
           } else if (item['module'] != null &&
               item['module'].toString().length > 0) {

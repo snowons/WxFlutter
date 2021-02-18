@@ -23,6 +23,8 @@ class WXSingleChildScrollViewStateless extends WXBaseWidget {
         builder: (BuildContext context, WXData data, Widget child) {
           return SingleChildScrollView(
               key: ObjectKey(component),
+              padding: WXPadding.parse(data.map),
+
               scrollDirection: WXAxis.parse(
                   data.map[getAttributeKey("scroll-direction")],
                   defaultValue: Axis.vertical),

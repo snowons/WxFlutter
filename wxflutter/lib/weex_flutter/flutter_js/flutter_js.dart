@@ -13,7 +13,7 @@ export 'extensions/handle_promises.dart';
 export 'quickjs-sync-server/quickjs_oasis_jsbridge.dart';
 
 JavascriptRuntime getJavascriptRuntime(
-    {bool forceJavascriptCoreOnAndroid = false, bool xhr = true}) {
+    {bool forceJavascriptCoreOnAndroid = true, bool xhr = true}) {
   JavascriptRuntime runtime;
   if ((Platform.isAndroid || Platform.isWindows) &&
       !forceJavascriptCoreOnAndroid) {

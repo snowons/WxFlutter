@@ -7,6 +7,7 @@ import '../util/wx_log.dart';
 import '../util/wx_device_utils.dart';
 import '../service/wx_navigate_service.dart';
 import '../service/wx_focus_scope.dart';
+import 'wx_downloader_manager.dart';
 
 final GetIt locator = GetIt.instance;
 
@@ -27,6 +28,8 @@ class WXSdkEngine with WXJSMessageHandler{
   }
 
   initSDKEnvironment() {
+    // dowloader
+    WXDownloaderManager.initDownloadPath();
     //get_it
     setupLocator();
     if(weexEnv == null) {

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weex_flutter_demo/weex_flutter/model/wx_js_callback.dart';
 
 import '../bridge/wx_channel.dart';
 import '../model/wx_component.dart';
@@ -7,9 +8,15 @@ import '../model/wx_data.dart';
 import '../util/wx_obj_parse.dart';
 import '../annotation/annotation_obj.dart';
 import './wx_base_widget.dart';
+import '../util/wx_log.dart';
+import '../annotation/reflector.dart';
 
+@Reflector()
 @Component("text-filed,TextFiled")
 class WXTextFiledStateless extends WXBaseWidget {
+  final FocusNode _focusNode = FocusNode();
+  final TextEditingController _textEditingController = TextEditingController();
+
   WXTextFiledStateless(WXBaseWidget parent, String pageId,
       WXChannel methodChannel, WXComponent component)
       : super(
@@ -18,6 +25,14 @@ class WXTextFiledStateless extends WXBaseWidget {
             methodChannel: methodChannel,
             component: component,
             data: ValueNotifier(WXData(component.properties)));
+
+  @override
+  void dispose() {
+    WXLog.info('WXTextFiledStateless','on dispose');
+    _focusNode.dispose();
+    _textEditingController.dispose();
+    super.dispose();
+  }
 
   void _onChanged(String v) {
     var event = getEvent("onChanged");
@@ -40,9 +55,47 @@ class WXTextFiledStateless extends WXBaseWidget {
     }
   }
 
+  @JSMethod()
+  void setValue(dynamic args,WXJSCallback callback) {
+    _textEditingController.text = args;
+    _onChanged(args);
+    WXLog.log("Component JSMethod","TextFailed setValue $args");
+    if(callback != null) {
+      callback.invoke({'code': '1'});
+    }
+  }
+
+  @JSMethod()
+  void clear(WXJSCallback callback) {
+    _textEditingController.clear();
+    _onChanged('');
+    WXLog.log("Component JSMethod","TextFailed clear() ");
+    if(callback != null) {
+      callback.invoke({'code': '1'});
+    }
+  }
+
+  @JSMethod()
+  void requestFocus(WXJSCallback callback) {
+    _focusNode.requestFocus();
+    WXLog.log("Component JSMethod","TextFailed requestFocus() ");
+    if(callback != null) {
+      callback.invoke({'code': '1'});
+    }
+  }
+
+  @JSMethod()
+  void unfocus(WXJSCallback callback) {
+    _focusNode.unfocus();
+    WXLog.log("Component JSMethod","TextFailed unfocus() ");
+    if(callback != null) {
+      callback.invoke({'code': '1'});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController _textEditingController = TextEditingController();
+
 
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
@@ -55,6 +108,7 @@ class WXTextFiledStateless extends WXBaseWidget {
           return TextField(
             key: ObjectKey(component),
             controller: _textEditingController,
+            focusNode: _focusNode,
             autofocus: WXBool.parse(data.map[getAttributeKey('autofocus')],
                 defaultValue: false),
             enabled: WXBool.parse(data.map[getAttributeKey('enabled')],

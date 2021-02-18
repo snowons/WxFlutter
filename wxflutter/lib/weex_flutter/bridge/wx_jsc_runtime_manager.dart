@@ -2,21 +2,19 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:reflectable/reflectable.dart';
-import 'package:weex_flutter_demo/weex_flutter/manager/wx_sdk_engine.dart';
-
+import '../manager/wx_sdk_engine.dart';
 import './wx_jsc_runtime.dart';
 import '../annotation/reflector.dart';
 import '../flutter_js/flutter_js.dart';
 import '../flutter_js/javascriptcore/flutter_jscore.dart';
 import '../manager/wx_component_factory.d.dart';
 import '../manager/wx_module_factory.e.dart';
-import '../model/wx_js_callback.dart';
-import '../model/wx_module_callback.dart';
+import '../util/wx_reflect_utils.dart';
 import '../util/wx_define.dart';
 import '../util/wx_log.dart';
-import '../module/wx_storage.dart';
-import '../module/wx_navigate.dart';
-import '../module/wx_system.dart';
+import '../manager/wx_downloader_manager.dart';
+import '../manager/wx_web_socket_manager.dart';
+import '../util/wx_debug.dart';
 
 abstract class WXJSMessageHandler {
   void onMessage(String method, Map<String, dynamic> params);
@@ -89,7 +87,11 @@ class WXJSCRuntimeManager {
 
     WXComponentFactoryImpl().innerMap.forEach((key, value) {
       Map map = value[0];
-      var obj = {'methods': map['methods'], 'type': key};
+
+      var obj = [
+        {'methods': map['methods'], 'type': key}
+      ];
+      WXLog.log("registerComponents tag", obj);
       callJSMethod("registerComponents", context.globalObject,
           convertParams(context, obj));
     });
@@ -126,9 +128,9 @@ class WXJSCRuntimeManager {
         WXJSMessageHandler handler = handlers[pageId];
         handler.onMessage('addElement', params);
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callAddElement: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callAddElement: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callAddElement: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callAddElement: $e');
       }
     });
 
@@ -142,9 +144,9 @@ class WXJSCRuntimeManager {
         WXJSMessageHandler handler = handlers[pageId];
         handler.onMessage('createBody', params);
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callCreateBody: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callCreateBody: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callCreateBody: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callCreateBody: $e');
       }
     });
 
@@ -153,9 +155,9 @@ class WXJSCRuntimeManager {
       try {
         WXLog.log(kWXFlutterTag, 'JS call callMoveElement: $data');
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callMoveElement: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callMoveElement: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callMoveElement: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callMoveElement: $e');
       }
     });
 
@@ -170,9 +172,9 @@ class WXJSCRuntimeManager {
         WXJSMessageHandler handler = handlers[pageId];
         handler.onMessage('updateAttrs', params);
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callUpdateAttrs: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callUpdateAttrs: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callUpdateAttrs: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callUpdateAttrs: $e');
       }
     });
 
@@ -187,9 +189,9 @@ class WXJSCRuntimeManager {
         WXJSMessageHandler handler = handlers[pageId];
         handler.onMessage('updateStyle', params);
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callUpdateStyle: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callUpdateStyle: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callUpdateStyle: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callUpdateStyle: $e');
       }
     });
 
@@ -204,9 +206,22 @@ class WXJSCRuntimeManager {
         // handler.onMessage('createFinish', null);
         WXLog.log(kWXFlutterTag, 'createFinish: ##');
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no createFinish: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on createFinish: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no createFinish: $e');
+        WXLog.error(kWXFlutterTag, 'Error on createFinish: $e');
+      }
+    });
+
+    /// callNativeComponent
+    runtime.onMessage('callNativeComponent', (dynamic data) {
+      try {
+        var pageId = data['pageId'];
+        WXJSMessageHandler handler = handlers[pageId];
+        handler.onMessage('callNativeComponent', data);
+      } on Exception catch (e) {
+        WXLog.error(kWXFlutterTag, 'Exception on callNativeComponent: $e');
+      } on Error catch (e) {
+        WXLog.error(kWXFlutterTag, 'Error on callNativeComponent: $e');
       }
     });
 
@@ -215,57 +230,21 @@ class WXJSCRuntimeManager {
       try {
         String module = data['module'];
         String method = data['method'];
-        var pageId = data['pageId'];
-
         if (WXModuleFactoryImpl().innerMap.containsKey(module)) {
           Map m = WXModuleFactoryImpl().innerMap[module][0];
           Type clazz = m['clazz'];
           dynamic instance = WXModuleFactoryImpl().instanceFromClazz(clazz);
           InstanceMirror instanceMirror = reflector.reflect(instance);
-
-          ClassMirror classMirror = reflector.reflectType(clazz);
-          final declarations = classMirror.declarations;
-          final constructors =
-              List.from(classMirror.declarations.values.where((declare) {
-            return declare is MethodMirror;
-          }));
-
-          final _options = <ParameterMirror>[];
-
-          constructors.forEach((constructor) {
-            if (constructor is MethodMirror) {
-              if (constructor.simpleName == method) {
-                final parameters = constructor.parameters;
-                parameters.forEach((param) {
-                  Type type = param.reflectedType;
-                  _options.add(param);
-                });
-              }
-            }
-          });
-
-          List<dynamic> params = (data['args'] as List);
-          if (params.length > _options.length) {
-            WXLog.error(kWXFlutterTag, 'callNativeModule params verify failed');
-            return;
-          }
-          ParameterMirror cb = _options.last;
-          if (cb.reflectedType == WXJSCallback &&
-              params.length == _options.length) {
-            WXJSCallback moduleCallback =
-                WXModuleCallback(params.last.toString(), pageId);
-            params.removeLast();
-            params.add(moduleCallback);
-          }
-
+          List<dynamic> params =
+              WXReflectUtils.genInstanceMethodParams(data, clazz, reflector);
           instanceMirror.invoke(method, params);
         }
         List<dynamic> args = data['args'];
         WXLog.debug(kWXFlutterTag, 'JS call callNativeModule: $args');
       } on Exception catch (e) {
-        WXLog.error(kWXFlutterTag, 'Exception no callNativeModule: $e');
+        WXLog.error(kWXFlutterTag, 'Exception on callNativeModule: $e');
       } on Error catch (e) {
-        WXLog.error(kWXFlutterTag, 'Error no callNativeModule: $e');
+        WXLog.error(kWXFlutterTag, 'Error on callNativeModule: $e');
       }
     });
   }
@@ -315,23 +294,38 @@ class WXJSCRuntimeManager {
         JSValuePointer.array(array));
   }
 
-  void renderPage(String pageId, String script, WXJSMessageHandler handler) {
+  Future renderPage(String pageId, Map<String, dynamic> options, WXJSMessageHandler handler,{reload=false}) async {
     JavascriptRuntime runtime = getRuntime();
-    handlers.putIfAbsent(pageId, () => handler);
-    JSValue instance = createInstance(pageId, script);
+    if(!handlers.containsKey(pageId)) {
+      handlers.putIfAbsent(pageId, () => handler);
+    }  
+ 
+    String script = '';
+    String bundleUrl = '';
+    if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
+      script = await WXDownloaderManager.instance.getJSBundle(options['bundleUrl']).then((value) {
+        return value;
+      });
+    } else {
+      script = await rootBundle.loadString(options['bundleUrl']).then((result) {
+        return result;
+      });
+    }
+    if(pageInstances.containsKey(pageId)) {
+      pageInstances.remove(pageId);
+    }
+    JSValue instance = createInstance(pageId, script,bundleUrl,options);
     pageInstances.putIfAbsent(pageId, () => instance);
   }
 
-  JSValue createInstance(String pageId, String jsBundleString) {
+  JSValue createInstance(String pageId, String script,String url,Map<String, dynamic> args) {
     JavascriptRuntime runtime = getRuntime();
     JSContext context = (runtime as WXJSCRuntime).context;
 
     var immutableOptions = {
-      'bundleResponseUrl':
-          "file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/4FDD1483-1158-444C-B422-0F560348A79E/WeexDemo.app/bundlejs/landing.weex.js?random=1891310277",
+      'options':args,
       'bundleType': 'Vue',
-      'bundleUrl':
-          "file:///Users/snow/Library/Developer/CoreSimulator/Devices/7FC900B9-2E4D-4FAD-9FFE-46F2B76C6EEE/data/Containers/Bundle/Application/4FDD1483-1158-444C-B422-0F560348A79E/WeexDemo.app/bundlejs/landing.weex.js",
+      'bundleUrl':url,
       'debug': 1,
       'env': WXSdkEngine.weexEnv
     };
@@ -368,7 +362,7 @@ class WXJSCRuntimeManager {
     // debugObject(context.globalObject, 'globalObject');
     // JSValue result =  context.evaluate(jsBundleString);
     // print("result = "+result.string);
-    _runJs(pageId, jsBundleString);
+    _runJs(pageId, script);
     return instanceContext;
   }
 

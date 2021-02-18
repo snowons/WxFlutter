@@ -6,6 +6,7 @@
 
 import 'dart:convert';
 
+import 'package:weex_flutter_demo/weex_flutter/module/wx_system.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_storage.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
 import 'wx_module_factory.dart';
@@ -18,6 +19,12 @@ class WXModuleFactoryImpl extends WXModuleFactory {
   WXModuleFactoryImpl._init() {}
   final Map<String, List<Map<String, dynamic>>> innerMap =
       <String, List<Map<String, dynamic>>>{
+    'system': [
+      {
+        'clazz': WXSystem,
+        'methods': ['requestFocus']
+      }
+    ],
     'storage': [
       {
         'clazz': WXStorage,
@@ -34,6 +41,8 @@ class WXModuleFactoryImpl extends WXModuleFactory {
 
   dynamic instanceFromClazz(Type clazz) {
     switch (clazz) {
+      case WXSystem:
+        return new WXSystem();
       case WXStorage:
         return new WXStorage();
       case WXNavigate:

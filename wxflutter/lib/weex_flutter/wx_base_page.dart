@@ -9,7 +9,9 @@ import 'package:weex_flutter_demo/weex_flutter/bridge/wx_jsc_runtime_manager.dar
 import 'package:weex_flutter_demo/weex_flutter/manager/wx_component_manager.dart';
 import 'package:weex_flutter_demo/weex_flutter/util/wx_define.dart';
 import 'package:weex_flutter_demo/weex_flutter/util/wx_log.dart';
-
+import 'package:weex_flutter_demo/weex_flutter/util/wx_obj_parse.dart';
+import 'manager/wx_web_socket_manager.dart';
+import 'util/wx_debug.dart';
 var _methodChannel = WXChannel("wx.flutter.method.channel/method");
 
 class WXBasePage extends StatefulWidget {
@@ -25,9 +27,11 @@ class WXBasePage extends StatefulWidget {
 
 class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
   Map<String, dynamic> args = Map();
-
+  String _bundleUrl = '';
   String _pageId = "";
   String _title = "";
+  Color _appBarColor;
+  Color _backgroundColor;
   Widget _tree;
 
   GlobalKey<RefreshIndicatorState> _refreshIndicatorKey;
@@ -47,18 +51,52 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
     });
   }
 
-  void _create() async {
-    String path = "assets/bundlejs/${args['type']}/${args['uri']}";
-    String result = await rootBundle.loadString(path).then((result) {
-      return result;
+  void _setNavigationBarColor(Map<String, dynamic> map) {
+    setState(() {
+      _appBarColor = WXColor.parse(map['appBarColor'], defaultValue: Colors.blue);
     });
-    _updateTitle({"title": args["title"]});
+  }
+
+  void _setBackgroundColor(Map<String, dynamic> map) {
+    setState(() {
+      _backgroundColor =
+          WXColor.parse(map['backgroundColor'], defaultValue: Colors.grey[200]);
+    });
+  }
+
+  void _create() async {
+    if(args["title"] != null) {
+      _updateTitle(args);
+    }
+    if(args["appBarColor"] != null) {
+      _setNavigationBarColor(args);
+    }
+    if(args["_backgroundColor"] != null) {
+      _setBackgroundColor(args);
+    }
 
     if (WXSdkEngine.instance.isFrameworkReady) {
-      _initScript(result);
+
+     if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
+       _bundleUrl = "http://${WXDebug.serverIP}:${WXDebug.serverPort}/dist${args['url']}";
+     } else {
+       _bundleUrl= "assets/bundlejs${args['url']}";
+     }
+     args['bundleUrl'] = _bundleUrl;
+     await jscManager.renderPage(_pageId, args, this);
+
+
     } else {
-      WXLog.log(kWXFlutterTag,
-          "(WXSdkEngine.instance.isFrameworkReady = $WXSdkEngine.instance.isFrameworkReady");
+      WXLog.error(kWXFlutterTag,
+          "(WXSdkEngine.instance.isFrameworkReady = ${WXSdkEngine.instance.isFrameworkReady}");
+    }
+  }
+
+  void reloadPage() {
+    if(_bundleUrl != null && _bundleUrl.startsWith('http')) {
+      _factory.clear();
+      _callOnUnload();
+      _create();
     }
   }
 
@@ -73,7 +111,6 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
   @override
   void initState() {
     super.initState();
-
     _create();
   }
 
@@ -87,10 +124,6 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
     super.dispose();
     _factory.clear();
     _callOnUnload();
-  }
-
-  void _initScript(String script) {
-    jscManager.renderPage(_pageId, script, this);
   }
 
   void _callOnUnload() {
@@ -119,7 +152,10 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
         appBar: AppBar(
           title: Text(_title),
           centerTitle: true,
+          backgroundColor: _appBarColor,
+
         ),
+        backgroundColor: _backgroundColor,
         body: child);
   }
 
@@ -138,6 +174,12 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
         break;
       case 'updateTitle':
         _updateTitle(params);
+        break;
+      case 'callNativeComponent':
+        _factory.callNativeComponent(params);
+        break;
+      case 'reload':
+        reloadPage();
         break;
     }
   }

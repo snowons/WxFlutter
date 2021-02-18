@@ -2,6 +2,10 @@ PODS:
   - device_info (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_downloader (0.0.1):
+    - Flutter
+  - flutter_js (0.1.0):
+    - Flutter
   - package_info (0.0.1):
     - Flutter
   - path_provider (0.0.1):
@@ -26,6 +30,8 @@ PODS:
 DEPENDENCIES:
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
+  - flutter_downloader (from `.symlinks/plugins/flutter_downloader/ios`)
+  - flutter_js (from `.symlinks/plugins/flutter_js/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_linux (from `.symlinks/plugins/path_provider_linux/ios`)
@@ -42,6 +48,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
+  flutter_downloader:
+    :path: ".symlinks/plugins/flutter_downloader/ios"
+  flutter_js:
+    :path: ".symlinks/plugins/flutter_js/ios"
   package_info:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider:
@@ -66,6 +76,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_downloader: 058b9c41564a90500f67f3e432e3524613a7fd83
+  flutter_js: 95929d4e146e8ceb1c8e1889d8c2065c5d840076
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   path_provider_linux: 4d630dc393e1f20364f3e3b4a2ff41d9674a84e4
@@ -79,4 +91,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 083258d7f5e80b42ea9bfee905fe93049bc04c64
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
