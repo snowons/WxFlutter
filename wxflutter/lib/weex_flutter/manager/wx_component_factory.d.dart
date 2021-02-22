@@ -12,8 +12,8 @@ import '../bridge/wx_channel.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_gesture_detector.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_container.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_decorated_box.dart';
-import 'package:weex_flutter_demo/weex_flutter/component/wx_text_field.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_fractionally_sized_box.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_text_field.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_text.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_transform.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_visibility.dart';
@@ -68,6 +68,12 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     'DecoratedBox': [
       {'clazz': WXDecoratedBoxStateless, 'methods': []}
     ],
+    'fractionally-sized-box': [
+      {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
+    ],
+    'FractionallySizedBox': [
+      {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
+    ],
     'text-filed': [
       {
         'clazz': WXTextFiledStateless,
@@ -79,12 +85,6 @@ class WXComponentFactoryImpl extends WXComponentFactory {
         'clazz': WXTextFiledStateless,
         'methods': ['setValue', 'clear', 'requestFocus', 'unfocus']
       }
-    ],
-    'fractionally-sized-box': [
-      {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
-    ],
-    'FractionallySizedBox': [
-      {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
     ],
     'text': [
       {'clazz': WXTextStateless, 'methods': []}
@@ -235,11 +235,11 @@ class WXComponentFactoryImpl extends WXComponentFactory {
       case WXDecoratedBoxStateless:
         return new WXDecoratedBoxStateless(
             parent, pageId, methodChannel, component);
-      case WXTextFiledStateless:
-        return new WXTextFiledStateless(
-            parent, pageId, methodChannel, component);
       case WXFractionallySizedBoxStateless:
         return new WXFractionallySizedBoxStateless(
+            parent, pageId, methodChannel, component);
+      case WXTextFiledStateless:
+        return new WXTextFiledStateless(
             parent, pageId, methodChannel, component);
       case WXTextStateless:
         return new WXTextStateless(parent, pageId, methodChannel, component);

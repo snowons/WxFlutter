@@ -15,6 +15,7 @@ import '../util/wx_log.dart';
 import '../manager/wx_downloader_manager.dart';
 import '../manager/wx_web_socket_manager.dart';
 import '../util/wx_debug.dart';
+import '../manager/wx_timer_mananger.dart';
 
 abstract class WXJSMessageHandler {
   void onMessage(String method, Map<String, dynamic> params);
@@ -115,6 +116,7 @@ class WXJSCRuntimeManager {
   void dispose(pageId) {
     pageInstances.remove(pageId);
     handlers.remove(pageId);
+    WXTimerManager().dispose(pageId);
   }
 
   void setupBridge(JavascriptRuntime runtime) {
@@ -230,13 +232,17 @@ class WXJSCRuntimeManager {
       try {
         String module = data['module'];
         String method = data['method'];
+        bool lastIsCallback = true;
+        if(module == 'timer') {
+          lastIsCallback = false;
+        }
         if (WXModuleFactoryImpl().innerMap.containsKey(module)) {
           Map m = WXModuleFactoryImpl().innerMap[module][0];
           Type clazz = m['clazz'];
           dynamic instance = WXModuleFactoryImpl().instanceFromClazz(clazz);
           InstanceMirror instanceMirror = reflector.reflect(instance);
           List<dynamic> params =
-              WXReflectUtils.genInstanceMethodParams(data, clazz, reflector);
+              WXReflectUtils.genInstanceMethodParams(data, clazz, reflector,lastIsCallback: lastIsCallback);
           instanceMirror.invoke(method, params);
         }
         List<dynamic> args = data['args'];

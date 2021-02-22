@@ -1,4 +1,4 @@
-(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-02-14 14:44. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
+(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-02-19 17:15. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
 var global=this; var process={env:{}}; var setTimeout=global.setTimeout;
 
 (function (global, factory) {
@@ -18513,6 +18513,7 @@ function init$3(app, code, data, services) {
   if (WXEnvironment && WXEnvironment.platform !== 'Web') {
     // timer APIs polyfill in native
     var timer = app.requireModule('timer');
+    console.log("### timer = " + JSON.stringify(timer));
     Object.assign(timerAPIs, {
       setTimeout: function () {
         var args = [], len = arguments.length;

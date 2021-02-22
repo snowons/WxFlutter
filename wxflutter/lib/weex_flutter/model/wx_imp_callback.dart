@@ -14,8 +14,8 @@ class WXImpCallback implements WXJSCallback {
   WXImpCallback(this.callbackId, this.pageId);
 
   @override
-  void invoke(Object data) {
+  void invoke(Object data,{bool keepAlive=false}) {
     WXLog.log(kWXFlutterTag,'WXImpCallback callbackId:$callbackId, pageId:$pageId, data: $data');
-    WXCallbackManager.instance.exec(this.pageId, this.callbackId, data);
+    WXCallbackManager.instance.exec(this.pageId, this.callbackId, data,keepAlive);
   }
 }

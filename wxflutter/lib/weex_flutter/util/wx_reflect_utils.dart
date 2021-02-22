@@ -5,20 +5,33 @@ import '../model/wx_js_callback.dart';
 import '../util/wx_log.dart';
 
 class WXReflectUtils {
- static List<dynamic> genInstanceMethodParams(dynamic data,Type type, Reflector reflector) {
+ static List<dynamic> genInstanceMethodParams(dynamic data,Type type, Reflector reflector,{bool lastIsCallback=true}) {
     List<dynamic> params = (data['args'] as List);
     List<dynamic> _options = getMethodParamsFromClazz(type,data['method']);
     if (params.length > _options.length) {
       WXLog.error('WXReflectUtils', 'params verify failed');
       return null;
     }
-    ParameterMirror cb = _options.last;
+    ParameterMirror cb;
+    String callbackId;
+    if(lastIsCallback) {
+      cb = _options.last;
+      callbackId = params.last.toString();
+    } else {
+      cb = _options.first;
+      callbackId = params.first.toString();
+    }
     if (cb.reflectedType == WXJSCallback &&
         params.length == _options.length) {
       WXJSCallback moduleCallback =
-      WXImpCallback(params.last.toString(), data['pageId']);
-      params.removeLast();
-      params.add(moduleCallback);
+      WXImpCallback(callbackId, data['pageId']);
+      if(lastIsCallback) {
+        params.removeLast();
+        params.add(moduleCallback);
+      } else {
+        params.removeAt(0);
+        params.insert(0, moduleCallback);
+      }
     }
     return params;
   }

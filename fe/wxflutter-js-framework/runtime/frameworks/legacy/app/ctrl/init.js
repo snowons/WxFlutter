@@ -101,6 +101,7 @@ export function init(app, code, data, services) {
   if (WXEnvironment && WXEnvironment.platform !== 'Web') {
     // timer APIs polyfill in native
     const timer = app.requireModule('timer')
+    console.log("### timer = " + JSON.stringify(timer))
     Object.assign(timerAPIs, {
       setTimeout: (...args) => {
         const handler = function () {

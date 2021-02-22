@@ -59,6 +59,7 @@ flutter:
      - assets/bundlejs/modules/storage.js
      - assets/bundlejs/modules/navigate.js
      - assets/bundlejs/demo.js
+     - assets/bundlejs/timer.js
 
   #   - images/a_dot_ham.jpeg
 

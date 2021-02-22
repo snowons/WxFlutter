@@ -13,10 +13,13 @@ class WXCallbackManager {
     return _instance;
   }
 
-  exec(String pageId,String callbackId,dynamic value) {
+  exec(String pageId,String callbackId,dynamic value,bool keepAlive) {
       List<dynamic> arguments = [];
       arguments.add(callbackId);
       arguments.add(value);
+      if(keepAlive) {
+        arguments.add(true);
+      }
       WXJSCRuntimeManager.instance.flutterCallJavaScript(pageId, "callback", arguments);
   }
 }

@@ -7,5 +7,5 @@ abstract class WXJSCallback {
   String callbackId;
   String pageId;
 
-  void invoke(Object data);
+  void invoke(Object data,{bool keepAlive = false});
 }

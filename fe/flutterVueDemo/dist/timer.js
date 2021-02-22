@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 24:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(25)
+__vue_styles__.push(__webpack_require__(37)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(26)
+__vue_exports__ = __webpack_require__(38)
 
 /* template */
-var __vue_template__ = __webpack_require__(27)
+var __vue_template__ = __webpack_require__(39)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -95,7 +95,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-6fb055bc"
+__vue_options__._scopeId = "data-v-5cb318bc"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -113,17 +113,12 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 25:
+/***/ 37:
 /***/ (function(module, exports) {
 
 module.exports = {
-  "image": {
-    "width": "200",
-    "height": "200"
-  },
-  "text": {
-    "color": "#FF0000",
-    "fontSize": "24"
+  "column": {
+    "crossAxisAlignment": "start"
   },
   "padding": {
     "paddingTop": "30",
@@ -135,7 +130,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 26:
+/***/ 38:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -147,50 +142,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
+const timer = weex.requireModule('timer');
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
         return {
-            text: "A toy for building Flutter apps with Weex",
-            desc: "Written in VueJS, rendered by Flutter",
-            imageUrl: "https://s3.ax1x.com/2021/02/14/yy9uGR.png"
+            index: 0,
+            timer: null,
+            type: 0
         };
-    }
+    },
+    computed: {},
+    created() {
+        if (this.type == 1) {
+            setTimeout(() => {
+                this.index++;
+            }, 3000);
+        } else {
+            this.timer = setInterval(() => {
+                this.index++;
+                if (this.index > 10) {
+                    this.timer && clearInterval(this.timer);
+                }
+            }, 1000);
+        }
+    },
+    methods: {}
 });
 
 /***/ }),
 
-/***/ 27:
+/***/ 39:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('center', [_c('column', [_c('image', {
-    staticClass: ["image"],
-    attrs: {
-      "src": _vm.imageUrl
-    }
-  }), _c('padding', {
-    staticClass: ["padding"]
-  }, [_c('text', {
-    staticClass: ["text"]
-  }, [_vm._v(_vm._s(_vm.text))])]), _c('padding', {
-    staticClass: ["padding"]
-  }, [_c('text', {
+  return _c('column', {
+    staticClass: ["column"]
+  }, [_c('center', [_c('text', {
     staticStyle: {
-      fontSize: "24px",
-      color: "blue"
+      fontSize: "27px"
     }
-  }, [_vm._v(_vm._s(_vm.desc))])])], 1)], 1)
+  }, [_vm._v("Hello World. " + _vm._s(_vm.index))])])], 1)
 },staticRenderFns: []}
 
 /***/ })

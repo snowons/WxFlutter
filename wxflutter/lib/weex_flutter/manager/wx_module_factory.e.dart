@@ -9,6 +9,7 @@ import 'dart:convert';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_system.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_storage.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
+import 'package:weex_flutter_demo/weex_flutter/module/wx_timer.dart';
 import 'wx_module_factory.dart';
 
 class WXModuleFactoryImpl extends WXModuleFactory {
@@ -36,6 +37,17 @@ class WXModuleFactoryImpl extends WXModuleFactory {
         'clazz': WXNavigate,
         'methods': ['push', 'pop']
       }
+    ],
+    'timer': [
+      {
+        'clazz': WXTimer,
+        'methods': [
+          'setTimeout',
+          'clearTimeout',
+          'setInterval',
+          'clearInterval'
+        ]
+      }
     ]
   };
 
@@ -47,6 +59,8 @@ class WXModuleFactoryImpl extends WXModuleFactory {
         return new WXStorage();
       case WXNavigate:
         return new WXNavigate();
+      case WXTimer:
+        return new WXTimer();
       default:
         return null;
     }

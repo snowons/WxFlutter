@@ -10,6 +10,7 @@ import 'weex_flutter/wx_base_page.dart';
 import 'weex_flutter/util/wx_log.dart';
 import 'weex_flutter/manager/wx_web_socket_manager.dart';
 import 'weex_flutter/bridge/wx_jsc_runtime_manager.dart';
+import 'weex_flutter/wx_module_componet.dart';
 
 void main() {
   initializeReflectable();
@@ -83,6 +84,7 @@ class MainDemosPageState extends State<MainDemosPage> {
   void initState() {
     super.initState();
     mItemList.add(new ItemPageModel("Demo", '/demo.js','assets'));
+    mItemList.add(new ItemPageModel("Timer", '/timer.js','assets'));
     mItemList.add(new ItemPageModel("Text", '/components/text.js','assets'));
     mItemList.add(new ItemPageModel("Image", '/components/image.js','assets'));
     mItemList.add(new ItemPageModel("List", '/components/list.js','assets'));
