@@ -7,6 +7,7 @@
 import 'dart:convert';
 
 import 'package:weex_flutter_demo/weex_flutter/module/wx_system.dart';
+import 'package:weex_flutter_demo/weex_flutter/module/wx_http.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_storage.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_timer.dart';
@@ -24,6 +25,12 @@ class WXModuleFactoryImpl extends WXModuleFactory {
       {
         'clazz': WXSystem,
         'methods': ['requestFocus']
+      }
+    ],
+    'http': [
+      {
+        'clazz': WXHttp,
+        'methods': ['fetch']
       }
     ],
     'storage': [
@@ -55,6 +62,8 @@ class WXModuleFactoryImpl extends WXModuleFactory {
     switch (clazz) {
       case WXSystem:
         return new WXSystem();
+      case WXHttp:
+        return new WXHttp();
       case WXStorage:
         return new WXStorage();
       case WXNavigate:

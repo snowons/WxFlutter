@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 36:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(37)
+__vue_styles__.push(__webpack_require__(29)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(38)
+__vue_exports__ = __webpack_require__(30)
 
 /* template */
-var __vue_template__ = __webpack_require__(39)
+var __vue_template__ = __webpack_require__(31)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -95,7 +95,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-08564faa"
+__vue_options__._scopeId = "data-v-3499f669"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -113,21 +113,36 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 37:
+/***/ 29:
 /***/ (function(module, exports) {
 
 module.exports = {
+  "padding": {
+    "paddingTop": "30",
+    "paddingRight": "30",
+    "paddingBottom": "30",
+    "paddingLeft": "30"
+  },
+  "scroll-container": {
+    "widthFactor": 1,
+    "heightFactor": 1
+  },
   "column": {
     "crossAxisAlignment": "start"
   },
-  "row": {
-    "mainAxisAlignment": "space-between"
+  "title": {
+    "fontSize": "27",
+    "color": "#41b883"
+  },
+  "count": {
+    "fontSize": "20",
+    "color": "#888888"
   }
 }
 
 /***/ }),
 
-/***/ 38:
+/***/ 30:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -154,104 +169,137 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
-const storage = weex.requireModule('storage');
-const system = weex.requireModule('system');
-const KEY = 'kWeexFlutterStorageTest';
+const http = weex.requireModule('http');
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
         return {
-            value: '',
-            inputValue: ''
+            getResult: 'loading...',
+            postResult: 'loading...',
+            putResult: 'loading...',
+            deleteResult: 'loading...',
+            patchResult: 'loading...'
         };
     },
-    computed: {},
     created() {
-        this.onGetClick();
-    },
-    methods: {
-        onTextFiledChanged(e) {
-            this.inputValue = e.value;
-            console.log("onTextFiledChanged --- > " + JSON.stringify(e));
-        },
-        onSetClick() {
-            storage.setItem(KEY, this.inputValue, result => {
-                console.log('setItem result = ' + JSON.stringify(result));
-            });
-            system.requestFocus(callback => {});
-        },
-        onGetClick() {
-            storage.getItem(KEY, result => {
-                if (result && result.data) {
-                    this.value = result.data.value;
-                }
-                console.log('getItem result = ' + JSON.stringify(result));
-            });
-        },
-        onRemoveClick() {
-            storage.removeItem(KEY, result => {
+        var me = this;
+        var GET_URL = 'http://httpbin.org/get';
+        var POST_URL = 'http://httpbin.org/post';
+        var PUT_URL = 'http://httpbin.org/put';
+        var DELETE_URL = 'http://httpbin.org/delete';
+        var PATCH_URL = 'http://httpbin.org/patch';
 
-                console.log('removeItem result = ' + JSON.stringify(result));
-            });
-        }
+        http.fetch({
+            method: 'GET',
+            url: GET_URL
+        }, ret => {
+            if (!ret.ok) {
+                me.getResult = "request failed";
+            } else {
+                console.log('get:' + ret);
+                me.getResult = JSON.stringify(ret.data);
+            }
+        });
+
+        http.fetch({
+            method: 'POST',
+            url: POST_URL
+        }, function (ret) {
+            if (!ret.ok) {
+                me.postResult = "request failed";
+            } else {
+                console.log('get:' + JSON.stringify(ret));
+                me.postResult = JSON.stringify(ret.data);
+            }
+        });
+
+        http.fetch({
+            method: 'PUT',
+            url: PUT_URL
+        }, ret => {
+            if (!ret.ok) {
+                me.putResult = "request failed";
+            } else {
+                console.log('get:' + JSON.stringify(ret));
+                me.putResult = JSON.stringify(ret.data);
+            }
+        });
+
+        http.fetch({
+            method: 'DELETE',
+            url: DELETE_URL
+        }, ret => {
+
+            if (!ret.ok) {
+                me.deleteResult = "request failed";
+            } else {
+                console.log('get:' + JSON.stringify(ret));
+                me.deleteResult = JSON.stringify(ret.data);
+            }
+        });
+
+        http.fetch({
+            method: 'PATCH',
+            url: PATCH_URL
+        }, ret => {
+            if (!ret.ok) {
+                me.patchResult = "request failed";
+            } else {
+                console.log('get:' + JSON.stringify(ret));
+                me.patchResult = JSON.stringify(ret.data);
+            }
+        });
     }
 });
 
 /***/ }),
 
-/***/ 39:
+/***/ 31:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('column', {
+  return _c('fractionally-sized-box', {
+    staticClass: ["scroll-container"]
+  }, [_c('single-child-scroll-view', [_c('column', {
     staticClass: ["column"]
-  }, [_c('text-filed', {
-    on: {
-      "onChanged": _vm.onTextFiledChanged
-    }
+  }, [_c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("method = GET")]), _c('text', {
+    staticClass: ["count"]
+  }, [_vm._v(_vm._s(_vm.getResult))]), _c('padding', {
+    staticClass: ["padding"]
   }), _c('text', {
-    staticStyle: {
-      fontSize: "27px"
-    }
-  }, [_vm._v("Storage Value: " + _vm._s(_vm.value))]), _c('row', {
-    staticClass: ["row"]
-  }, [_c('raised-button', {
-    staticStyle: {
-      color: "red"
-    },
-    on: {
-      "onPressed": _vm.onSetClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("setItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "green"
-    },
-    on: {
-      "onPressed": _vm.onGetClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("getItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "blue"
-    },
-    on: {
-      "onPressed": _vm.onRemoveClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("removeItem")])])], 1)], 1)
+    staticClass: ["title"]
+  }, [_vm._v("method = POST")]), _c('text', {
+    staticClass: ["count"]
+  }, [_vm._v(_vm._s(_vm.postResult))]), _c('padding', {
+    staticClass: ["padding"]
+  }), _c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("method = PUT")]), _c('text', {
+    staticClass: ["count"]
+  }, [_vm._v(_vm._s(_vm.putResult))]), _c('padding', {
+    staticClass: ["padding"]
+  }), _c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("method = DELETE")]), _c('text', {
+    staticClass: ["count"]
+  }, [_vm._v(_vm._s(_vm.deleteResult))]), _c('padding', {
+    staticClass: ["padding"]
+  }), _c('text', {
+    staticClass: ["title"]
+  }, [_vm._v("method = PATCH")]), _c('text', {
+    staticClass: ["count"]
+  }, [_vm._v(_vm._s(_vm.patchResult))])], 1)], 1)], 1)
 },staticRenderFns: []}
 
 /***/ })

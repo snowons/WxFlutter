@@ -84,7 +84,6 @@ class MainDemosPageState extends State<MainDemosPage> {
   void initState() {
     super.initState();
     mItemList.add(new ItemPageModel("Demo", '/demo.js','assets'));
-    mItemList.add(new ItemPageModel("Timer", '/timer.js','assets'));
     mItemList.add(new ItemPageModel("Text", '/components/text.js','assets'));
     mItemList.add(new ItemPageModel("Image", '/components/image.js','assets'));
     mItemList.add(new ItemPageModel("List", '/components/list.js','assets'));
@@ -93,6 +92,8 @@ class MainDemosPageState extends State<MainDemosPage> {
     mItemList.add(new ItemPageModel("GestureDetector", '/components/gesture-detector.js','assets'));
     mItemList.add(new ItemPageModel("Storage", '/modules/storage.js','assets'));
     mItemList.add(new ItemPageModel("Navigate", '/modules/navigate.js','assets'));
+    mItemList.add(new ItemPageModel("Timer", '/modules/timer.js','assets'));
+    mItemList.add(new ItemPageModel("Http", '/modules/http.js','assets'));
   }
 
   Widget buildItem(ItemPageModel model) {

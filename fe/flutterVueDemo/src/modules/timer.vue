@@ -6,7 +6,6 @@
     </column>
 </template>
 <script>
-const timer = weex.requireModule('timer')
 export default {
     data() {
         return {

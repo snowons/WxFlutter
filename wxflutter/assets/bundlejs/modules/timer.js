@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 36:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(37)
+__vue_styles__.push(__webpack_require__(41)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(38)
+__vue_exports__ = __webpack_require__(42)
 
 /* template */
-var __vue_template__ = __webpack_require__(39)
+var __vue_template__ = __webpack_require__(43)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -95,7 +95,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-08564faa"
+__vue_options__._scopeId = "data-v-59b9b934"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -113,21 +113,24 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 37:
+/***/ 41:
 /***/ (function(module, exports) {
 
 module.exports = {
   "column": {
     "crossAxisAlignment": "start"
   },
-  "row": {
-    "mainAxisAlignment": "space-between"
+  "padding": {
+    "paddingTop": "30",
+    "paddingRight": "30",
+    "paddingBottom": "30",
+    "paddingLeft": "30"
   }
 }
 
 /***/ }),
 
-/***/ 38:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -139,119 +142,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-const storage = weex.requireModule('storage');
-const system = weex.requireModule('system');
-const KEY = 'kWeexFlutterStorageTest';
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
         return {
-            value: '',
-            inputValue: ''
+            index: 0,
+            timer: null,
+            type: 0
         };
     },
     computed: {},
     created() {
-        this.onGetClick();
-    },
-    methods: {
-        onTextFiledChanged(e) {
-            this.inputValue = e.value;
-            console.log("onTextFiledChanged --- > " + JSON.stringify(e));
-        },
-        onSetClick() {
-            storage.setItem(KEY, this.inputValue, result => {
-                console.log('setItem result = ' + JSON.stringify(result));
-            });
-            system.requestFocus(callback => {});
-        },
-        onGetClick() {
-            storage.getItem(KEY, result => {
-                if (result && result.data) {
-                    this.value = result.data.value;
+        if (this.type == 1) {
+            setTimeout(() => {
+                this.index++;
+            }, 3000);
+        } else {
+            this.timer = setInterval(() => {
+                this.index++;
+                if (this.index > 10) {
+                    this.timer && clearInterval(this.timer);
                 }
-                console.log('getItem result = ' + JSON.stringify(result));
-            });
-        },
-        onRemoveClick() {
-            storage.removeItem(KEY, result => {
-
-                console.log('removeItem result = ' + JSON.stringify(result));
-            });
+            }, 1000);
         }
-    }
+    },
+    methods: {}
 });
 
 /***/ }),
 
-/***/ 39:
+/***/ 43:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('column', {
     staticClass: ["column"]
-  }, [_c('text-filed', {
-    on: {
-      "onChanged": _vm.onTextFiledChanged
-    }
-  }), _c('text', {
+  }, [_c('center', [_c('text', {
     staticStyle: {
       fontSize: "27px"
     }
-  }, [_vm._v("Storage Value: " + _vm._s(_vm.value))]), _c('row', {
-    staticClass: ["row"]
-  }, [_c('raised-button', {
-    staticStyle: {
-      color: "red"
-    },
-    on: {
-      "onPressed": _vm.onSetClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("setItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "green"
-    },
-    on: {
-      "onPressed": _vm.onGetClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("getItem")])]), _c('raised-button', {
-    staticStyle: {
-      color: "blue"
-    },
-    on: {
-      "onPressed": _vm.onRemoveClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("removeItem")])])], 1)], 1)
+  }, [_vm._v("Hello World. " + _vm._s(_vm.index))])])], 1)
 },staticRenderFns: []}
 
 /***/ })
