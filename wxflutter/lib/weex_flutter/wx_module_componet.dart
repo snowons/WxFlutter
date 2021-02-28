@@ -1,6 +1,6 @@
 library wxModuleComponent;
 
-/// Moudles
+/// Modules
 export './module/wx_storage.dart';
 export './module/wx_navigate.dart';
 export './module/wx_system.dart';

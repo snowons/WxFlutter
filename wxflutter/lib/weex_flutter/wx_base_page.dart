@@ -20,12 +20,12 @@ class WXBasePage extends StatefulWidget {
   WXBasePage(this.args);
 
   @override
-  _MainPageState createState() {
-    return _MainPageState(args);
+  WXMainPageState createState() {
+    return WXMainPageState(args);
   }
 }
 
-class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
+class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
   Map<String, dynamic> args = Map();
   String _bundleUrl = '';
   String _pageId = "";
@@ -40,7 +40,7 @@ class _MainPageState extends State<WXBasePage> with WXJSMessageHandler {
   WXComponentManager _factory;
   WXJSCRuntimeManager jscManager = new WXJSCRuntimeManager();
 
-  _MainPageState(this.args) {
+  WXMainPageState(this.args) {
     _pageId = this.hashCode.toString();
     _factory = WXComponentManager(_pageId, _methodChannel);
   }

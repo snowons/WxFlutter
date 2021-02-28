@@ -1,0 +1,37 @@
+{
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "演示",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "height": "50px",
+    "fontSize": "10px",
+    "iconWidth": "24px",
+    "spacing": "3px",
+    "list": [{
+      "pagePath": "pages/component/index",
+      "iconPath": "static/image/icon_component.png",
+      "selectedIconPath": "static/image/icon_component_HL.png",
+      "text": "组件"
+    }, {
+      "pagePath": "pages/API/index",
+      "iconPath": "static/image/icon_API.png",
+      "selectedIconPath": "static/image/icon_API_HL.png",
+      "text": "接口"
+    }],
+    "midButton": {
+      "width": "80px",
+      "height": "50px",
+      "text": "文字",
+      "iconPath": "static/image/midButton_iconPath.png",
+      "iconWidth": "24px",
+      "backgroundImage": "static/image/midButton_backgroundImage.png"
+    }
+  }
+}
