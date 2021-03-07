@@ -12,11 +12,7 @@ import '../wx_base_page.dart';
 class WXNavigate extends WXModule {
   @JSMethod()
   void push(Map model, WXJSCallback callback) {
-    WXBasePage page = new WXBasePage({
-      'title':model['title'],
-      'url':model['url'],
-      'loadType':model['loadType'],
-    });
+    WXBasePage page = new WXBasePage(model);
     GetIt.instance<WXNavigateService>().push(new CupertinoPageRoute<void>(builder: (ctx) => page));
   }
 

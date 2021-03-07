@@ -35,15 +35,6 @@ class WXComponent {
     this.parent = parent;
   }
 
-
-  void insertChildren(int index, List<WXComponent> children) {
-    this.children.insertAll(index, children);
-  }
-
-  void removeRangeChildren(int start, int end) {
-    this.children.removeRange(start, end);
-  }
-
   Map<String, WXProperty> _initProperties(
       Map<String, dynamic> node) {
     if (null == node) {

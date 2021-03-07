@@ -114,12 +114,33 @@ class WXJSCRuntimeManager {
   }
 
   void dispose(pageId) {
+    JavascriptRuntime runtime = getRuntime();
+    JSContext context = (runtime as WXJSCRuntime).context;
+    var obj = [pageId];
+    callJSMethod(
+        "destroyInstance", context.globalObject, convertParams(context, obj));
     pageInstances.remove(pageId);
     handlers.remove(pageId);
     WXTimerManager().dispose(pageId);
   }
 
   void setupBridge(JavascriptRuntime runtime) {
+    /// __updateComponentData
+    runtime.onMessage('__updateComponentData', (dynamic data) {
+      try {
+        dynamic args = data['args'];
+        var pageId = data['pageId'];
+        Map<String, dynamic> params = args[1];
+        params.putIfAbsent('parentRef', () => args[0]);
+        WXJSMessageHandler handler = handlers[pageId];
+        handler.onMessage('__updateComponentData', params);
+      } on Exception catch (e) {
+        WXLog.error(kWXFlutterTag, 'Exception on __updateComponentData: $e');
+      } on Error catch (e) {
+        WXLog.error(kWXFlutterTag, 'Error on __updateComponentData: $e');
+      }
+    });
+
     /// callAddElement
     runtime.onMessage('addElement', (dynamic data) {
       try {
@@ -152,14 +173,37 @@ class WXJSCRuntimeManager {
       }
     });
 
-    /// TODO callMoveElement
+    /// callMoveElement
     runtime.onMessage('moveElement', (dynamic data) {
       try {
         WXLog.log(kWXFlutterTag, 'JS call callMoveElement: $data');
+        dynamic args = data['args'];
+        var pageId = data['pageId'];
+        WXJSMessageHandler handler = handlers[pageId];
+        handler.onMessage('moveElement', args);
+
       } on Exception catch (e) {
         WXLog.error(kWXFlutterTag, 'Exception on callMoveElement: $e');
       } on Error catch (e) {
         WXLog.error(kWXFlutterTag, 'Error on callMoveElement: $e');
+      }
+    });
+
+    /// callRemoveElement
+    runtime.onMessage('removeElement', (dynamic data) {
+      try {
+        WXLog.log(kWXFlutterTag, 'JS call removeElement: $data');
+        dynamic args = data['args'];
+        var pageId = data['pageId'];
+        Map<String, dynamic> params = Map();
+        params.putIfAbsent('args', () => args);
+        WXJSMessageHandler handler = handlers[pageId];
+        handler.onMessage('removeElement', params);
+
+      } on Exception catch (e) {
+        WXLog.error(kWXFlutterTag, 'Exception on callRemoveElement: $e');
+      } on Error catch (e) {
+        WXLog.error(kWXFlutterTag, 'Error on callRemoveElement: $e');
       }
     });
 
@@ -332,14 +376,14 @@ class WXJSCRuntimeManager {
       'options':args,
       'bundleType': 'Vue',
       'bundleUrl':url,
-      'debug': 1,
+      'debug': WXDebug.isDebug,
       'env': WXSdkEngine.weexEnv
     };
 
     List<JSValue> array = List();
     JSValue id = JSValue.makeString(context, pageId);
     JSValue options =
-        JSValue.makeString(context, JsonEncoder().convert(immutableOptions));
+        JSValue.makeFromJSONString(context, JsonEncoder().convert(immutableOptions));
     JSValue data = JSValue.makeString(context, JsonEncoder().convert([]));
     array.add(id);
     array.add(options);

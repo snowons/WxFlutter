@@ -41,7 +41,7 @@ class WXFlexStateless extends WXBaseWidget {
               textBaseline: WXTextBaseline.parse(
                   data.map[getAttributeKey("text-baseline")]),
               clipBehavior:
-                  WXClip.parse(data.map[getAttributeKey("clipBehavior")]),
+                  WXClip.parse(data.map[getAttributeKey("clip-behavior")]),
               children: data.children);
         },
         valueListenable: this.data);

@@ -32,10 +32,8 @@ const {
  * @param  {array} components array of name
  */
 export function registerComponents(components) {
-  // console.log("JS registerComponents components = " + JSON.stringify(components))
   if (Array.isArray(components)) {
     components.forEach(function register(name) {
-      // console.log("JS registerComponents name = " + JSON.stringify(name))
       /* istanbul ignore if */
       if (!name) {
         return
@@ -50,8 +48,7 @@ export function registerComponents(components) {
       }
     })
   }
-  console.log("JS registerComponents nativeComponentMap = " + JSON.stringify(nativeComponentMap))
-  return 'abcdefj'
+  return ''
 }
 
 /**

@@ -25,7 +25,7 @@ class WXTimerManager {
     if(!_timers.containsKey(key)) {
       timer = new Timer(duration, (){
         if (callback != null) {
-          callback.invoke({'code': '1'});
+          callback.invoke({'code': WXJSCallbackResult.kWXJSCallbackSuccess.index});
         }
         _timers.remove(key);
       });
@@ -43,7 +43,7 @@ class WXTimerManager {
     if(!_timers.containsKey(key)) {
       timer = Timer.periodic(duration , (timer){
         if (callback != null) {
-          callback.invoke({'code': '1'},keepAlive: true);
+          callback.invoke({'code': WXJSCallbackResult.kWXJSCallbackSuccess.index},keepAlive: true);
         }
       });
       _timers.putIfAbsent(key, () => timer);

@@ -23,9 +23,9 @@ class WXCenterStateless extends WXBaseWidget {
           return Center(
               key: ObjectKey(component),
               widthFactor:
-                  WXDouble.parse(data.map[getAttributeKey('width-factor')]),
+                  WXDouble.parse(data.map[getAttributeKey('width-factor')],defaultValue: 1.0),
               heightFactor:
-                  WXDouble.parse(data.map[getAttributeKey('height-factor')]),
+                  WXDouble.parse(data.map[getAttributeKey('height-factor')],defaultValue: 1.0),
               child: getDataChildern(data));
         },
         valueListenable: this.data);

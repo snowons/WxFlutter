@@ -24,6 +24,8 @@
     "weex-vue-render": "^1.0.17"
   },
   "devDependencies": {
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
     "postcss-less": "^1.1.5",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.1",

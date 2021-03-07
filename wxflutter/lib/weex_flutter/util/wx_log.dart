@@ -9,7 +9,7 @@ enum WXLogLevel {
 }
 
 class WXLog {
-  static const WXLogLevel _level = WXLogLevel.ALL;
+  static const WXLogLevel _level = WXLogLevel.DEBUG;
   static const bool isRelease = const bool.fromEnvironment("dart.vm.product");
 
   static void _printLog(String tag, Object message,WXLogLevel level,String pre) {

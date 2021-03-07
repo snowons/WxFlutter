@@ -28,7 +28,7 @@ import { resetTarget } from '../core/dep'
  * Init config informations for Weex framework
  * @param  {object} cfg
  */
-export function init (cfg) {
+export function init(cfg) {
   config.Document = cfg.Document
   config.Element = cfg.Element
   config.Comment = cfg.Comment
@@ -42,7 +42,7 @@ export function init (cfg) {
  * @param  {string} id
  * @param  {object} data
  */
-export function refreshInstance (id, data) {
+export function refreshInstance(id, data) {
   const instance = instanceMap[id]
   let result
   /* istanbul ignore else */
@@ -59,7 +59,7 @@ export function refreshInstance (id, data) {
  * Destroy a Weex instance.
  * @param  {string} id
  */
-export function destroyInstance (id) {
+export function destroyInstance(id) {
   // Markup some global state in native side
   if (typeof markupState === 'function') {
     markupState()

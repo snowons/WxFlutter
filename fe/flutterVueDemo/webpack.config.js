@@ -35,7 +35,9 @@ function walk(dir) {
 
             } else if (stat.isDirectory()) {
                 var subdir = path.join(dir, file);
-                walk(subdir);
+                if (file !== 'components') {
+                    walk(subdir);
+                }
             }
         });
 }

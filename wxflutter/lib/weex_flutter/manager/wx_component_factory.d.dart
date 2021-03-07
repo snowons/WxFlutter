@@ -11,10 +11,13 @@ import '../bridge/wx_channel.dart';
 
 import 'package:weex_flutter_demo/weex_flutter/component/wx_gesture_detector.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_container.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_flat_button.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_decorated_box.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_indexed_stack.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_fractionally_sized_box.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_text_field.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_text.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_icon.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_transform.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_visibility.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_center.dart';
@@ -25,6 +28,8 @@ import 'package:weex_flutter_demo/weex_flutter/component/wx_flex.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_list_view.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_padding.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_stack.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_inkwell.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_tab_bar_view.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_positioned.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_single_child_scrollView.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_aspect_ratio.dart';
@@ -62,11 +67,23 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     'Container': [
       {'clazz': WXContainerStateless, 'methods': []}
     ],
+    'flat-button': [
+      {'clazz': WXFlatButtonStateless, 'methods': []}
+    ],
+    'FlatButton': [
+      {'clazz': WXFlatButtonStateless, 'methods': []}
+    ],
     'decorated-box': [
       {'clazz': WXDecoratedBoxStateless, 'methods': []}
     ],
     'DecoratedBox': [
       {'clazz': WXDecoratedBoxStateless, 'methods': []}
+    ],
+    'indexed-stack': [
+      {'clazz': WXIndexedStackStateless, 'methods': []}
+    ],
+    'IndexedStack': [
+      {'clazz': WXIndexedStackStateless, 'methods': []}
     ],
     'fractionally-sized-box': [
       {'clazz': WXFractionallySizedBoxStateless, 'methods': []}
@@ -91,6 +108,12 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     ],
     'Text': [
       {'clazz': WXTextStateless, 'methods': []}
+    ],
+    'icon': [
+      {'clazz': WXIconStateless, 'methods': []}
+    ],
+    'Icon': [
+      {'clazz': WXIconStateless, 'methods': []}
     ],
     'transform': [
       {'clazz': WXTransformStateless, 'methods': []}
@@ -154,6 +177,18 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     ],
     'Stack': [
       {'clazz': WXStackStateless, 'methods': []}
+    ],
+    'ink-well': [
+      {'clazz': WXInkWellStateless, 'methods': []}
+    ],
+    'InkWell': [
+      {'clazz': WXInkWellStateless, 'methods': []}
+    ],
+    'tab-bar-view': [
+      {'clazz': WXTabBarViewStateless, 'methods': []}
+    ],
+    'TabBarView': [
+      {'clazz': WXTabBarViewStateless, 'methods': []}
     ],
     'positioned': [
       {'clazz': WXPositionedStateless, 'methods': []}
@@ -232,8 +267,14 @@ class WXComponentFactoryImpl extends WXComponentFactory {
       case WXContainerStateless:
         return new WXContainerStateless(
             parent, pageId, methodChannel, component);
+      case WXFlatButtonStateless:
+        return new WXFlatButtonStateless(
+            parent, pageId, methodChannel, component);
       case WXDecoratedBoxStateless:
         return new WXDecoratedBoxStateless(
+            parent, pageId, methodChannel, component);
+      case WXIndexedStackStateless:
+        return new WXIndexedStackStateless(
             parent, pageId, methodChannel, component);
       case WXFractionallySizedBoxStateless:
         return new WXFractionallySizedBoxStateless(
@@ -243,6 +284,8 @@ class WXComponentFactoryImpl extends WXComponentFactory {
             parent, pageId, methodChannel, component);
       case WXTextStateless:
         return new WXTextStateless(parent, pageId, methodChannel, component);
+      case WXIconStateless:
+        return new WXIconStateless(parent, pageId, methodChannel, component);
       case WXTransformStateless:
         return new WXTransformStateless(
             parent, pageId, methodChannel, component);
@@ -267,6 +310,11 @@ class WXComponentFactoryImpl extends WXComponentFactory {
         return new WXPaddingStateless(parent, pageId, methodChannel, component);
       case WXStackStateless:
         return new WXStackStateless(parent, pageId, methodChannel, component);
+      case WXInkWellStateless:
+        return new WXInkWellStateless(parent, pageId, methodChannel, component);
+      case WXTabBarViewStateless:
+        return new WXTabBarViewStateless(
+            parent, pageId, methodChannel, component);
       case WXPositionedStateless:
         return new WXPositionedStateless(
             parent, pageId, methodChannel, component);

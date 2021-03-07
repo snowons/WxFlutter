@@ -1,4 +1,4 @@
-(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-02-19 17:15. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
+(this.nativeLog || function(s) {console.log(s)})('START JS FRAMEWORK 0.29.7, Build 2021-03-04 17:45. (Vue: 2.5.16-weex.5, Rax: 0.4.20)');
 var global=this; var process={env:{}}; var setTimeout=global.setTimeout;
 
 (function (global, factory) {
@@ -18938,7 +18938,7 @@ function createInstance$2 (id, code, options, data, info) {
  * Init config informations for Weex framework
  * @param  {object} cfg
  */
-function init$4 (cfg) {
+function init$4(cfg) {
   config$3.Document = cfg.Document;
   config$3.Element = cfg.Element;
   config$3.Comment = cfg.Comment;
@@ -18952,7 +18952,7 @@ function init$4 (cfg) {
  * @param  {string} id
  * @param  {object} data
  */
-function refreshInstance (id, data) {
+function refreshInstance(id, data) {
   var instance = instanceMap$1[id];
   var result;
   /* istanbul ignore else */
@@ -18969,7 +18969,8 @@ function refreshInstance (id, data) {
  * Destroy a Weex instance.
  * @param  {string} id
  */
-function destroyInstance$1 (id) {
+function destroyInstance$1(id) {
+  console.log("#### destroyInstance " + id);
   // Markup some global state in native side
   if (typeof markupState === 'function') {
     markupState();
@@ -19025,10 +19026,8 @@ var nativeComponentMap$1 = config$3.nativeComponentMap;
  * @param  {array} components array of name
  */
 function registerComponents$1(components) {
-  // console.log("JS registerComponents components = " + JSON.stringify(components))
   if (Array.isArray(components)) {
     components.forEach(function register(name) {
-      // console.log("JS registerComponents name = " + JSON.stringify(name))
       /* istanbul ignore if */
       if (!name) {
         return
@@ -19043,8 +19042,7 @@ function registerComponents$1(components) {
       }
     });
   }
-  console.log("JS registerComponents nativeComponentMap = " + JSON.stringify(nativeComponentMap$1));
-  return 'abcdefj'
+  return ''
 }
 
 /**

@@ -11,7 +11,10 @@ import 'package:weex_flutter_demo/weex_flutter/util/wx_define.dart';
 import 'package:weex_flutter_demo/weex_flutter/util/wx_log.dart';
 import 'package:weex_flutter_demo/weex_flutter/util/wx_obj_parse.dart';
 import 'manager/wx_web_socket_manager.dart';
+import 'manager/wx_event_bus_manager.dart';
 import 'util/wx_debug.dart';
+import 'dart:convert';
+
 var _methodChannel = WXChannel("wx.flutter.method.channel/method");
 
 class WXBasePage extends StatefulWidget {
@@ -27,6 +30,8 @@ class WXBasePage extends StatefulWidget {
 
 class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
   Map<String, dynamic> args = Map();
+  Map<String, dynamic> tabBar;
+  int _currentPageIndex = 0;
   String _bundleUrl = '';
   String _pageId = "";
   String _title = "";
@@ -34,69 +39,45 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
   Color _backgroundColor;
   Widget _tree;
 
-  GlobalKey<RefreshIndicatorState> _refreshIndicatorKey;
-  Completer<bool> _completer;
-
   WXComponentManager _factory;
   WXJSCRuntimeManager jscManager = new WXJSCRuntimeManager();
 
   WXMainPageState(this.args) {
     _pageId = this.hashCode.toString();
+    if (args['tabBar'] != null) {
+      tabBar = json.decode(args['tabBar']);
+    }
+
     _factory = WXComponentManager(_pageId, _methodChannel);
   }
 
-  void _updateTitle(Map<String, dynamic> map) {
-    setState(() {
-      _title = map['title'];
-    });
-  }
+  bool get isTabBar => tabBar != null;
 
-  void _setNavigationBarColor(Map<String, dynamic> map) {
-    setState(() {
-      _appBarColor = WXColor.parse(map['appBarColor'], defaultValue: Colors.blue);
-    });
-  }
-
-  void _setBackgroundColor(Map<String, dynamic> map) {
-    setState(() {
-      _backgroundColor =
-          WXColor.parse(map['backgroundColor'], defaultValue: Colors.grey[200]);
-    });
-  }
+  String get getPageId => _pageId;
 
   void _create() async {
-    if(args["title"] != null) {
-      _updateTitle(args);
+    if (args["title"] != null) {
+      updateTitle(args);
     }
-    if(args["appBarColor"] != null) {
-      _setNavigationBarColor(args);
+    if (args["appBarColor"] != null) {
+      setNavigationBarColor(args);
     }
-    if(args["_backgroundColor"] != null) {
-      _setBackgroundColor(args);
+    if (args["backgroundColor"] != null) {
+      setBackgroundColor(args);
     }
 
     if (WXSdkEngine.instance.isFrameworkReady) {
-
-     if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
-       _bundleUrl = "http://${WXDebug.serverIP}:${WXDebug.serverPort}/dist${args['url']}";
-     } else {
-       _bundleUrl= "assets/bundlejs${args['url']}";
-     }
-     args['bundleUrl'] = _bundleUrl;
-     await jscManager.renderPage(_pageId, args, this);
-
-
+      if (WXDebug.isDebug && WXWebSocketManager().isConnected) {
+        _bundleUrl =
+            "http://${WXDebug.serverIP}:${WXDebug.serverPort}/dist${args['url']}";
+      } else {
+        _bundleUrl = "assets/bundlejs${args['url']}";
+      }
+      args['bundleUrl'] = _bundleUrl;
+      await jscManager.renderPage(_pageId, args, this);
     } else {
       WXLog.error(kWXFlutterTag,
           "(WXSdkEngine.instance.isFrameworkReady = ${WXSdkEngine.instance.isFrameworkReady}");
-    }
-  }
-
-  void reloadPage() {
-    if(_bundleUrl != null && _bundleUrl.startsWith('http')) {
-      _factory.clear();
-      _callOnUnload();
-      _create();
     }
   }
 
@@ -106,6 +87,92 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
     setState(() {
       _tree = tree;
     });
+  }
+
+  void reloadPage() {
+    if (_bundleUrl != null && _bundleUrl.startsWith('http')) {
+      setState(() {
+        this._currentPageIndex = 0;
+      });
+      _factory.clear();
+      _callOnUnload();
+      _create();
+    }
+  }
+
+  void updateTitle(Map<String, dynamic> map) {
+    setState(() {
+      _title = map['title'];
+    });
+  }
+
+  void setNavigationBarColor(Map<String, dynamic> map) {
+    setState(() {
+      _appBarColor =
+          WXColor.parseColor(map['appBarColor'], defaultValue: Colors.blue);
+    });
+  }
+
+  void setBackgroundColor(Map<String, dynamic> map) {
+    setState(() {
+      _backgroundColor = WXColor.parseColor(map['backgroundColor'],
+          defaultValue: Colors.grey[200]);
+    });
+  }
+
+  void _callOnUnload() {
+    jscManager.dispose(_pageId);
+  }
+  
+  /// build BottomNavigationBar
+  Widget _bottomNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: this._currentPageIndex,
+      unselectedItemColor: WXColor.parseColor(tabBar['color']),
+      selectedItemColor: WXColor.parseColor(tabBar['selectedColor']),
+      backgroundColor: WXColor.parseColor(tabBar['backgroundColor']),
+      items: _bottomNavigationBarItemList(),
+      onTap: (int index) {
+        WXEventBusManager().emit("tabBarClick", {"index": index});
+        setState(() {
+          this._currentPageIndex = index;
+        });
+      },
+    );
+  }
+
+  List<BottomNavigationBarItem> _bottomNavigationBarItemList() {
+    List<dynamic> list = tabBar['list'];
+    List<BottomNavigationBarItem> items = [];
+    for (int i = 0; i < list.length; i++) {
+      var item = list[i];
+      var value = {
+        "icon": _currentPageIndex == i
+            ? item['selectedIconPath']
+            : item['iconPath'],
+        "iconWidth": WXDouble.parseString(tabBar['iconWidth']),
+        "iconHeight": WXDouble.parseString(tabBar['iconHeight']),
+        "fontSize": WXDouble.parseString(tabBar['fontSize']),
+        "text": item['text']
+      };
+      items.add(_bottomNavigationBarItem(value));
+    }
+    return items;
+  }
+
+  BottomNavigationBarItem _bottomNavigationBarItem(dynamic value) {
+    return BottomNavigationBarItem(
+      icon: Image.asset(
+        value['icon'],
+        width: value['iconWidth'],
+        height:value['iconHeight'],
+      ),
+      title: Text(
+        value['text'],
+        style: TextStyle(fontSize:value['fontSize']),
+      ),
+    );
   }
 
   @override
@@ -126,37 +193,31 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
     _callOnUnload();
   }
 
-  void _callOnUnload() {
-    jscManager.dispose(_pageId);
-  }
-
-  Future<void> _onRefresh() {
-    _methodChannel.invokeMethod("onPullDownRefresh", {"pageId": _pageId});
-    _completer = new Completer<bool>();
-    return _completer.future.then((bool success) {
-      return success;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    var child = _tree;
-    if (null != _tree) {
-      _refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
-      child = RefreshIndicator(
-          key: _refreshIndicatorKey, onRefresh: _onRefresh, child: _tree);
-    }
-
-    return Scaffold(
+    if (isTabBar) {
+      return Scaffold(
         key: PageStorageKey(_tree),
         appBar: AppBar(
           title: Text(_title),
           centerTitle: true,
           backgroundColor: _appBarColor,
-
         ),
+        body: _tree,
         backgroundColor: _backgroundColor,
-        body: child);
+        bottomNavigationBar: _bottomNavigationBar(),
+      );
+    } else {
+      return Scaffold(
+          key: PageStorageKey(_tree),
+          appBar: AppBar(
+            title: Text(_title),
+            centerTitle: true,
+            backgroundColor: _appBarColor,
+          ),
+          backgroundColor: _backgroundColor,
+          body: _tree);
+    }
   }
 
   @override
@@ -168,12 +229,21 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
       case 'addElement':
         _factory.addElement(params, id: _pageId);
         break;
+      case 'removeElement':
+        _factory.removeElement(params, id: _pageId);
+        break;
       case 'updateAttrs':
       case 'updateStyle':
         _factory.updateAttrs(params, id: _pageId);
         break;
       case 'updateTitle':
-        _updateTitle(params);
+        updateTitle(params);
+        break;
+      case 'setBackgroundColor':
+        setBackgroundColor(params);
+        break;
+      case 'setNavigationBarColor':
+        setNavigationBarColor(params);
         break;
       case 'callNativeComponent':
         _factory.callNativeComponent(params);

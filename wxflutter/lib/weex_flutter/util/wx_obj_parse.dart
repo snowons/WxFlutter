@@ -2,6 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../model/wx_property.dart';
 
+class WXBoxFit {
+  static BoxFit parse(WXProperty value,
+      {BoxFit defaultValue = BoxFit.contain}) {
+    BoxFit result = defaultValue;
+    if (null == value) return result;
+    switch (value.getValue()) {
+      case 'contain':
+        result = BoxFit.contain;
+        break;
+      case 'fill':
+        result = BoxFit.fill;
+        break;
+      case 'cover':
+        result = BoxFit.cover;
+        break;
+      default:
+        result = defaultValue;
+    }
+    return result;
+  }
+}
+
 class WXAxis {
   static Axis parse(WXProperty value, {Axis defaultValue = Axis.horizontal}) {
     Axis result = defaultValue;
@@ -259,6 +281,30 @@ class WXTextDirection {
   }
 }
 
+class WXTextOverflow {
+  static TextOverflow parse(WXProperty value, {TextOverflow defaultValue}) {
+    TextOverflow result = defaultValue;
+    if (null == value) return result;
+    switch (value.getValue()) {
+      case 'clip':
+        result = TextOverflow.clip;
+        break;
+      case 'ellipsis':
+        result = TextOverflow.ellipsis;
+        break;
+      case 'fade':
+        result = TextOverflow.fade;
+        break;
+      case 'visible':
+        result = TextOverflow.visible;
+        break;
+      default:
+        result = defaultValue;
+    }
+    return result;
+  }
+}
+
 class WXTextInputAction {
   static TextInputAction parse(WXProperty value,
       {TextInputAction defaultValue}) {
@@ -310,10 +356,10 @@ class WXTextInputAction {
 
 class WXBoxConstraints {
   static BoxConstraints parse(Map<String, WXProperty> properties) {
-    var minWidth = properties[getAttributeKey('minWidth')];
-    var maxWidth = properties[getAttributeKey('maxWidth')];
-    var minHeight = properties[getAttributeKey('minHeight')];
-    var maxHeight = properties[getAttributeKey('maxHeight')];
+    var minWidth = properties[getAttributeKey('min-width')];
+    var maxWidth = properties[getAttributeKey('max-width')];
+    var minHeight = properties[getAttributeKey('min-height')];
+    var maxHeight = properties[getAttributeKey('max-height')];
     BoxConstraints constraints;
     if (minWidth != null ||
         maxWidth != null ||
@@ -393,7 +439,7 @@ class WXPadding {
           WXDouble.parse(paddingRight, defaultValue: 0),
           WXDouble.parse(paddingBottom, defaultValue: 0));
     }
-    if (null != properties['padding']) {
+    if (null == padding) {
       padding = EdgeInsets.all(
           WXDouble.parse(properties['padding'], defaultValue: 0));
     }
@@ -572,6 +618,14 @@ class WXDouble {
     }
     return result;
   }
+
+  static double parseString(String value, {double defaultValue}) {
+    double result = defaultValue;
+    if (null != value) {
+      result = double.parse(_removePx(value));
+    }
+    return result;
+  }
 }
 
 class WXMatrix4 {
@@ -584,11 +638,127 @@ class WXMatrix4 {
   }
 }
 
+class WXBoxDecoration {
+  static BoxDecoration parse(dynamic data) {
+    BoxDecoration result = BoxDecoration(color: Colors.white);
+    if (null != data) {
+      Color defaultColor = WXColor.parse(data.map['color']);
 
+      /// border-color
+      Color borderColor = WXColor.parse(
+          data.map[getAttributeKey('border-color')],
+          defaultValue: null);
+      Color leftBorderColor = borderColor ??
+          WXColor.parse(data.map[getAttributeKey('border-left-color')]);
+      Color rightBorderColor = borderColor ??
+          WXColor.parse(data.map[getAttributeKey('border-right-color')]);
+      Color topBorderColor = borderColor ??
+          WXColor.parse(data.map[getAttributeKey('border-top-color')]);
+      Color bottomBorderColor = borderColor ??
+          WXColor.parse(data.map[getAttributeKey('border-bottom-color')]);
 
+      /// border-width
+      double borderWidth = WXDouble.parse(
+          data.map[getAttributeKey('border-width')],
+          defaultValue: 0.0);
+      double leftBorderWidth = borderWidth != 0.0
+          ? borderWidth
+          : WXDouble.parse(data.map[getAttributeKey('border-left-width')],
+              defaultValue: 0.0);
+      double rightBorderWidth = borderWidth != 0.0
+          ? borderWidth
+          : WXDouble.parse(data.map[getAttributeKey('border-right-width')],
+              defaultValue: 0.0);
+      double topBorderWidth = borderWidth != 0.0
+          ? borderWidth
+          : WXDouble.parse(data.map[getAttributeKey('border-top-width')],
+              defaultValue: 0.0);
+      double bottomBorderWidth = borderWidth != 0.0
+          ? borderWidth
+          : WXDouble.parse(data.map[getAttributeKey('border-bottom-width')],
+              defaultValue: 0.0);
+      bool haveBorderWidthValue = leftBorderWidth +
+              rightBorderWidth +
+              topBorderWidth +
+              bottomBorderWidth >
+          0;
+
+      /// border-radius
+      double radiusValue = WXDouble.parse(
+          data.map[getAttributeKey("border-radius")],
+          defaultValue: 0.0);
+      Radius radius = Radius.circular(radiusValue);
+      Radius topLeftBorderRadius = radius != Radius.zero
+          ? radius
+          : Radius.circular(WXDouble.parse(
+              data.map[getAttributeKey("border-top-left-radius")],
+              defaultValue: 0.0));
+      Radius topRightBorderRadius = radius != Radius.zero
+          ? radius
+          : Radius.circular(WXDouble.parse(
+              data.map[getAttributeKey("border-top-left-radius")],
+              defaultValue: 0.0));
+      Radius bottomLeftBorderRadius = radius != Radius.zero
+          ? radius
+          : Radius.circular(WXDouble.parse(
+              data.map[getAttributeKey("border-bottom-left-radius")],
+              defaultValue: 0.0));
+      Radius bottomRightBorderRadius = radius != Radius.zero
+          ? radius
+          : Radius.circular(WXDouble.parse(
+              data.map[getAttributeKey("border-bottom-right-radius")],
+              defaultValue: 0.0));
+
+      Border border = Border(
+          left: BorderSide(color: leftBorderColor, width: leftBorderWidth),
+          right: BorderSide(color: rightBorderColor, width: rightBorderWidth),
+          top: BorderSide(color: topBorderColor, width: topBorderWidth),
+          bottom:
+              BorderSide(color: bottomBorderColor, width: bottomBorderWidth));
+
+      BorderRadius borderRadius = BorderRadius.only(
+          topLeft: topLeftBorderRadius,
+          topRight: topRightBorderRadius,
+          bottomLeft: bottomLeftBorderRadius,
+          bottomRight: bottomRightBorderRadius);
+
+      /// Fixed  Exception caught by rendering library
+      /// A borderRadius can only be given for a uniform Border.
+      if (borderWidth == 0.0 && haveBorderWidthValue) {
+        borderRadius = null;
+      }
+
+      result = BoxDecoration(
+          gradient: LinearGradient(
+              colors: WXColor.parseColors(
+                  data.map[getAttributeKey("linear-gradient")],
+                  defaultValue: [defaultColor, defaultColor])),
+          border: border,
+          borderRadius: borderRadius,
+          color: defaultColor,
+          boxShadow: [
+            BoxShadow(
+                color: defaultColor,
+                offset: Offset(
+                    WXDouble.parse(data.map[getAttributeKey("offset-x")],
+                        defaultValue: 0.0),
+                    WXDouble.parse(data.map[getAttributeKey("offset-y")],
+                        defaultValue: 0.0)),
+                blurRadius: WXDouble.parse(
+                    data.map[getAttributeKey("blur-radius")],
+                    defaultValue: 0.0),
+                spreadRadius: WXDouble.parse(
+                    data.map[getAttributeKey("spread-radius")],
+                    defaultValue: 0.0))
+          ]);
+    }
+    return result;
+  }
+}
 
 class WXColor {
-  static Color parseColor(String str, {Color defaultValue = Colors.transparent}) {
+  static Color parseColor(String str,
+      {Color defaultValue = Colors.transparent}) {
     Color color = defaultValue;
     if (null != str) {
       if (str.startsWith('#')) {
@@ -608,10 +778,12 @@ class WXColor {
     }
   }
 
-  static Color parse(WXProperty value, {Color defaultValue}) {
+  static Color parse(WXProperty value,
+      {Color defaultValue = Colors.transparent}) {
     Color result = defaultValue;
     if (null != value) {
-      result = WXColor.parseColor(value.getValue(), defaultValue: null);
+      result = WXColor.parseColor(value.getValue(),
+          defaultValue: Colors.transparent);
     }
     return result;
   }
@@ -629,7 +801,8 @@ class WXColor {
     return result;
   }
 
-  static Color _getColor(String str, {Color defaultValue = Colors.transparent}) {
+  static Color _getColor(String str,
+      {Color defaultValue = Colors.transparent}) {
     switch (str) {
       case 'white':
         return Colors.white;
@@ -669,7 +842,6 @@ class WXColor {
         return defaultValue;
     }
   }
-
 }
 
 String _removePx(String pxString) {
@@ -682,6 +854,13 @@ String _removePx(String pxString) {
   return pxString;
 }
 
+int hexToInt(String hex) {
+  if (hex == null) {
+    return 0;
+  }
+  int val = int.parse(hex, radix: 16);
+  return val;
+}
 
 String getAttributeKey(String v) {
   String value = cssStyle2DomStyle(v);
@@ -689,9 +868,9 @@ String getAttributeKey(String v) {
 }
 
 String cssStyle2DomStyle(String sName) {
-  var name=sName.split("-");
-  for(int i=1;i<name.length;i++){
-    name[i]=name[i].substring(0,1).toUpperCase()+name[i].substring(1);
+  var name = sName.split("-");
+  for (int i = 1; i < name.length; i++) {
+    name[i] = name[i].substring(0, 1).toUpperCase() + name[i].substring(1);
   }
   return name.join('');
 }

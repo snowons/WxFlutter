@@ -31,12 +31,6 @@ abstract class WXBaseWidget extends StatelessWidget {
     data.value.children = children;
   }
 
-  void updateProperties(Map<String, WXProperty> properties) {
-    var newData = WXData(properties);
-    newData.children = data.value.children;
-    data.value = newData;
-  }
-
   void updateProperty(dynamic it) {
     it.forEach((k, v) {
       var property = component.properties[k];
@@ -47,12 +41,6 @@ abstract class WXBaseWidget extends StatelessWidget {
     });
     var newData = WXData(component.properties);
     newData.children = data.value.children;
-    data.value = newData;
-  }
-
-  void updateChildren(List<WXBaseWidget> children) {
-    var newData = WXData(data.value.map);
-    newData.children = children;
     data.value = newData;
   }
 
@@ -75,10 +63,14 @@ abstract class WXBaseWidget extends StatelessWidget {
     data.value = newData;
   }
 
-  void insertChildren(int index, List<WXBaseWidget> children) {
+  void removeChildren(WXBaseWidget children) {
     var newData = WXData(data.value.map);
-    newData.children = data.value.children;
-    newData.children.insertAll(index, children);
+    if (data.value.children != null) {
+      newData.children = data.value.children;
+    } else {
+      newData.children = [];
+    }
+    newData.children.remove(children);
     data.value = newData;
   }
 

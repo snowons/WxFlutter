@@ -51,18 +51,14 @@ flutter:
   assets:
      - assets/js/wxflutter-weex-js-framework.js
      - assets/js/fetch.js
-     - assets/bundlejs/components/button.js
-     - assets/bundlejs/components/gesture-detector.js
-     - assets/bundlejs/components/image.js
-     - assets/bundlejs/components/list.js
-     - assets/bundlejs/components/text.js
-     - assets/bundlejs/components/text-filed.js
-     - assets/bundlejs/modules/storage.js
-     - assets/bundlejs/modules/navigate.js
-     - assets/bundlejs/modules/timer.js
-     - assets/bundlejs/modules/http.js
-     - assets/bundlejs/demo.js
-     - assets/bundlejs/index.js
+     - assets/wxflutter.app.json
+     - assets/bundlejs/pages/
+     - assets/images/
+
+  fonts:
+    - family: MaterialCommunityIcons
+      fonts:
+        - asset: fonts/MaterialCommunityIcons.ttf
 
 
   #   - images/a_dot_ham.jpeg

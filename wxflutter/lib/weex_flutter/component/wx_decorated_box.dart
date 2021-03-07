@@ -22,28 +22,11 @@ class WXDecoratedBoxStateless extends WXBaseWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
+          BoxDecoration decoration = WXBoxDecoration.parse(data);
           return DecoratedBox(
               key: ObjectKey(component),
               position: WXDecorationPosition.parse(data.map["position"]),
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: WXColor.parseColors(
-                          data.map[getAttributeKey("linear-gradient")])), //背景渐变
-                  borderRadius: BorderRadius.circular(WXDouble.parse(
-                      data.map[getAttributeKey("border-radius")])), //3像素圆角
-                  boxShadow: [
-                    //阴影
-                    BoxShadow(
-                        color: WXColor.parse(
-                            data.map[getAttributeKey("boxShadow-color")]),
-                        offset: Offset(
-                            WXDouble.parse(
-                                data.map[getAttributeKey("offset-x")]),
-                            WXDouble.parse(
-                                data.map[getAttributeKey("offset-y")])),
-                        blurRadius: WXDouble.parse(
-                            data.map[getAttributeKey("blur-radius")]))
-                  ]),
+              decoration: decoration,
               child: getDataChildern(data));
         },
         valueListenable: this.data);

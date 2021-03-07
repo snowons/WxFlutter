@@ -21,7 +21,7 @@ class WXEventBusManager {
     if (eventName == null) {
       return;
     }
-    if(events[eventName] != null) {
+    if(events[eventName] == null) {
       events[eventName] = new List<WXJSCallback>();
     }
     events[eventName].add(callback);
@@ -51,7 +51,7 @@ class WXEventBusManager {
     int len = list.length - 1;
     for (var i = len; i > -1; --i) {
       WXJSCallback callback = list[i];
-      callback.invoke(data);
+      callback.invoke(data,keepAlive: true);
     }
   }
 }

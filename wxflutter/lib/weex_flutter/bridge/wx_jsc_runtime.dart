@@ -233,6 +233,7 @@ class WXJSCRuntime extends JavascriptRuntime {
         JSValue objValue = JSValuePointer(jsValueRef).getValue(context, 0);
 
         String serialized = objValue.createJSONString(null).string;
+        // print("serialized "+serialized);
         List<dynamic> items = json.decode(serialized);
         if (items.length > 0) {
           Map item = items[0];

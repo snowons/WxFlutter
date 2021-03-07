@@ -21,7 +21,7 @@ class WXStorage extends WXModule {
            if (callback != null)
             {
               callback.invoke({
-                'code': '1',
+                'code': WXJSCallbackResult.kWXJSCallbackSuccess.index,
                 'data': {'value':value ?? ''}
               });
             }
@@ -34,7 +34,7 @@ class WXStorage extends WXModule {
       if (callback != null)
         {
           callback.invoke({
-            'code': '1',
+            'code': WXJSCallbackResult.kWXJSCallbackSuccess.index,
           })
         }
     });
@@ -46,7 +46,7 @@ class WXStorage extends WXModule {
       if (callback != null)
         {
           callback.invoke({
-            'code': '1',
+            'code': WXJSCallbackResult.kWXJSCallbackSuccess.index,
             'data': {'value':value ?? ''}
           })
         }
@@ -59,7 +59,7 @@ class WXStorage extends WXModule {
       if (callback != null)
         {
           callback.invoke({
-            'code': '1'
+            'code': WXJSCallbackResult.kWXJSCallbackSuccess.index
           })
         }
     });

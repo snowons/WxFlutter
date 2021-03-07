@@ -25,7 +25,7 @@ class WXVisibilityStateless extends WXBaseWidget {
           return Visibility(
               key: ObjectKey(component),
               visible: WXBool.parse(data.map[getAttributeKey('visible')],
-                  defaultValue: true),
+                  defaultValue: false),
               child: getDataChildern(data),
               replacement: data.children != null && data.children.length > 1
                   ? data.children[1]

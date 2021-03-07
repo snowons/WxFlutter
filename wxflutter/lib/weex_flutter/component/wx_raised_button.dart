@@ -26,21 +26,29 @@ class WXRaisedButtonStateless extends WXBaseWidget {
     }
   }
 
+  void _onLongPress() {
+    var event = getEvent("onLongPress");
+    if (null != event) {
+      onTapEvent(methodChannel, pageId, component.ref, null, event);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
           Color color = WXColor.parse(data.map['color']);
-          Color textColor = WXColor.parse(data.map['text-color']);
-          Color disabledTextColor = WXColor.parse(data.map['disabled-text-color']);
-          Color disabledColor = WXColor.parse(data.map['disabled-color']);
-          Color focusColor = WXColor.parse(data.map['focus-color']);
-          Color hoverColor = WXColor.parse(data.map['hover-color']);
-          Color highlightColor = WXColor.parse(data.map['highlight-color']);
-          Color splashColor = WXColor.parse(data.map['splash-color']);
+          Color textColor = WXColor.parse(data.map[getAttributeKey('text-color')]);
+          Color disabledTextColor = WXColor.parse(data.map[getAttributeKey('disabled-text-color')]);
+          Color disabledColor = WXColor.parse(data.map[getAttributeKey('disabled-color')]);
+          Color focusColor = WXColor.parse(data.map[getAttributeKey('focus-color')]);
+          Color hoverColor = WXColor.parse(data.map[getAttributeKey('hover-color')]);
+          Color highlightColor = WXColor.parse(data.map[getAttributeKey('highlight-color')]);
+          Color splashColor = WXColor.parse(data.map[getAttributeKey('splash-color')]);
 
           return RaisedButton(
               onPressed: _pressed,
+              onLongPress:_onLongPress,
               key: ObjectKey(component),
               textColor: textColor,
               disabledTextColor: disabledTextColor,

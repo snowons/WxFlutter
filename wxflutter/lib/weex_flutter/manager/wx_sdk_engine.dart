@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
+import 'dart:convert' as convert;
+import 'dart:io' show Platform;
 import 'package:weex_flutter_demo/weex_flutter/bridge/wx_jsc_runtime_manager.dart';
 import 'package:get_it/get_it.dart';
 
@@ -8,6 +10,8 @@ import '../util/wx_device_utils.dart';
 import '../service/wx_navigate_service.dart';
 import '../service/wx_focus_scope.dart';
 import 'wx_downloader_manager.dart';
+import '../manager/wx_web_socket_manager.dart';
+import '../bridge/wx_jsc_runtime_manager.dart';
 
 final GetIt locator = GetIt.instance;
 
@@ -28,7 +32,32 @@ class WXSdkEngine with WXJSMessageHandler{
   }
 
   initSDKEnvironment() {
-    // dowloader
+    /// In development mode：live-reload
+    if(Platform.isIOS || Platform.isAndroid) {
+      WXWebSocketManager().initWebSocket(onOpen: () {
+      }, onMessage: (data) {
+        Map<String,dynamic> res = convert.jsonDecode(data);
+        if(res != null && res.containsKey('REFRESH')) {
+          WXLog.log("WebSocket","WebSocket REFRESH:$data['REFRESH']");
+
+          Map<String, WXJSMessageHandler> handlers = WXJSCRuntimeManager().handlers;
+          if(handlers!=null && handlers.isNotEmpty) {
+            handlers.forEach((key, value) {
+              if(key != 'root') {
+                value.onMessage('reload', null);
+              }
+            });
+          }
+        } else {
+          WXLog.log("WebSocket",'WebSocket onMessage:$data');
+        }
+
+      }, onError: (e) {
+        WXLog.error("WebSocket",'WebSocket onError:$e');
+      });
+    }
+
+    // init downloader
     WXDownloaderManager.initDownloadPath();
     //get_it
     setupLocator();

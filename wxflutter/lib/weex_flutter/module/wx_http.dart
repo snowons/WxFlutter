@@ -45,6 +45,7 @@ class WXHttp extends WXModule {
     response.then((value) {
       if(callback != null) {
         callback.invoke({
+          'code':WXJSCallbackResult.kWXJSCallbackSuccess.index,
           'ok':value.statusMessage == 'OK',
           'statusCode':value.statusCode,
           'data':value.data,

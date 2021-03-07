@@ -30,6 +30,32 @@ class WXComponentManager {
     parentWidget.addChildren(children);
 
     _widgetMap.putIfAbsent(component.ref, () => widget);
+
+    List<dynamic> componentsChildren = data['children'];
+    if(componentsChildren != null && componentsChildren.length > 0) {
+      for(int i = 0; i < componentsChildren.length; i++) {
+        var child = componentsChildren[i];
+        child['parentRef'] = data['ref'];
+        addElement(child,id:id);
+      }
+    }
+  }
+
+  void removeElement(Map<String, dynamic> data, {id}) {
+    List<dynamic> list = data['args'];
+    if(list != null && list.length > 0) {
+      for(int i = 0; i < list.length; i++) {
+        var ref = list[i];
+
+        WXBaseWidget parent = _widgetMap[ref]?.parent;
+        parent.removeChildren(_widgetMap[ref]);
+        _widgetMap.remove(ref);
+        WXComponent component = _componentMap[ref]?.parent;
+        if(component!= null) {
+          _componentMap.remove(ref);
+        }
+      }
+    }
   }
 
   void updateAttrs(Map<String, dynamic> data, {id}) {

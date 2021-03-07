@@ -24,10 +24,10 @@ class WXFractionallySizedBoxStateless extends WXBaseWidget {
         builder: (BuildContext context, WXData data, Widget child) {
           var widthFactor = WXDouble.parse(
               data.map[getAttributeKey('width-factor')],
-              defaultValue: 0);
+              defaultValue: 1);
           var heightFactor = WXDouble.parse(
               data.map[getAttributeKey('height-factor')],
-              defaultValue: 0);
+              defaultValue: 1);
           return FractionallySizedBox(
               key: ObjectKey(component),
               widthFactor: widthFactor,

@@ -6,7 +6,9 @@
 
 import 'dart:convert';
 
+import 'package:weex_flutter_demo/weex_flutter/module/wx_event_bus.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_system.dart';
+import 'package:weex_flutter_demo/weex_flutter/module/wx_wx_flutter.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_http.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_storage.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
@@ -21,10 +23,22 @@ class WXModuleFactoryImpl extends WXModuleFactory {
   WXModuleFactoryImpl._init() {}
   final Map<String, List<Map<String, dynamic>>> innerMap =
       <String, List<Map<String, dynamic>>>{
+    'eventBus': [
+      {
+        'clazz': WXEventBus,
+        'methods': ['on', 'off', 'emit']
+      }
+    ],
     'system': [
       {
         'clazz': WXSystem,
         'methods': ['requestFocus']
+      }
+    ],
+    'wxFlutter': [
+      {
+        'clazz': WXWxFlutter,
+        'methods': ['invoke']
       }
     ],
     'http': [
@@ -60,8 +74,12 @@ class WXModuleFactoryImpl extends WXModuleFactory {
 
   dynamic instanceFromClazz(Type clazz) {
     switch (clazz) {
+      case WXEventBus:
+        return new WXEventBus();
       case WXSystem:
         return new WXSystem();
+      case WXWxFlutter:
+        return new WXWxFlutter();
       case WXHttp:
         return new WXHttp();
       case WXStorage:
