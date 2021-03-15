@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 70);
+/******/ 	return __webpack_require__(__webpack_require__.s = 81);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 70:
+/***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(71)
+__vue_styles__.push(__webpack_require__(82)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(72)
+__vue_exports__ = __webpack_require__(83)
 
 /* template */
-var __vue_template__ = __webpack_require__(73)
+var __vue_template__ = __webpack_require__(84)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,7 +113,7 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 71:
+/***/ 82:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -156,12 +156,15 @@ module.exports = {
     "paddingTop": 5,
     "paddingBottom": 5,
     "color": "#ebebeb"
+  },
+  "label-text": {
+    "fontSize": "18"
   }
 }
 
 /***/ }),
 
-/***/ 72:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -217,13 +220,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 73:
+/***/ 84:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('column', [_c('container', {
     staticClass: ["label-container"]
-  }, [_c('text', [_vm._v("start")])]), _c('row', {
+  }, [_c('text', {}, [_vm._v("start")])]), _c('row', {
     staticClass: ["start"]
   }, [_c('text', {
     staticClass: ["red-text"]
@@ -233,7 +236,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["blue-text"]
   }, [_vm._v("Text3")])]), _c('container', {
     staticClass: ["label-container"]
-  }, [_c('text', [_vm._v("center")])]), _c('row', {
+  }, [_c('text', {}, [_vm._v("center")])]), _c('row', {
     staticClass: ["center"]
   }, [_c('text', {
     staticClass: ["red-text"]
@@ -243,7 +246,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["blue-text"]
   }, [_vm._v("Text3")])]), _c('container', {
     staticClass: ["label-container"]
-  }, [_c('text', [_vm._v("end")])]), _c('row', {
+  }, [_c('text', {}, [_vm._v("end")])]), _c('row', {
     staticClass: ["end"]
   }, [_c('text', {
     staticClass: ["red-text"]
@@ -253,7 +256,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["blue-text"]
   }, [_vm._v("Text3")])]), _c('container', {
     staticClass: ["label-container"]
-  }, [_c('text', [_vm._v("rtl")])]), _c('row', {
+  }, [_c('text', {}, [_vm._v("rtl")])]), _c('row', {
     staticClass: ["rtl"]
   }, [_c('text', {
     staticClass: ["red-text"]

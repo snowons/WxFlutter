@@ -19,9 +19,7 @@ export default {
     },
     computed: {
         getEnv() {
-
             if (weex.config) {
-                return weex.config;
                 return JSON.stringify(weex.config, null, '  ')
             }
             return 'weex.config = null'

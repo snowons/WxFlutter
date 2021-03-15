@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 90);
+/******/ 	return __webpack_require__(__webpack_require__.s = 101);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 90:
+/***/ 101:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(91)
+__vue_styles__.push(__webpack_require__(102)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(92)
+__vue_exports__ = __webpack_require__(103)
 
 /* template */
-var __vue_template__ = __webpack_require__(93)
+var __vue_template__ = __webpack_require__(104)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,25 +113,28 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 91:
+/***/ 102:
 /***/ (function(module, exports) {
 
 module.exports = {
-  "column": {
-    "crossAxisAlignment": "center",
-    "mainAxisAlignment": "center"
+  "container": {
+    "paddingTop": 20,
+    "paddingRight": 20,
+    "paddingBottom": 20,
+    "paddingLeft": 20,
+    "alignment": "top-center"
   },
   "padding": {
-    "paddingTop": "30",
-    "paddingRight": "30",
-    "paddingBottom": "30",
-    "paddingLeft": "30"
+    "paddingTop": 10,
+    "paddingRight": 10,
+    "paddingBottom": 10,
+    "paddingLeft": 10
   }
 }
 
 /***/ }),
 
-/***/ 92:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,40 +158,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
-const wx = weex.requireModule('wx');
+const wx = weex.requireModule('wxFlutter');
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        return {
-            value: '',
-            inputValue: ''
-        };
+        return {};
     },
     computed: {},
-    created() {
-        this.onGetClick();
-    },
+    created() {},
     methods: {
 
         onUpdateTitleClick() {
             wx.invoke({
                 method: 'updateTitle',
-                title: 'TestDemo'
+                title: 'Test updateTitle'
+            }, ret => {
+                console.log("updateTitle callback");
             });
         },
         onSetNavigationBarColorClick() {
             wx.invoke({
                 method: 'setNavigationBarColor',
-                appBarColor: '#ffff00'
+                appBarColor: '#ff0000'
+            }, ret => {
+                console.log("setNavigationBarColor callback");
             });
         },
         onBackgroundColorClick() {
             wx.invoke({
-                method: 'backgroundColor',
-                backgroundColor: '#ff0000'
+                method: 'setBackgroundColor',
+                backgroundColor: '#00ffff'
+            }, ret => {
+                console.log("setBackgroundColor callback");
             });
         }
     }
@@ -196,14 +198,14 @@ const wx = weex.requireModule('wx');
 
 /***/ }),
 
-/***/ 93:
+/***/ 104:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('column', {
+  return _c('container', {
+    staticClass: ["container"]
+  }, [_c('column', {
     staticClass: ["column"]
-  }, [_c('padding', {
-    staticClass: ["padding"]
   }, [_c('raised-button', {
     staticStyle: {
       color: "red"
@@ -216,9 +218,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       fontSize: "14px",
       color: "white"
     }
-  }, [_vm._v("updateTitle")])])], 1), _c('padding', {
-    staticClass: ["padding"]
-  }, [_c('raised-button', {
+  }, [_vm._v("updateTitle")])]), _c('raised-button', {
     staticStyle: {
       color: "green"
     },
@@ -230,7 +230,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       fontSize: "14px",
       color: "white"
     }
-  }, [_vm._v("backgroundColor")])]), _c('padding', [_c('padding', [_c('raised-button', {
+  }, [_vm._v("backgroundColor")])]), _c('raised-button', {
     staticStyle: {
       color: "blue"
     },
@@ -242,7 +242,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       fontSize: "14px",
       color: "white"
     }
-  }, [_vm._v("setNavigationBarColor")])])], 1)], 1)], 1)], 1)
+  }, [_vm._v("setNavigationBarColor")])])], 1)], 1)
 },staticRenderFns: []}
 
 /***/ })

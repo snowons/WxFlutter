@@ -6,6 +6,11 @@
                     <text class="text">Push a WeexPage</text>
                 </container>
             </gesture-detector>
+            <gesture-detector @onTapDown="onPushWithParams">
+                <container class="summary-container">
+                    <text class="text">Push a WeexPage with params</text>
+                </container>
+            </gesture-detector>
             <gesture-detector @onTapDown="onPop">
                 <container class="summary-container">
                     <text class="text">Back</text>
@@ -20,6 +25,19 @@ const navigate = weex.requireModule('navigate')
 export default {
     data() {
         return {
+            params: {
+                a: 1,
+                b: 'string',
+                c: ['1', 2, {}],
+                d: {
+                    e: [{
+                        k: "v"
+                    }],
+                    f: {
+                        g: ['1', '2', '3']
+                    }
+                }
+            }
         }
     },
     computed: {
@@ -36,11 +54,16 @@ export default {
     methods: {
         onPush() {
             navigate.push({
-                title: 'Text',
-                uri: 'text.js',
-                type: 'components',
-                path: '',
-                url: ''
+                title: "Evn",
+                url: "/pages/examples/env.js"
+            }, callback => {
+            })
+        },
+        onPushWithParams() {
+            navigate.push({
+                title: "Evn & Params",
+                url: "/pages/examples/env.js",
+                params: this.params
             }, callback => {
             })
         },
@@ -59,5 +82,8 @@ export default {
     color: white;
     padding: 10;
     margin-top: 20;
+}
+.text {
+    font-size: 20px;
 }
 </style>

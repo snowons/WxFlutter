@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 61);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 53:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(54)
+__vue_styles__.push(__webpack_require__(62)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(55)
+__vue_exports__ = __webpack_require__(63)
 
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(64)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,16 +113,12 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 54:
+/***/ 62:
 /***/ (function(module, exports) {
 
 module.exports = {
-  "scroll-container": {
-    "widthFactor": 1,
-    "heightFactor": 1
-  },
-  "column": {
-    "crossAxisAlignment": "start"
+  "root": {
+    "alignment": "center"
   },
   "padding": {
     "paddingTop": "30",
@@ -134,7 +130,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 55:
+/***/ 63:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,60 +151,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
-const eventBus = weex.requireModule('eventBus');
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
         return {
-            list: 20,
-            name: 'Snow',
             index: 0
         };
     },
     computed: {},
-    created() {
-        setTimeout(() => {
-            this.name = 'P Man';
-        }, 3000);
-        eventBus.on('tabBarClick', ret => {
-            // console.log("ret " + JSON.stringify(ret));
-            this.index = ret.index;
-        });
-    },
-    methods: {}
+    created() {},
+    methods: {
+        onClick() {
+            this.index = this.index == 0 ? 1 : 0;
+        }
+    }
 });
 
 /***/ }),
 
-/***/ 56:
+/***/ 64:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('indexed-stack', {
-    staticClass: ["column"],
+  return _c('column', [_c('raised-button', {
+    staticClass: ["btn"],
+    on: {
+      "onPressed": _vm.onClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "24px"
+    }
+  }, [_vm._v("Swith")])]), _c('indexed-stack', {
+    staticClass: ["root"],
     attrs: {
       "index": _vm.index
     }
-  }, [_c('center', [_c('text', {
+  }, [_c('container', {
+    staticStyle: {
+      color: "red",
+      height: "100"
+    }
+  }, [_c('text', {
     staticStyle: {
       fontSize: "27px"
     }
-  }, [_vm._v(_vm._s(_vm.name) + " : Hello World")])]), _c('fractionally-sized-box', {
-    staticClass: ["scroll-container"]
-  }, [_c('single-child-scroll-view', [_c('column', {
-    staticClass: ["column"]
-  }, _vm._l((_vm.list), function(item, i) {
-    return _c('padding', {
-      key: i,
-      staticClass: ["padding"]
-    }, [_c('text', {
-      staticStyle: {
-        fontSize: "27px"
-      }
-    }, [_vm._v(_vm._s(item))])])
-  }))], 1)], 1)], 1)
+  }, [_vm._v("Page:1")])]), _c('center', [_c('text', {
+    staticStyle: {
+      fontSize: "27px"
+    }
+  }, [_vm._v("Page:2")])])], 1)], 1)
 },staticRenderFns: []}
 
 /***/ })

@@ -27,7 +27,7 @@ class WXCircularProgressIndicatorStateless extends WXBaseWidget {
             key: ObjectKey(component),
             value: WXDouble.parse(data.map['value']),
             backgroundColor:
-                WXColor.parse(data.map[getAttributeKey('background-color')]),
+                WXColor.parse(data.map[getAttributeKey('background-color')],defaultValue: Colors.transparent),
 //            valueColor: ,
             strokeWidth: WXDouble.parse(
                 data.map[getAttributeKey("stroke-width")],

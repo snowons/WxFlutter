@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 82);
+/******/ 	return __webpack_require__(__webpack_require__.s = 93);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 82:
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(83)
+__vue_styles__.push(__webpack_require__(94)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(84)
+__vue_exports__ = __webpack_require__(95)
 
 /* template */
-var __vue_template__ = __webpack_require__(85)
+var __vue_template__ = __webpack_require__(96)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,7 +113,7 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 83:
+/***/ 94:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -130,11 +130,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 84:
+/***/ 95:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -159,35 +164,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     created() {},
-    methods: {
-        // Test binding att
-        getTextAtt() {
-            return {
-                a: '1',
-                b: {
-                    c: ['1', '2', '3']
-                }
-            };
-        }
-    }
+    methods: {}
 });
 
 /***/ }),
 
-/***/ 85:
+/***/ 96:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('column', {
     staticClass: ["column"]
-  }, [_c('center', [_c('text', {
+  }, [_c('text', {
     staticStyle: {
-      fontSize: "27px"
-    },
-    attrs: {
-      "att": _vm.getTextAtt()
+      fontSize: "18px"
     }
-  }, [_vm._v(_vm._s(_vm.name) + " : Hello World. " + _vm._s(_vm.index))])])], 1)
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "24px"
+    }
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "36px"
+    }
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "36px",
+      color: "red"
+    }
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "36px",
+      backgroundColor: "red"
+    }
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "48px",
+      inherit: "false",
+      maxLines: "1",
+      overflow: "ellipsis"
+    }
+  }, [_vm._v("WxFlutter:Hello World")]), _c('text', {
+    staticStyle: {
+      fontSize: "48px",
+      maxLines: "20"
+    }
+  }, [_vm._v("WxFlutter:Hello World")])])
 },staticRenderFns: []}
 
 /***/ })

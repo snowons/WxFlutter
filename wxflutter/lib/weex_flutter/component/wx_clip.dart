@@ -22,8 +22,8 @@ class WXClipStateless extends WXBaseWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
-          String type = data.map['type'] as String;
-          if (type.compareTo('ClipOval') == 0) {
+          String type = data.map['type'].getValue();
+          if (type.compareTo('ClipRRect') == 0) {
             return ClipRRect(
               key: ObjectKey(component),
               borderRadius: BorderRadius.circular(WXDouble.parse(
@@ -36,6 +36,14 @@ class WXClipStateless extends WXBaseWidget {
             );
           } else if (type.compareTo('ClipRect') == 0) {
             return ClipRect(
+              key: ObjectKey(component),
+              clipBehavior: WXClip.parse(
+                  data.map[getAttributeKey("clip-behavior")],
+                  defaultValue: Clip.hardEdge),
+              child: getDataChildern(data),
+            );
+          }else if (type.compareTo('ClipOval') == 0) {
+            return ClipOval(
               key: ObjectKey(component),
               clipBehavior: WXClip.parse(
                   data.map[getAttributeKey("clip-behavior")],

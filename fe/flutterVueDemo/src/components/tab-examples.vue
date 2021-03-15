@@ -2,7 +2,7 @@
     <fractionally-sized-box class="scroll-container">
         <single-child-scroll-view>
 
-            <column class="column">
+            <column>
                 <center>
                     <text style="font-size:24px;color:#333333;text-align:center;">{{title}}</text>
                 </center>

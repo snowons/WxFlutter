@@ -23,17 +23,17 @@ class WXTransformStateless extends WXBaseWidget {
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
           String transformType =
-              data.map[getAttributeKey('transform-type')] as String;
-          // scale 缩放
+              data.map[getAttributeKey('transform-type')].getValue();
+          // scale
           if (transformType.compareTo("scale") == 0) {
             return Transform.scale(
                 key: ObjectKey(component),
-                scale: WXDouble.parse(data.map[getAttributeKey('scale')]),
+                scale: WXDouble.parse(data.map[getAttributeKey('scale')],defaultValue: 1.0),
                 origin: Offset(
-                    WXDouble.parse(data.map[getAttributeKey('origin-x')]),
-                    WXDouble.parse(data.map[getAttributeKey('origin-y')])),
+                    WXDouble.parse(data.map[getAttributeKey('origin-x')],defaultValue: 0),
+                    WXDouble.parse(data.map[getAttributeKey('origin-y')],defaultValue: 0)),
                 alignment:
-                    WXAlignment.parse(data.map[getAttributeKey('alignment')]),
+                    WXAlignment.parse(data.map[getAttributeKey('alignment')],defaultValue: Alignment.center),
                 child: getDataChildern(data));
           }
           // translate 平移
@@ -51,10 +51,10 @@ class WXTransformStateless extends WXBaseWidget {
                 key: ObjectKey(component),
                 angle: WXDouble.parse(data.map[getAttributeKey('angle')]),
                 origin: Offset(
-                    WXDouble.parse(data.map[getAttributeKey('origin-x')]),
-                    WXDouble.parse(data.map[getAttributeKey('origin-y')])),
+                    WXDouble.parse(data.map[getAttributeKey('origin-x')],defaultValue: 0),
+                    WXDouble.parse(data.map[getAttributeKey('origin-y')],defaultValue: 0)),
                 alignment:
-                    WXAlignment.parse(data.map[getAttributeKey('alignment')]),
+                    WXAlignment.parse(data.map[getAttributeKey('alignment')],defaultValue:  Alignment.center),
                 child: getDataChildern(data));
           }
           // skew 斜切
@@ -62,24 +62,24 @@ class WXTransformStateless extends WXBaseWidget {
             return Transform(
                 key: ObjectKey(component),
                 origin: Offset(
-                    WXDouble.parse(data.map[getAttributeKey('origin-x')]),
-                    WXDouble.parse(data.map[getAttributeKey('origin-y')])),
+                    WXDouble.parse(data.map[getAttributeKey('origin-x')],defaultValue: 0),
+                    WXDouble.parse(data.map[getAttributeKey('origin-y')],defaultValue: 0)),
                 alignment:
-                    WXAlignment.parse(data.map[getAttributeKey('alignment')]),
+                    WXAlignment.parse(data.map[getAttributeKey('alignment')],defaultValue: Alignment.center),
                 transform: Matrix4.diagonal3Values(
-                    WXDouble.parse(data.map['x']),
-                    WXDouble.parse(data.map['y']),
-                    WXDouble.parse(data.map['z'])),
+                    WXDouble.parse(data.map['x'],defaultValue: 0),
+                    WXDouble.parse(data.map['y'],defaultValue: 0),
+                    WXDouble.parse(data.map['z'],defaultValue: 0)),
                 child: getDataChildern(data));
           }
           // 默认
           return Transform(
               key: ObjectKey(component),
               origin: Offset(
-                  WXDouble.parse(data.map[getAttributeKey('origin-x')]),
-                  WXDouble.parse(data.map[getAttributeKey('origin-y')])),
+                  WXDouble.parse(data.map[getAttributeKey('origin-x')],defaultValue: 0),
+                  WXDouble.parse(data.map[getAttributeKey('origin-y')],defaultValue: 0)),
               alignment:
-                  WXAlignment.parse(data.map[getAttributeKey('alignment')]),
+                  WXAlignment.parse(data.map[getAttributeKey('alignment')],defaultValue: Alignment.center),
               child: getDataChildern(data));
         },
         valueListenable: this.data);

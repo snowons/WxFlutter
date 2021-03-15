@@ -1,7 +1,7 @@
 <template>
     <fractionally-sized-box class="scroll-container">
         <single-child-scroll-view>
-            <column class="column">
+            <column>
                 <center>
                     <text style="font-size:24px;color:#333333;text-align:center;">{{title}}</text>
                 </center>
@@ -67,6 +67,12 @@ export default {
                     }, {
                         "name": "icon",
                         "path": "/pages/icon.js"
+                    }, {
+                        "name": "transform",
+                        "path": "/pages/transform.js"
+                    }, {
+                        "name": "clip",
+                        "path": "/pages/clip.js"
                     }]
                 },
                 {

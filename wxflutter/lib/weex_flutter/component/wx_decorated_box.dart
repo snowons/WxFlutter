@@ -25,7 +25,7 @@ class WXDecoratedBoxStateless extends WXBaseWidget {
           BoxDecoration decoration = WXBoxDecoration.parse(data);
           return DecoratedBox(
               key: ObjectKey(component),
-              position: WXDecorationPosition.parse(data.map["position"]),
+              position: WXDecorationPosition.parse(data.map["position"],defaultValue: DecorationPosition.background),
               decoration: decoration,
               child: getDataChildern(data));
         },

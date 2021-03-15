@@ -23,10 +23,10 @@ class WXPositionedStateless extends WXBaseWidget {
         builder: (BuildContext context, WXData data, Widget child) {
           return Positioned(
               key: ObjectKey(component),
-              left: WXDouble.parse(data.map['left']),
-              right: WXDouble.parse(data.map['right']),
-              top: WXDouble.parse(data.map['top']),
-              bottom: WXDouble.parse(data.map['bottom']),
+              left: WXDouble.parse(data.map['left'],defaultValue: 0),
+              right: WXDouble.parse(data.map['right'],defaultValue: 0),
+              top: WXDouble.parse(data.map['top'],defaultValue: 0),
+              bottom: WXDouble.parse(data.map['bottom'],defaultValue: 0),
               width: WXDouble.parse(data.map['width']),
               height: WXDouble.parse(data.map['height']),
               child: getDataChildern(data));

@@ -32,7 +32,7 @@ class WXTextStateless extends WXBaseWidget {
               key: ObjectKey(component),
               maxLines:WXInt.parse(
                   data.map[getAttributeKey('max-lines')],
-                  defaultValue: 1),
+                  defaultValue: null),
               overflow: WXTextOverflow.parse(
                   data.map[getAttributeKey('overflow')],
                   defaultValue: TextOverflow.visible),

@@ -62,26 +62,34 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 73);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 73:
+/******/ ([
+/* 0 */,
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(74)
+__vue_styles__.push(__webpack_require__(10)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(75)
+__vue_exports__ = __webpack_require__(11)
 
 /* template */
-var __vue_template__ = __webpack_require__(76)
+var __vue_template__ = __webpack_require__(12)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -95,7 +103,7 @@ if (typeof __vue_options__ === "function") {
 
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-9a980286"
+__vue_options__._scopeId = "data-v-6089822d"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -112,8 +120,7 @@ new Vue(module.exports)
 
 
 /***/ }),
-
-/***/ 74:
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -123,10 +130,9 @@ module.exports = {
     "paddingBottom": 5,
     "color": "#ebebeb"
   },
-  "text": {
-    "fontSize": "18",
-    "inherit": "false",
-    "maxLines": 3
+  "container": {
+    "width": "100",
+    "height": "100"
   },
   "label-text": {
     "fontSize": "18"
@@ -134,8 +140,7 @@ module.exports = {
 }
 
 /***/ }),
-
-/***/ 75:
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -158,20 +163,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        return {
-            text: 'The [padding] argument must not be null.The [padding] argument must not be null.'
-        };
+        return {};
     },
     computed: {},
     methods: {}
 });
 
 /***/ }),
-
-/***/ 76:
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -181,26 +251,131 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: ["label-container"]
   }, [_c('text', {
     staticClass: ["label-text"]
-  }, [_vm._v("style=\"padding:20;\"")])]), _c('padding', {
+  }, [_vm._v("color")])]), _c('container', {
+    staticClass: ["container"],
     staticStyle: {
-      padding: "20"
+      color: "red"
     }
-  }, [_c('text', {
-    staticClass: ["text"]
-  }, [_vm._v(_vm._s(_vm.text))])]), _c('container', {
+  }), _c('container', {
     staticClass: ["label-container"]
   }, [_c('text', {
     staticClass: ["label-text"]
-  }, [_vm._v("style:padding-left:20;padding-right:80;")])]), _c('padding', {
+  }, [_vm._v("margin")])]), _c('container', {
+    staticClass: ["container"],
     staticStyle: {
-      paddingLeft: "20",
-      paddingRight: "80"
+      margin: "20",
+      color: "green"
+    }
+  }), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("padding")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      padding: "20",
+      color: "blue"
     }
   }, [_c('text', {
-    staticClass: ["text"]
-  }, [_vm._v(_vm._s(_vm.text))])])], 1)
+    staticStyle: {
+      maxLines: "5"
+    }
+  }, [_vm._v("This padding is in addition to any padding inherent in the [decoration];see [Decoration.padding]")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "top-left"
+    }
+  }, [_c('text', [_vm._v("topLeft")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "top-center"
+    }
+  }, [_c('text', [_vm._v("topCenter")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "top-right"
+    }
+  }, [_c('text', [_vm._v("topRight")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "center"
+    }
+  }, [_c('text', [_vm._v("center")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "center-left"
+    }
+  }, [_c('text', [_vm._v("centerLeft")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "center-right"
+    }
+  }, [_c('text', [_vm._v("centerRight")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "bottom-left"
+    }
+  }, [_c('text', [_vm._v("bottomLeft")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "bottom-center"
+    }
+  }, [_c('text', [_vm._v("bottomCenter")])]), _c('container', {
+    staticClass: ["label-container"]
+  }, [_c('text', {
+    staticClass: ["label-text"]
+  }, [_vm._v("alignment")])]), _c('container', {
+    staticClass: ["container"],
+    staticStyle: {
+      color: "yellow",
+      alignment: "bottom-right"
+    }
+  }, [_c('text', [_vm._v("bottomRight")])]), _c('div', {
+    staticStyle: {
+      height: "30"
+    }
+  })], 1)
 },staticRenderFns: []}
 
 /***/ })
-
-/******/ });
+/******/ ]);

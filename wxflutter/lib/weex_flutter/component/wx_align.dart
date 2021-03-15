@@ -24,11 +24,11 @@ class WXAlignStateless extends WXBaseWidget {
         builder: (BuildContext context, WXData data, Widget child) {
           return Align(
               key: ObjectKey(component),
-              alignment: WXAlignment.parse(data.map['alignment']),
+              alignment: WXAlignment.parse(data.map['alignment'],defaultValue: Alignment.center),
               widthFactor:
-                  WXDouble.parse(data.map[getAttributeKey('width-factor')]),
+                  WXDouble.parse(data.map[getAttributeKey('width-factor')],defaultValue: 1.0),
               heightFactor:
-                  WXDouble.parse(data.map[getAttributeKey('height-factor')]),
+                  WXDouble.parse(data.map[getAttributeKey('height-factor')],defaultValue: 1.0),
               child: getDataChildern(data));
         },
         valueListenable: this.data);

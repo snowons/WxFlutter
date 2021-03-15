@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 63);
+/******/ 	return __webpack_require__(__webpack_require__.s = 70);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 63:
+/***/ 70:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(64)
+__vue_styles__.push(__webpack_require__(71)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(65)
+__vue_exports__ = __webpack_require__(72)
 
 /* template */
-var __vue_template__ = __webpack_require__(66)
+var __vue_template__ = __webpack_require__(73)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,7 +113,7 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 64:
+/***/ 71:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -127,16 +127,24 @@ module.exports = {
     "paddingBottom": 10,
     "paddingLeft": 10,
     "marginTop": 20
+  },
+  "text": {
+    "fontSize": "20"
   }
 }
 
 /***/ }),
 
-/***/ 65:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -158,7 +166,21 @@ const navigate = weex.requireModule('navigate');
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data() {
-        return {};
+        return {
+            params: {
+                a: 1,
+                b: 'string',
+                c: ['1', 2, {}],
+                d: {
+                    e: [{
+                        k: "v"
+                    }],
+                    f: {
+                        g: ['1', '2', '3']
+                    }
+                }
+            }
+        };
     },
     computed: {
         getStyle() {
@@ -173,11 +195,15 @@ const navigate = weex.requireModule('navigate');
     methods: {
         onPush() {
             navigate.push({
-                title: 'Text',
-                uri: 'text.js',
-                type: 'components',
-                path: '',
-                url: ''
+                title: "Evn",
+                url: "/pages/examples/env.js"
+            }, callback => {});
+        },
+        onPushWithParams() {
+            navigate.push({
+                title: "Evn & Params",
+                url: "/pages/examples/env.js",
+                params: this.params
             }, callback => {});
         },
         onPop() {
@@ -188,7 +214,7 @@ const navigate = weex.requireModule('navigate');
 
 /***/ }),
 
-/***/ 66:
+/***/ 73:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -203,6 +229,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('text', {
     staticClass: ["text"]
   }, [_vm._v("Push a WeexPage")])])], 1), _c('gesture-detector', {
+    on: {
+      "onTapDown": _vm.onPushWithParams
+    }
+  }, [_c('container', {
+    staticClass: ["summary-container"]
+  }, [_c('text', {
+    staticClass: ["text"]
+  }, [_vm._v("Push a WeexPage with params")])])], 1), _c('gesture-detector', {
     on: {
       "onTapDown": _vm.onPop
     }

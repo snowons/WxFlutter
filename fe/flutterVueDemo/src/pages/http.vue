@@ -130,5 +130,6 @@ export default {
 .count {
     font-size: 20px;
     color: #888888;
+    max-lines: 10;
 }
 </style>
