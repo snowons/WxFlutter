@@ -79,6 +79,10 @@ class WXComponentManager {
     return widget;
   }
 
+  WXBaseWidget getRootWidgetTree(String pageId) {
+    return _widgetMap[pageId];
+  }
+
   WXBaseWidget _createWidget(WXBaseWidget parent, WXComponent component, {id}) {
     WXBaseWidget widget;
 

@@ -8,3 +8,6 @@ pubspec.lock
 build/
 node_modules
 package-lock.json
+
+fe/flutterVueDemo/dist/
+wxflutter/assets/bundlejs/

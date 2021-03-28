@@ -1,3 +1,6 @@
+import '../util/wx_debug.dart';
+import '../manager/wx_web_socket_manager.dart';
+
 enum WXLogLevel {
   OFF,
   ERROR,
@@ -17,6 +20,11 @@ class WXLog {
     StringBuffer sb = new StringBuffer();
     sb..write(pre)..write(tag ?? '')..write(': ')..write(message);
     print(sb.toString());
+
+    // Log to terminal
+    // if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
+    //   WXWebSocketManager().sendMessage(sb.toString());
+    // }
   }
 
   static void log(String tag,Object message) => _printLog(tag,message, WXLogLevel.Log,'L -> ');

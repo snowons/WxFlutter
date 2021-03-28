@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:weex_flutter_demo/weex_flutter/component/wx_base_widget.dart';
 import 'package:weex_flutter_demo/weex_flutter/manager/wx_sdk_engine.dart';
 import 'package:weex_flutter_demo/weex_flutter/bridge/wx_channel.dart';
 import 'package:weex_flutter_demo/weex_flutter/bridge/wx_jsc_runtime_manager.dart';
@@ -55,7 +56,7 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
 
   String get getPageId => _pageId;
 
-  void _create() async {
+  void _loadBundle() async {
     if (args["title"] != null) {
       updateTitle(args);
     }
@@ -74,7 +75,7 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
         _bundleUrl = "assets/bundlejs${args['url']}";
       }
       args['bundleUrl'] = _bundleUrl;
-      await jscManager.renderPage(_pageId, args, this);
+      jscManager.renderPage(_pageId, args, this);
     } else {
       WXLog.error(kWXFlutterTag,
           "(WXSdkEngine.instance.isFrameworkReady = ${WXSdkEngine.instance.isFrameworkReady}");
@@ -83,10 +84,19 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
 
   void _createComponentTree(Map<String, dynamic> data) {
     var component = _factory.createComponentTree(null, data, id: _pageId);
-    var tree = _factory.createWidgetTree(null, component, id: _pageId);
-    setState(() {
-      _tree = tree;
-    });
+    _factory.createWidgetTree(null, component, id: _pageId);
+
+    /// @append=tree
+    List children = data['children'];
+    if(children != null && children.length > 0) {
+      children.forEach((element) {
+         _factory.addElement({
+          'parentRef':component.ref,
+           ...element
+
+        },id: _pageId);
+      });
+    }
   }
 
   void reloadPage() {
@@ -96,7 +106,7 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
       });
       _factory.clear();
       _callOnUnload();
-      _create();
+      _loadBundle();
     }
   }
 
@@ -178,7 +188,7 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
   @override
   void initState() {
     super.initState();
-    _create();
+    _loadBundle();
   }
 
   @override
@@ -216,9 +226,35 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
             backgroundColor: _appBarColor,
           ),
           backgroundColor: _backgroundColor,
-          body: _tree);
+        body: _tree);
     }
   }
+
+  // FutureBuilder<Widget> _buildBody(BuildContext context)  {
+  //   return FutureBuilder<Widget>(
+  //     future: _buildWidget(context),
+  //     builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+  //       if (snapshot.hasError) {
+  //         print(snapshot.error);
+  //       }
+  //       return snapshot.hasData
+  //           ? SizedBox.expand(
+  //         child: snapshot.data,
+  //       )
+  //           : Center(child:Text("Loading..."));
+  //     },
+  //   );
+  // }
+  //
+  // Future<Widget> _buildWidget(BuildContext context) async {
+  //   _loadBundle();
+  //   return Future.delayed(
+  //       Duration(milliseconds: 2000), ()  {
+  //       WXBaseWidget tree = _factory.getRootWidgetTree('_root');
+  //       _tree = tree;
+  //       return _tree;
+  //   });
+  // }
 
   @override
   void onMessage(String method, Map<String, dynamic> params) {
@@ -247,6 +283,12 @@ class WXMainPageState extends State<WXBasePage> with WXJSMessageHandler {
         break;
       case 'callNativeComponent':
         _factory.callNativeComponent(params);
+        break;
+      case  'createFinish':
+        setState(() {
+            WXBaseWidget tree = _factory.getRootWidgetTree('_root');
+            _tree = tree;
+          });
         break;
       case 'reload':
         reloadPage();

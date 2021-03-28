@@ -49,20 +49,6 @@ class WXJSCRuntime extends JavascriptRuntime {
         nullptr);
     free(funcNameCString);
 
-    // Pointer<Utf8> funcNameCString1 = Utf8.toUtf8('callNativeModule');
-    // var functionObject1 = jSObjectMakeFunctionWithCallback(
-    //     _globalContext,
-    //     jSStringCreateWithUTF8CString(funcNameCString1),
-    //     Pointer.fromFunction(sendMessageBridgeFunction1));
-    // jSObjectSetProperty(
-    //     _globalContext,
-    //     _globalObject,
-    //     jSStringCreateWithUTF8CString(funcNameCString1),
-    //     functionObject1,
-    //     jsObject.JSPropertyAttributes.kJSPropertyAttributeNone,
-    //     nullptr);
-    // free(funcNameCString1);
-
     init();
   }
 
@@ -131,28 +117,6 @@ class WXJSCRuntime extends JavascriptRuntime {
     channelFunctionCallbacks[channelName] = fn;
 
     return true;
-  }
-
-  static Pointer sendMessageBridgeFunction1(
-      Pointer ctx,
-      Pointer function,
-      Pointer thisObject,
-      int argumentCount,
-      Pointer<Pointer> arguments,
-      Pointer<Pointer> exception) {
-    // JSValuePointer(exception).getValue(JSContext(ctx));
-    // JSValue exceptionValue =JSValuePointer(exception).getValue(JSContext(ctx));
-    // if (exceptionValue.isObject) {
-    //   String errorString = 'ERROR: ${exceptionValue.toObject().getProperty("message").string}';
-    //   throw Exception(errorString);
-    // }
-
-    if (_sendMessageDartFunc != null) {
-      _sendMessageDartFunc(
-          ctx, function, thisObject, argumentCount, arguments, exception);
-    }
-
-    return nullptr;
   }
 
   static Pointer sendMessageBridgeFunction(

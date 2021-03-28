@@ -143,7 +143,7 @@ class WXListViewStateless extends WXBaseWidget {
                         defaultValue: true),
                     cacheExtent:
                         WXDouble.parse(data.map[getAttributeKey("cache-extent")]),
-                    children: data.children,
+                    children: data.children ?? [],
                     semanticChildCount: WXInt.parse(data.map[getAttributeKey("semantic-child-count")]));
               },
               valueListenable: this.data)),

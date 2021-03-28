@@ -106,8 +106,7 @@ class WXWebSocketManager {
     if (_webSocket != null) {
       switch (_socketStatus) {
         case SocketStatus.SocketStatusConnected:
-          WXLog.log('WebSocket', 'WebSocket send message: $message');
-
+          // WXLog.log('WebSocket', 'WebSocket send message: $message');
           _webSocket.sink.add(message);
           break;
         case SocketStatus.SocketStatusClosed:

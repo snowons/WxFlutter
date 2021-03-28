@@ -6,6 +6,8 @@ import '../model/wx_component.dart';
 import '../model/wx_data.dart';
 import '../annotation/annotation_obj.dart';
 import './wx_base_widget.dart';
+import '../util/wx_obj_parse.dart';
+
 
 
 @Component("gesture-detector,GestureDetector")
@@ -63,7 +65,10 @@ class WXGestureDetectorStateless extends WXBaseWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
         builder: (BuildContext context, WXData data, Widget child) {
+          HitTestBehavior behavior = WXHitTestBehavior.parse(data.map[getAttributeKey('behavior')],
+              defaultValue: HitTestBehavior.deferToChild);
           return GestureDetector(
+              behavior:behavior,
               onTapDown: _tapDown,
               onTapUp: _tapUp,
               onTapCancel: _tapCancel,

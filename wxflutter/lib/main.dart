@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:weex_flutter_demo/weex_flutter/manager/wx_sdk_engine.dart';
@@ -10,9 +12,17 @@ import 'weex_flutter/wx_base_page.dart';
 import 'weex_flutter/wx_module_componet.dart';
 
 void main() {
+  /// debug
+  // debugPrintBeginFrameBanner = true;
+  // debugPrintEndFrameBanner = true;
+  // debugPrintScheduleBuildForStacks = true;
+  // debugPrintRebuildDirtyWidgets = true;
+  // debugProfilePaintsEnabled = true;
+  // debugProfileLayoutsEnabled = true;
+  // debugProfileBuildsEnabled = true;
+
   initializeReflectable();
   WidgetsFlutterBinding.ensureInitialized();
-
   WXSdkEngine.instance.initSDKEnvironment();
 
   runApp(new MyApp());

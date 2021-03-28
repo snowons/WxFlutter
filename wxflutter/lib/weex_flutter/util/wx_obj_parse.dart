@@ -756,6 +756,28 @@ class WXBoxDecoration {
   }
 }
 
+class WXHitTestBehavior {
+  static HitTestBehavior parse(WXProperty value, {HitTestBehavior defaultValue}) {
+    HitTestBehavior result = defaultValue;
+    if (null == value) return result;
+    switch (getAttributeKey(value.getValue())) {
+      case 'deferToChild':
+        result = HitTestBehavior.deferToChild;
+        break;
+      case 'opaque':
+        result = HitTestBehavior.opaque;
+        break;
+        case 'translucent':
+      result = HitTestBehavior.translucent;
+      break;
+      default:
+        result = defaultValue;
+        break;
+    }
+    return result;
+  }
+}
+
 class WXColor {
   static Color parseColor(String str,
       {Color defaultValue = Colors.transparent}) {

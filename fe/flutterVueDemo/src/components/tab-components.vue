@@ -10,7 +10,7 @@
                 </padding>
 
                 <column class="column" v-for="(v,i) in list" :key="i">
-                    <gesture-detector @onTapDown="onGroupClick(v)">
+                    <gesture-detector class="gesture-detector" @onTapDown="onGroupClick(v)">
                         <div class="group" :style="{color:v.expanded?'#ebebeb':'#ffffff'}">
                             <row class="row">
                                 <text style="font-size: 22;color:#333333;">{{v.title}}</text>
@@ -119,6 +119,8 @@ export default {
             return Icons.material_community_icons[name]
         },
         onGroupClick(item) {
+            var timestamp = new Date().getTime()
+            console.log("onGroupClick timestamp = " + timestamp)
             item.expanded = !item.expanded
         },
         onItemClick(item) {

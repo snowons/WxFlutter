@@ -1,5 +1,5 @@
 <template>
-    <list-view class="start">
+    <list-view class="start" append="tree">
         <container class="label-container">
             <text class="label-text">color</text>
         </container>

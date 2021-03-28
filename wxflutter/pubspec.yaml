@@ -1,6 +1,7 @@
 name: weex_flutter_demo
-description: Demonstrates how to use the flutter_jscore plugin.
+description: Written in VueJS, rendered by Flutter.
 publish_to: 'none'
+version: 0.0.1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -53,6 +54,7 @@ flutter:
      - assets/js/fetch.js
      - assets/wxflutter.app.json
      - assets/bundlejs/pages/
+     - assets/bundlejs/pages/examples/
      - assets/images/
 
   fonts:

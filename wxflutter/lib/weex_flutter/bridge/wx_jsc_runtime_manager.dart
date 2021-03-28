@@ -245,12 +245,11 @@ class WXJSCRuntimeManager {
     runtime.onMessage('createFinish', (dynamic data) {
       try {
         /// TODO
-        // dynamic args = data['args'];
-        // var pageId = data['pageId'];
-        //
-        // WXJSMessageHandler handler = handlers[pageId];
-        // handler.onMessage('createFinish', null);
-        WXLog.log(kWXFlutterTag, 'createFinish: ##');
+        dynamic args = data['args'];
+        var pageId = data['pageId'];
+
+        WXJSMessageHandler handler = handlers[pageId];
+        handler.onMessage('createFinish', null);
       } on Exception catch (e) {
         WXLog.error(kWXFlutterTag, 'Exception on createFinish: $e');
       } on Error catch (e) {
@@ -352,20 +351,39 @@ class WXJSCRuntimeManager {
  
     String script = '';
     String bundleUrl = '';
+    // if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
+    //   script = await WXDownloaderManager.instance.getJSBundle(options['bundleUrl']).then((value) {
+    //     return value;
+    //   });
+    // } else {
+    //   script = await rootBundle.loadString(options['bundleUrl']).then((result) {
+    //     return result;
+    //   });
+    // }
+    // if(pageInstances.containsKey(pageId)) {
+    //   pageInstances.remove(pageId);
+    // }
+    // JSValue instance = createInstance(pageId, script,bundleUrl,options);
+    // pageInstances.putIfAbsent(pageId, () => instance);
+
     if(WXDebug.isDebug && WXWebSocketManager().isConnected) {
-      script = await WXDownloaderManager.instance.getJSBundle(options['bundleUrl']).then((value) {
-        return value;
+      WXDownloaderManager.instance.getJSBundle(options['bundleUrl']).then((value) {
+        if(pageInstances.containsKey(pageId)) {
+          pageInstances.remove(pageId);
+        }
+        JSValue instance = createInstance(pageId, value,bundleUrl,options);
+        pageInstances.putIfAbsent(pageId, () => instance);
       });
     } else {
-      script = await rootBundle.loadString(options['bundleUrl']).then((result) {
-        return result;
+       rootBundle.loadString(options['bundleUrl']).then((result) {
+         if(pageInstances.containsKey(pageId)) {
+           pageInstances.remove(pageId);
+         }
+         JSValue instance = createInstance(pageId, result,bundleUrl,options);
+         pageInstances.putIfAbsent(pageId, () => instance);
       });
     }
-    if(pageInstances.containsKey(pageId)) {
-      pageInstances.remove(pageId);
-    }
-    JSValue instance = createInstance(pageId, script,bundleUrl,options);
-    pageInstances.putIfAbsent(pageId, () => instance);
+
   }
 
   JSValue createInstance(String pageId, String script,String url,Map<String, dynamic> args) {
