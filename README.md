@@ -11,14 +11,44 @@ WxFlutter = Weex + Flutter
 You can run weex code inside yours Flutter Mobile Apps!
 
 
-## How to build
+## How to run `Demo`
 
+### Environment & Tools
+
+You should install `Flutter SDK`、`NodeJS` and `iOS` or `Android` environment before building.
+
+- Flutter 2.0+
+  
+- Node.js 8.0+
+  
+- Xcode 12.0+
+
+- Android Studio 4.0+
+
+
+### Build 
 ```bash
+# 0 
+git clone https://github.com/snowons/WxFlutter.git
+cd WxFlutter
 
-flutter packages pub run build_runner build clean
-flutter packages pub run build_runner build --delete-conflicting-outputs
+# 1
+cd fe/flutterVueDemo/
+npm install
+./copy-to-assets.sh
+
+# Development model 
+# npm run start
+
+# 2
+cd -
+cd wxflutter
+# flutter packages pub run build_runner build clean
+# flutter packages pub run build_runner build --delete-conflicting-outputs
 flutter packages pub run build_runner build
 ```
+
+With Android Studio: "Open An Existing Android Studio Project" or "File" > "Open", then navigate to & select "wxflutter" folder.
 
 ### Module extend
 
