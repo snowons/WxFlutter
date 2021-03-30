@@ -31,6 +31,7 @@ import 'package:weex_flutter_demo/weex_flutter/component/wx_stack.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_inkwell.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_tab_bar_view.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_positioned.dart';
+import 'package:weex_flutter_demo/weex_flutter/component/wx_rich_text.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_single_child_scrollView.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_aspect_ratio.dart';
 import 'package:weex_flutter_demo/weex_flutter/component/wx_expanded.dart';
@@ -196,6 +197,12 @@ class WXComponentFactoryImpl extends WXComponentFactory {
     'Positioned': [
       {'clazz': WXPositionedStateless, 'methods': []}
     ],
+    'rich-text': [
+      {'clazz': WXRichTextStateless, 'methods': []}
+    ],
+    'RichText': [
+      {'clazz': WXRichTextStateless, 'methods': []}
+    ],
     'single-child-scroll-view': [
       {'clazz': WXSingleChildScrollViewStateless, 'methods': []}
     ],
@@ -317,6 +324,9 @@ class WXComponentFactoryImpl extends WXComponentFactory {
             parent, pageId, methodChannel, component);
       case WXPositionedStateless:
         return new WXPositionedStateless(
+            parent, pageId, methodChannel, component);
+      case WXRichTextStateless:
+        return new WXRichTextStateless(
             parent, pageId, methodChannel, component);
       case WXSingleChildScrollViewStateless:
         return new WXSingleChildScrollViewStateless(

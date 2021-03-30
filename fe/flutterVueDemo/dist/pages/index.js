@@ -402,6 +402,9 @@ const navigate = weex.requireModule('navigate');
                 }, {
                     "name": "clip",
                     "path": "/pages/clip.js"
+                }, {
+                    "name": "rich-text",
+                    "path": "/pages/rich-text.js"
                 }]
             }, {
                 "title": "View",

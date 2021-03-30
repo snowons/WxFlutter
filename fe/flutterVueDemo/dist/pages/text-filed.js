@@ -62,26 +62,96 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 93);
+/******/ 	return __webpack_require__(__webpack_require__.s = 97);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 93:
+/***/ 100:
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('column', {
+    staticClass: ["column"]
+  }, [_c('text-filed', {
+    ref: "tf",
+    on: {
+      "onChanged": _vm.onTextFiledChanged
+    }
+  }), _c('text', {
+    staticStyle: {
+      fontSize: "27px"
+    }
+  }, [_vm._v("Input Value: " + _vm._s(_vm.value))]), _c('row', [_c('raised-button', {
+    staticStyle: {
+      color: "red"
+    },
+    on: {
+      "onPressed": function($event) {
+        _vm.onCleanClick()
+      }
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("clean")])]), _c('raised-button', {
+    staticStyle: {
+      color: "green"
+    },
+    on: {
+      "onPressed": _vm.onSetValueClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("setValue")])]), _c('raised-button', {
+    staticStyle: {
+      color: "blue"
+    },
+    on: {
+      "onPressed": _vm.onFocusClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("requestFocus")])]), _c('raised-button', {
+    staticStyle: {
+      color: "yellow"
+    },
+    on: {
+      "onPressed": _vm.onUnfocusClick
+    }
+  }, [_c('text', {
+    staticStyle: {
+      fontSize: "14px",
+      color: "white"
+    }
+  }, [_vm._v("unfocus")])])], 1)], 1)
+},staticRenderFns: []}
+
+/***/ }),
+
+/***/ 97:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(94)
+__vue_styles__.push(__webpack_require__(98)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(95)
+__vue_exports__ = __webpack_require__(99)
 
 /* template */
-var __vue_template__ = __webpack_require__(96)
+var __vue_template__ = __webpack_require__(100)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -113,7 +183,7 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 94:
+/***/ 98:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -124,7 +194,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 95:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -193,76 +263,6 @@ const system = weex.requireModule('system');
         }
     }
 });
-
-/***/ }),
-
-/***/ 96:
-/***/ (function(module, exports) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('column', {
-    staticClass: ["column"]
-  }, [_c('text-filed', {
-    ref: "tf",
-    on: {
-      "onChanged": _vm.onTextFiledChanged
-    }
-  }), _c('text', {
-    staticStyle: {
-      fontSize: "27px"
-    }
-  }, [_vm._v("Input Value: " + _vm._s(_vm.value))]), _c('row', [_c('raised-button', {
-    staticStyle: {
-      color: "red"
-    },
-    on: {
-      "onPressed": function($event) {
-        _vm.onCleanClick()
-      }
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("clean")])]), _c('raised-button', {
-    staticStyle: {
-      color: "green"
-    },
-    on: {
-      "onPressed": _vm.onSetValueClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("setValue")])]), _c('raised-button', {
-    staticStyle: {
-      color: "blue"
-    },
-    on: {
-      "onPressed": _vm.onFocusClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("requestFocus")])]), _c('raised-button', {
-    staticStyle: {
-      color: "yellow"
-    },
-    on: {
-      "onPressed": _vm.onUnfocusClick
-    }
-  }, [_c('text', {
-    staticStyle: {
-      fontSize: "14px",
-      color: "white"
-    }
-  }, [_vm._v("unfocus")])])], 1)], 1)
-},staticRenderFns: []}
 
 /***/ })
 

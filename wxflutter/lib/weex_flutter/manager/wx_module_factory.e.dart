@@ -8,11 +8,11 @@ import 'dart:convert';
 
 import 'package:weex_flutter_demo/weex_flutter/module/wx_event_bus.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_system.dart';
-import 'package:weex_flutter_demo/weex_flutter/module/wx_wx_flutter.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_http.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_storage.dart';
-import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
 import 'package:weex_flutter_demo/weex_flutter/module/wx_timer.dart';
+import 'package:weex_flutter_demo/weex_flutter/module/wx_navigate.dart';
+import 'package:weex_flutter_demo/weex_flutter/module/wx_wx_flutter.dart';
 import 'wx_module_factory.dart';
 
 class WXModuleFactoryImpl extends WXModuleFactory {
@@ -35,12 +35,6 @@ class WXModuleFactoryImpl extends WXModuleFactory {
         'methods': ['requestFocus']
       }
     ],
-    'wxFlutter': [
-      {
-        'clazz': WXWxFlutter,
-        'methods': ['invoke']
-      }
-    ],
     'http': [
       {
         'clazz': WXHttp,
@@ -53,12 +47,6 @@ class WXModuleFactoryImpl extends WXModuleFactory {
         'methods': ['setItem', 'getItem', 'removeItem', 'getAllKeys', 'clear']
       }
     ],
-    'navigate': [
-      {
-        'clazz': WXNavigate,
-        'methods': ['push', 'pop']
-      }
-    ],
     'timer': [
       {
         'clazz': WXTimer,
@@ -69,6 +57,18 @@ class WXModuleFactoryImpl extends WXModuleFactory {
           'clearInterval'
         ]
       }
+    ],
+    'navigate': [
+      {
+        'clazz': WXNavigate,
+        'methods': ['push', 'pop']
+      }
+    ],
+    'wxFlutter': [
+      {
+        'clazz': WXWxFlutter,
+        'methods': ['invoke']
+      }
     ]
   };
 
@@ -78,16 +78,16 @@ class WXModuleFactoryImpl extends WXModuleFactory {
         return new WXEventBus();
       case WXSystem:
         return new WXSystem();
-      case WXWxFlutter:
-        return new WXWxFlutter();
       case WXHttp:
         return new WXHttp();
       case WXStorage:
         return new WXStorage();
-      case WXNavigate:
-        return new WXNavigate();
       case WXTimer:
         return new WXTimer();
+      case WXNavigate:
+        return new WXNavigate();
+      case WXWxFlutter:
+        return new WXWxFlutter();
       default:
         return null;
     }

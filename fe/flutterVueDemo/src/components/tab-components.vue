@@ -73,6 +73,9 @@ export default {
                     }, {
                         "name": "clip",
                         "path": "/pages/clip.js"
+                    }, {
+                        "name": "rich-text",
+                        "path": "/pages/rich-text.js"
                     }]
                 },
                 {

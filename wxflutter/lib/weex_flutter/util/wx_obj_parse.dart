@@ -2,12 +2,98 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../model/wx_property.dart';
 
+class WXFontWight {
+  static FontWeight parseString(String value,
+      {FontWeight defaultValue = FontWeight.normal}) {
+    FontWeight result = defaultValue;
+    if (null == value) return result;
+    switch (value.toString()) {
+      case '100':
+        result = FontWeight.w100;
+        break;
+      case '200':
+        result = FontWeight.w200;
+        break;
+      case '300':
+        result = FontWeight.w300;
+        break;
+      case '400':
+        result = FontWeight.w400;
+        break;
+      case '500':
+        result = FontWeight.w500;
+        break;
+      case '600':
+        result = FontWeight.w600;
+        break;
+
+      case '700':
+        result = FontWeight.w700;
+        break;
+      case '800':
+        result = FontWeight.w800;
+        break;
+      case '900':
+        result = FontWeight.w900;
+        break;
+      default:
+        result = defaultValue;
+    }
+    return result;
+  }
+
+  static FontWeight parse(WXProperty value,
+      {FontWeight defaultValue = FontWeight.normal}) {
+    FontWeight result = defaultValue;
+    if (null == value) return result;
+    
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+}
+
+class WXFontStyle {
+  static FontStyle parseString(String value,
+      {FontStyle defaultValue = FontStyle.normal}) {
+    FontStyle result = defaultValue;
+    if (null == value) return result;
+    switch (value.toString()) {
+      case 'normal':
+        result = FontStyle.normal;
+        break;
+      case 'italic':
+        result = FontStyle.italic;
+        break;
+      default:
+        result = defaultValue;
+        break;
+    }
+    return result;
+  }
+
+
+  static FontStyle parse(WXProperty value,
+      {FontStyle defaultValue = FontStyle.normal}) {
+    FontStyle result = defaultValue;
+    if (null == value) return result;
+    
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+}
+
 class WXBoxFit {
   static BoxFit parse(WXProperty value,
       {BoxFit defaultValue = BoxFit.contain}) {
     BoxFit result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static BoxFit parseString(String value,
+      {BoxFit defaultValue = BoxFit.contain}) {
+    BoxFit result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'contain':
         result = BoxFit.contain;
         break;
@@ -28,7 +114,13 @@ class WXAxis {
   static Axis parse(WXProperty value, {Axis defaultValue = Axis.horizontal}) {
     Axis result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static Axis parseString(String value, {Axis defaultValue = Axis.horizontal}) {
+    Axis result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'horizontal':
         result = Axis.horizontal;
         break;
@@ -47,7 +139,15 @@ class WXWrapCrossAlignment {
       {WrapCrossAlignment defaultValue = WrapCrossAlignment.start}) {
     WrapCrossAlignment result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+     
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static WrapCrossAlignment parseString(String value,
+      {WrapCrossAlignment defaultValue = WrapCrossAlignment.start}) {
+    WrapCrossAlignment result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'start':
         result = WrapCrossAlignment.start;
         break;
@@ -66,11 +166,11 @@ class WXWrapCrossAlignment {
 }
 
 class WXWrapAlignment {
-  static WrapAlignment parse(WXProperty value,
+  static WrapAlignment parseString(String value,
       {WrapAlignment defaultValue = WrapAlignment.start}) {
     WrapAlignment result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    switch (value) {
       case 'start':
         result = WrapAlignment.start;
         break;
@@ -94,13 +194,26 @@ class WXWrapAlignment {
     }
     return result;
   }
+
+  static WrapAlignment parse(WXProperty value,
+      {WrapAlignment defaultValue = WrapAlignment.start}) {
+    WrapAlignment result = defaultValue;
+    if (null == value) return result;
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
 }
 
 class WXClip {
   static Clip parse(WXProperty value, {Clip defaultValue = Clip.none}) {
     Clip result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static Clip parseString(String value, {Clip defaultValue = Clip.none}) {
+    Clip result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'hardEdge':
         result = Clip.hardEdge;
         break;
@@ -122,7 +235,15 @@ class WXMainAxisAlignment {
       {MainAxisAlignment defaultValue = MainAxisAlignment.start}) {
     MainAxisAlignment result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+ 
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static MainAxisAlignment parseString(String value,
+      {MainAxisAlignment defaultValue = MainAxisAlignment.start}) {
+    MainAxisAlignment result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'start':
         result = MainAxisAlignment.start;
         break;
@@ -148,12 +269,55 @@ class WXMainAxisAlignment {
   }
 }
 
+class WXTextStyle {
+  static TextStyle parse(Map<String,dynamic> properties) {
+    if(properties == null) return null;
+
+    var color = properties[getAttributeKey('color')];
+    var backgroundColor = properties[getAttributeKey('background-color')];
+    var fontSize = properties[getAttributeKey('font-size')];
+    var fontWeight  = properties[getAttributeKey('font-weight')];
+    var fontStyle = properties[getAttributeKey('font-style')];
+    var textBaseline = properties[getAttributeKey('text-baseline')];
+    var height = properties[getAttributeKey('height')];
+
+    TextStyle result;
+    if (color != null ||
+        backgroundColor != null ||
+        fontSize != null ||
+        fontWeight != null ||
+        fontStyle != null ||
+        textBaseline != null||
+        height != null ) {
+      result = TextStyle(
+          color: WXColor.parseColor(color,defaultValue: Colors.black),
+          height: WXDouble.parseString(height,defaultValue: null),
+          backgroundColor:WXColor.parseColor(backgroundColor),
+          fontSize:WXDouble.parseString(fontSize,defaultValue: 14.0),
+          fontWeight:WXFontWight.parseString(fontWeight),
+          fontStyle:WXFontStyle.parseString(fontStyle),
+          textBaseline:WXTextBaseline.parseString(textBaseline),
+      );
+    }
+    return result;
+
+  }
+}
+
 class WXTextAlign {
   static TextAlign parse(WXProperty value,
       {TextAlign defaultValue = TextAlign.start}) {
     TextAlign result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+   
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static TextAlign parseString(String value,
+      {TextAlign defaultValue = TextAlign.start}) {
+    TextAlign result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'start':
         result = TextAlign.start;
         break;
@@ -184,7 +348,14 @@ class WXMainAxisSize {
       {MainAxisSize defaultValue = MainAxisSize.min}) {
     MainAxisSize result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static MainAxisSize parseString(String value,
+      {MainAxisSize defaultValue = MainAxisSize.min}) {
+    MainAxisSize result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'min':
         result = MainAxisSize.min;
         break;
@@ -203,7 +374,14 @@ class WXCrossAxisAlignment {
       {CrossAxisAlignment defaultValue = CrossAxisAlignment.start}) {
     CrossAxisAlignment result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static CrossAxisAlignment parseString(String value,
+      {CrossAxisAlignment defaultValue = CrossAxisAlignment.start}) {
+    CrossAxisAlignment result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'start':
         result = CrossAxisAlignment.start;
         break;
@@ -227,10 +405,16 @@ class WXCrossAxisAlignment {
 }
 
 class WXTextBaseline {
-  static TextBaseline parse(WXProperty value, {TextBaseline defaultValue}) {
+  static TextBaseline parse(WXProperty value, {TextBaseline defaultValue= TextBaseline.alphabetic}) {
     TextBaseline result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue());
+  }
+
+  static TextBaseline parseString(String value, {TextBaseline defaultValue = TextBaseline.alphabetic}) {
+    TextBaseline result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'alphabetic':
         result = TextBaseline.alphabetic;
         break;
@@ -249,7 +433,14 @@ class WXVerticalDirection {
       {VerticalDirection defaultValue = VerticalDirection.up}) {
     VerticalDirection result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static VerticalDirection parseString(String value,
+      {VerticalDirection defaultValue = VerticalDirection.up}) {
+    VerticalDirection result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'up':
         result = VerticalDirection.up;
         break;
@@ -267,7 +458,13 @@ class WXTextDirection {
   static TextDirection parse(WXProperty value, {TextDirection defaultValue}) {
     TextDirection result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+  static TextDirection parseString(String value, {TextDirection defaultValue}) {
+    TextDirection result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'rtl':
         result = TextDirection.rtl;
         break;
@@ -285,7 +482,13 @@ class WXTextOverflow {
   static TextOverflow parse(WXProperty value, {TextOverflow defaultValue}) {
     TextOverflow result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+  static TextOverflow parseString(String value, {TextOverflow defaultValue}) {
+    TextOverflow result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'clip':
         result = TextOverflow.clip;
         break;
@@ -310,7 +513,15 @@ class WXTextInputAction {
       {TextInputAction defaultValue}) {
     TextInputAction result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static TextInputAction parseString(String value,
+      {TextInputAction defaultValue}) {
+    TextInputAction result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'done':
         result = TextInputAction.done;
         break;
@@ -381,7 +592,14 @@ class WXDecorationPosition {
       {DecorationPosition defaultValue}) {
     DecorationPosition result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static DecorationPosition parseString(String value,
+      {DecorationPosition defaultValue}) {
+    DecorationPosition result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'background':
         result = DecorationPosition.background;
         break;
@@ -452,7 +670,14 @@ class WXAlignment {
       {Alignment defaultValue = Alignment.topLeft}) {
     Alignment result = defaultValue;
     if (null == value) return result;
-    switch (getAttributeKey(value.getValue())) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static Alignment parseString(String value,
+      {Alignment defaultValue = Alignment.topLeft}) {
+    Alignment result = defaultValue;
+    if (null == value) return result;
+    switch (getAttributeKey(value)) {
       case 'topLeft':
         result = Alignment.topLeft;
         break;
@@ -481,7 +706,47 @@ class WXAlignment {
         result = Alignment.bottomRight;
         break;
       default:
-        // TODO (x,y)
+      // TODO (x,y)
+        result = defaultValue;
+        break;
+    }
+    return result;
+  }
+}
+
+class WXPlaceholderAlignment {
+  static PlaceholderAlignment parse(WXProperty value,
+      {PlaceholderAlignment defaultValue = PlaceholderAlignment.top}) {
+    PlaceholderAlignment result = defaultValue;
+    if (null == value) return result;
+
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static PlaceholderAlignment parseString(String value,
+      {PlaceholderAlignment defaultValue = PlaceholderAlignment.top}) {
+    PlaceholderAlignment result = defaultValue;
+    if (null == value) return result;
+    switch (getAttributeKey(value)) {
+      case 'top':
+        result = PlaceholderAlignment.top;
+        break;
+      case 'baseline':
+        result =  PlaceholderAlignment.baseline;
+        break;
+      case 'aboveBaseline':
+        result = PlaceholderAlignment.aboveBaseline;
+        break;
+      case 'belowBaseline':
+        result = PlaceholderAlignment.belowBaseline;
+        break;
+      case 'bottom':
+        result = PlaceholderAlignment.bottom;
+        break;
+      case 'middle':
+        result = PlaceholderAlignment.middle;
+        break;
+      default:
         result = defaultValue;
         break;
     }
@@ -494,7 +759,14 @@ class WXAlignmentDirectional {
       {AlignmentDirectional defaultValue = AlignmentDirectional.topStart}) {
     AlignmentDirectional result = defaultValue;
     if (null == value) return result;
-    switch (getAttributeKey(value.getValue())) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static AlignmentDirectional parseString(String value,
+      {AlignmentDirectional defaultValue = AlignmentDirectional.topStart}) {
+    AlignmentDirectional result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'topStart':
         result = AlignmentDirectional.topStart;
         break;
@@ -528,13 +800,20 @@ class WXAlignmentDirectional {
     }
     return result;
   }
+
 }
 
 class WXOverflow {
   static Overflow parse(WXProperty value, {Overflow defaultValue}) {
     Overflow result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static Overflow parseString(String value, {Overflow defaultValue}) {
+    Overflow result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'clip':
         result = Overflow.clip;
         break;
@@ -553,7 +832,13 @@ class WXStackFit {
   static StackFit parse(WXProperty value, {StackFit defaultValue}) {
     StackFit result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static StackFit parseString(String value, {StackFit defaultValue}) {
+    StackFit result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'loose':
         result = StackFit.loose;
         break;
@@ -575,7 +860,13 @@ class WXFlexFit {
   static FlexFit parse(WXProperty value, {FlexFit defaultValue}) {
     FlexFit result = defaultValue;
     if (null == value) return result;
-    switch (value.getValue()) {
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static FlexFit parseString(String value, {FlexFit defaultValue}) {
+    FlexFit result = defaultValue;
+    if (null == value) return result;
+    switch (value) {
       case 'loose':
         result = FlexFit.loose;
         break;
@@ -593,9 +884,14 @@ class WXFlexFit {
 class WXBool {
   static bool parse(WXProperty value, {bool defaultValue}) {
     bool result = defaultValue;
-    if (null != value) {
-      result = 'false' == value.getValue();
-    }
+    if (null == value) return result;
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static bool parseString(String value, {bool defaultValue}) {
+    bool result = defaultValue;
+    if (null == value) return result;
+    result = 'false' == value;
     return result;
   }
 }
@@ -603,9 +899,15 @@ class WXBool {
 class WXInt {
   static int parse(WXProperty value, {int defaultValue}) {
     int result = defaultValue;
-    if (null != value) {
-      result = int.parse(_removePx(value.getValue()));
-    }
+    if (null == value) return result;
+    return parseString(value.getValue(),defaultValue: defaultValue);
+  }
+
+  static int parseString(String value, {int defaultValue}) {
+    int result = defaultValue;
+    if (null == value) return result;
+
+    result = int.parse(_removePx(value));
     return result;
   }
 }
@@ -613,26 +915,14 @@ class WXInt {
 class WXDouble {
   static double parse(WXProperty value, {double defaultValue}) {
     double result = defaultValue;
-    if (null != value) {
-      result = double.parse(_removePx(value.getValue()));
-    }
-    return result;
+    if (null == value)  return result;
+    return parseString(value.getValue(),defaultValue: defaultValue);
   }
 
   static double parseString(String value, {double defaultValue}) {
     double result = defaultValue;
     if (null != value) {
       result = double.parse(_removePx(value));
-    }
-    return result;
-  }
-}
-
-class WXMatrix4 {
-  static Matrix4 parse(WXProperty value, {Matrix4 defaultValue}) {
-    Matrix4 result = defaultValue;
-    if (null != value) {
-      var a = value.getValue();
     }
     return result;
   }
@@ -760,22 +1050,29 @@ class WXHitTestBehavior {
   static HitTestBehavior parse(WXProperty value, {HitTestBehavior defaultValue}) {
     HitTestBehavior result = defaultValue;
     if (null == value) return result;
-    switch (getAttributeKey(value.getValue())) {
+    return parseString(getAttributeKey(value.getValue()),defaultValue: defaultValue);
+  }
+
+  static HitTestBehavior parseString(String value, {HitTestBehavior defaultValue}) {
+    HitTestBehavior result = defaultValue;
+    if (null == value) return result;
+    switch (getAttributeKey(value)) {
       case 'deferToChild':
         result = HitTestBehavior.deferToChild;
         break;
       case 'opaque':
         result = HitTestBehavior.opaque;
         break;
-        case 'translucent':
-      result = HitTestBehavior.translucent;
-      break;
+      case 'translucent':
+        result = HitTestBehavior.translucent;
+        break;
       default:
         result = defaultValue;
         break;
     }
     return result;
   }
+
 }
 
 class WXColor {
